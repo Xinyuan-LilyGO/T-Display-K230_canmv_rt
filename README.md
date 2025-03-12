@@ -3,3 +3,11 @@
 base platform
       ubuntu20.04
 
+参考BUILD，可使用Dokcer或本地环境编译，编译速度更快
+
+或者参考K230 CanMV 自定义固件
+
+烧录
+linux下直接使用dd命令进行烧录，windows下使用烧录工具进行烧录，可参考K230 CanMV 如何烧录固件
+      
+
