@@ -1,0 +1,286 @@
+
+menu "MPP Configuration"
+    menu "Sensor Configuration"
+        menuconfig MPP_ENABLE_CSI_DEV_0
+            bool "Enable CSI0"
+
+            if MPP_ENABLE_CSI_DEV_0
+                config MPP_CSI_DEV0_POWER
+                    int "CSI0 PowerDown GPIO"
+                    default -1
+                    help
+                        If board have no Powerdown, set to -1
+
+                config MPP_CSI_DEV0_RESET
+                    int "CSI0 Reset GPIO"
+                    default -1
+                    help
+                        If board have no Reset, set to -1
+
+                config MPP_CSI_DEV0_I2C_DEV
+                    string "CSI0 I2c Bus"
+                    default "i2c0"
+
+                choice MPP_CSI_DEV0_MCLK_NUM
+                    bool "CSI0 MCLK num"
+                    default MPP_CSI_DEV0_MCLK_INVALID
+
+                    config MPP_CSI_DEV0_MCLK_INVALID
+                        bool "CSI0 use external clock"
+                    config MPP_CSI_DEV0_MCLK_1
+                        bool "CSI0 use chip MCLK1"
+                    config MPP_CSI_DEV0_MCLK_2
+                        bool "CSI0 use chip MCLK2"
+                    config MPP_CSI_DEV0_MCLK_3
+                        bool "CSI0 use chip MCLK3"
+                endchoice
+
+                config MPP_CSI_DEV0_MCLK_NUM
+                    int
+                    default -1 if MPP_CSI_DEV0_MCLK_INVALID
+                    default 1 if MPP_CSI_DEV0_MCLK_1
+                    default 2 if MPP_CSI_DEV0_MCLK_2
+                    default 3 if MPP_CSI_DEV0_MCLK_3
+            endif
+
+        menuconfig MPP_ENABLE_CSI_DEV_1
+            bool "Enable CSI1"
+
+            if MPP_ENABLE_CSI_DEV_1
+                config MPP_CSI_DEV1_POWER
+                    int "CSI1 PowerDown GPIO"
+                    default -1
+                    help
+                        If board have no Powerdown, set to -1
+
+                config MPP_CSI_DEV1_RESET
+                    int "CSI1 Reset GPIO"
+                    default -1
+                    help
+                        If board have no Reset, set to -1
+
+                config MPP_CSI_DEV1_I2C_DEV
+                    string "CSI1 I2c Bus"
+                    default "i2c1"
+
+                choice MPP_CSI_DEV1_MCLK_NUM
+                    bool "CSI1 MCLK num"
+                    default MPP_CSI_DEV1_MCLK_INVALID
+
+                    config MPP_CSI_DEV1_MCLK_INVALID
+                        bool "CSI1 use external clock"
+                    config MPP_CSI_DEV1_MCLK_1
+                        bool "CSI1 use chip MCLK1"
+                    config MPP_CSI_DEV1_MCLK_2
+                        bool "CSI1 use chip MCLK2"
+                    config MPP_CSI_DEV1_MCLK_3
+                        bool "CSI1 use chip MCLK3"
+                endchoice
+
+                config MPP_CSI_DEV1_MCLK_NUM
+                    int
+                    default -1 if MPP_CSI_DEV1_MCLK_INVALID
+                    default 1 if MPP_CSI_DEV1_MCLK_1
+                    default 2 if MPP_CSI_DEV1_MCLK_2
+                    default 3 if MPP_CSI_DEV1_MCLK_3
+            endif
+
+        menuconfig MPP_ENABLE_CSI_DEV_2
+            bool "Enable CSI2"
+
+            if MPP_ENABLE_CSI_DEV_2
+                config MPP_CSI_DEV2_POWER
+                    int "CSI2 PowerDown GPIO"
+                    default -1
+                    help
+                        If board have no Powerdown, set to -1
+
+                config MPP_CSI_DEV2_RESET
+                    int "CSI2 Reset GPIO"
+                    default -1
+                    help
+                        If board have no Reset, set to -1
+
+                config MPP_CSI_DEV2_I2C_DEV
+                    string "CSI2 I2c Bus"
+                    default "i2c2"
+
+                choice MPP_CSI_DEV2_MCLK_NUM
+                    bool "CSI2 MCLK num"
+                    default MPP_CSI_DEV2_MCLK_INVALID
+
+                    config MPP_CSI_DEV2_MCLK_INVALID
+                        bool "CSI2 use external clock"
+                    config MPP_CSI_DEV2_MCLK_1
+                        bool "CSI2 use chip MCLK1"
+                    config MPP_CSI_DEV2_MCLK_2
+                        bool "CSI2 use chip MCLK2"
+                    config MPP_CSI_DEV2_MCLK_3
+                        bool "CSI2 use chip MCLK3"
+                endchoice
+
+                config MPP_CSI_DEV2_MCLK_NUM
+                    int
+                    default -1 if MPP_CSI_DEV2_MCLK_INVALID
+                    default 1 if MPP_CSI_DEV2_MCLK_1
+                    default 2 if MPP_CSI_DEV2_MCLK_2
+                    default 3 if MPP_CSI_DEV2_MCLK_3
+            endif
+
+        menuconfig MPP_ENABLE_SENSOR_GC2093
+            bool "Enable GC2093"
+
+            if MPP_ENABLE_SENSOR_GC2093
+                config MPP_SENSOR_GC2093_ON_CSI0_USE_CHIP_CLK
+                    bool "GC2093 On CSI0 Use CHIP MCLK"
+                    default n
+                    depends on MPP_ENABLE_CSI_DEV_0
+                config MPP_SENSOR_GC2093_ON_CSI1_USE_CHIP_CLK
+                    bool "GC2093 On CSI1 Use CHIP MCLK"
+                    default n
+                    depends on MPP_ENABLE_CSI_DEV_1
+                config MPP_SENSOR_GC2093_ON_CSI2_USE_CHIP_CLK
+                    bool "GC2093 On CSI2 Use CHIP MCLK"
+                    default n
+                    depends on MPP_ENABLE_CSI_DEV_2
+            endif
+
+        menuconfig MPP_ENABLE_SENSOR_OV5647
+            bool "Enable OV5647"
+
+            if MPP_ENABLE_SENSOR_OV5647
+                config MPP_SENSOR_OV5647_ON_CSI0_USE_CHIP_CLK
+                    bool "OV5647 On CSI0 Use CHIP MCLK"
+                    default n
+                    depends on MPP_ENABLE_CSI_DEV_0
+                config MPP_SENSOR_OV5647_ON_CSI1_USE_CHIP_CLK
+                    bool "OV5647 On CSI1 Use CHIP MCLK"
+                    default n
+                    depends on MPP_ENABLE_CSI_DEV_1
+                config MPP_SENSOR_OV5647_ON_CSI2_USE_CHIP_CLK
+                    bool "OV5647 On CSI2 Use CHIP MCLK"
+                    default n
+                    depends on MPP_ENABLE_CSI_DEV_2
+            endif
+
+        menuconfig MPP_ENABLE_SENSOR_IMX335
+            bool "Enable IMX335"
+
+            if MPP_ENABLE_SENSOR_IMX335
+
+                config MPP_SENSOR_IMX335_ENABLE_4LANE_CONFIGURE
+                    bool "IMX335 Enable 4LANE Configure"
+                    default n
+                    help
+                        Default Only Enable 2LANE Configure
+
+                config MPP_SENSOR_IMX335_ON_CSI0_USE_CHIP_CLK
+                    bool "IMX335 On CSI0 Use CHIP MCLK"
+                    default n
+                    depends on MPP_ENABLE_CSI_DEV_0
+                config MPP_SENSOR_IMX335_ON_CSI1_USE_CHIP_CLK
+                    bool "IMX335 On CSI1 Use CHIP MCLK"
+                    default n
+                    depends on MPP_ENABLE_CSI_DEV_1 && !MPP_SENSOR_IMX335_ENABLE_4LANE_CONFIGURE
+
+                config MPP_SENSOR_IMX335_ON_CSI2_USE_CHIP_CLK
+                    bool "IMX335 On CSI2 Use CHIP MCLK"
+                    default n
+                    depends on MPP_ENABLE_CSI_DEV_2
+            endif
+    endmenu
+
+    menu "Dsiplay Configuration"
+        menuconfig MPP_ENABLE_DSI_HDMI
+            bool "Enable HDMI Display Driver"
+
+            if MPP_ENABLE_DSI_HDMI
+                config MPP_DSI_HDMI_RESET_PIN
+                    int "DSI-HDMI Reset GPIO"
+                    default 22
+
+                config MPP_DSI_HDMI_I2C_DEV
+                    string "DSI-HDMI I2c Bus"
+                    default "i2c3"
+            endif
+
+        menuconfig MPP_ENABLE_DSI_LCD
+            bool "Enable LCD Display Driver"
+
+            if MPP_ENABLE_DSI_LCD
+                config MPP_DSI_LCD_RESET_PIN
+                    int "DSI-LCD Reset GPIO"
+                    default 24
+
+                config MPP_DSI_LCD_BACKLIGHT_PIN
+                    int "DSI-LCD BackLight GPIO"
+                    default 25
+            endif
+
+        config MPP_DSI_ENABLE_VIRT
+            bool "Enable Display driver VIRT"
+            default y
+
+        menuconfig MPP_DSI_ENABLE_HDMI_LT9611
+            bool "Enable HDMI Display Converter LT9611"
+            depends on MPP_ENABLE_DSI_HDMI
+
+            if MPP_DSI_ENABLE_HDMI_LT9611
+                config MPP_DSI_LT9611_I2C_SLV_ADDR
+                    hex "LT9611 Slave Address"
+                    default 0x3b
+            endif
+
+        config MPP_DSI_ENABLE_HDMI_HX8399
+            bool "Enable HDMI Display Converter HX8399"
+            default n
+	config MPP_DSI_ENABLE_LCD_RM69A10
+            bool "Enable LCD Display Driver RM69A10"
+            default n
+        config MPP_DSI_ENABLE_LCD_ST7701
+            bool "Enable LCD Display Driver ST7701s"
+            default n
+        
+        config MPP_DSI_ENABLE_LCD_ILI9806
+            bool "Enable LCD Display Driver ili9806"
+            default n
+
+    endmenu
+
+    menu "Enable build MPP samples"
+
+        menuconfig MPP_ENABLE_USERAPPS_SAMPLES
+            bool "Enable userapps samples"
+
+            if MPP_ENABLE_USERAPPS_SAMPLES
+
+            endif
+
+        menuconfig MPP_ENABLE_MIDDLEWARE_SAMPLES
+            bool "Enable middleware samples"
+
+            if MPP_ENABLE_MIDDLEWARE_SAMPLES
+
+                config MPP_ENABLE_MIDDLEWARE_SAMPLES_DEMUXER
+                    bool "Demuxer sample"
+                    default n
+                config MPP_ENABLE_MIDDLEWARE_SAMPLES_MUXER
+                    bool "Muxer sample"
+                    default n
+                config MPP_ENABLE_MIDDLEWARE_SAMPLES_PLAYER
+                    bool "Player sample"
+                    default n
+                config MPP_ENABLE_MIDDLEWARE_SAMPLES_RTSP_CLIENT
+                    bool "RTSP Client sample"
+                    default n
+                config MPP_ENABLE_MIDDLEWARE_SAMPLES_RTSP_PUSHER
+                    bool "RTSP Pusher sample"
+                    default n
+                config MPP_ENABLE_MIDDLEWARE_SAMPLES_RTSP_SERVER
+                    bool "RTSP Server sample"
+                    default n
+            endif
+
+    endmenu
+
+endmenu

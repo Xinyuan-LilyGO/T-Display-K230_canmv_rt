@@ -1,0 +1,23 @@
+*.o
+
+include/comm/k_autoconf_comm.h
+
+# these library is open
+kernel/lib/libconnector.a
+kernel/lib/libfft.a
+kernel/lib/libinclude.a
+kernel/lib/liblib.a
+kernel/lib/libmediafreq.a
+kernel/lib/libpm.a
+kernel/lib/libsensor.a
+
+userapps/lib/libcipher.a
+userapps/lib/libconnector.a
+userapps/lib/libfft.a
+userapps/lib/libpm.a
+userapps/lib/libsensor.a
+
+userapps/sample/elf/
+
+middleware/elf/
+middleware/lib/
