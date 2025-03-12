@@ -1,0 +1,11 @@
+menu "Board Configuration"
+
+    config RT_USING_MPP
+        bool "Use Kendryte MPP"
+        default y
+
+    config RT_FASTBOOT
+        bool "Fastboot, disable some log output"
+        default n
+
+endmenu

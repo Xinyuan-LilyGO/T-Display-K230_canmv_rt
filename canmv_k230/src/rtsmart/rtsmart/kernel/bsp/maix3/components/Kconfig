@@ -1,0 +1,138 @@
+menu "Components Configuration"
+
+    menuconfig ENABLE_CHERRY_USB
+        bool "Enable CherryUSB"
+
+        if ENABLE_CHERRY_USB
+            config CHERRYUSB_DEVICE_DWC2_K230
+                def_bool y
+
+            config CHERRYUSB_HOST_DWC2_K230
+                def_bool y
+
+            config CHERRY_USB_OSAL_RTTHREAD
+                def_bool y
+
+            menuconfig ENABLE_CHERRY_USB_DEVICE
+                bool "Enable CherryUSB Device"
+                default n
+
+                if ENABLE_CHERRY_USB_DEVICE
+                    choice CHERRY_USB_DEVICE_USING_DEV
+                        bool "CherryUSB Device Use Device"
+                        default CHERRY_USB_DEVICE_USING_DEV0
+
+                        config CHERRY_USB_DEVICE_USING_DEV0
+                            bool "Using Dev0"
+
+                        config CHERRY_USB_DEVICE_USING_DEV1
+                            bool "Using Dev1"
+                    endchoice
+
+                    config CHERRY_USB_DEVICE_USING_DEV
+                        int
+                        default 0 if CHERRY_USB_DEVICE_USING_DEV0
+                        default 1 if CHERRY_USB_DEVICE_USING_DEV1
+
+                    config CHERRY_USB_DEVICE_SPEED_HS
+                        def_bool y
+
+                    config CHERRY_USB_DEVICE_ENABLE_CLASS_CDC_ACM
+                        bool "Enable CDC ACM"
+
+                    config CHERRY_USB_DEVICE_ENABLE_CLASS_MSC
+                        bool "Enable MSC"
+
+                    config CHERRY_USB_DEVICE_ENABLE_CLASS_MTP
+                        bool "Enable MTP"
+                        select CHERRY_USB_DEVICE_ENABLE_CLASS_MSC
+                endif
+
+            config ENABLE_CANMV_USB_DEV
+                bool "Enable USB Device for CanMV"
+                default y
+                select CHERRY_USB_DEVICE_ENABLE_CLASS_CDC_ACM
+                select CHERRY_USB_DEVICE_ENABLE_CLASS_MTP
+                help
+                    CanMV USB Device Select class CDC_ACM and MSC MTP
+
+            menuconfig ENABLE_CHERRY_USB_HOST
+                bool "Enable CherryUSB Host"
+                default n
+
+                if ENABLE_CHERRY_USB_HOST
+
+                    choice CHERRY_USB_HOST_USING_DEV
+                        bool "CherryUSB Host Use Device"
+                        default CHERRY_USB_HOST_USING_DEV0
+
+                        config CHERRY_USB_HOST_USING_DEV0
+                            bool "Using Dev0"
+
+                        config CHERRY_USB_HOST_USING_DEV1
+                            bool "Using Dev1"
+                    endchoice
+
+                    config CHERRY_USB_HOST_USING_DEV
+                        int
+                        default 0 if CHERRY_USB_HOST_USING_DEV0
+                        default 1 if CHERRY_USB_HOST_USING_DEV1
+
+                    config CHERRY_USB_HOST_ENABLE_CLASS_HID
+                        bool "Enable HID"
+                        default n
+
+                    config CHERRY_USB_HOST_ENABLE_CLASS_NET_RTL8152
+                        bool "Enable net RTL8152"
+                        default y
+
+                    config CHERRY_USB_HOST_ENABLE_CLASS_CDC_ACM
+                        bool "Enable cdc ACM"
+                        default n
+
+                    config CHERRY_USB_HOST_ENABLE_CLASS_CDC_ECM
+                        bool "Enable cdc ECM"
+                        default n
+
+                endif
+
+            config ENABLE_CANMV_USB_HOST
+                bool "Enable USB Host for CanMV"
+                default n
+                select CHERRY_USB_HOST_ENABLE_CLASS_NET_RTL8152
+                help
+                    CanMV USB Host Select class net/rtl8152
+
+            if ENABLE_CANMV_USB_HOST
+                config CANMV_USB_PWR_PIN
+                    int "CanMV USB Host Power Control GPIO"
+                    default -1
+                config CANMV_USB_PWR_PIN_VALID_VAL
+                    int "CanMV USB Host Power Vaild PIN Value"
+                    default 1
+            endif
+
+            config CANMV_USB_HOST_NET_RTL8152_DEV_NAME
+                string
+                default "u0"
+        endif
+
+    config RT_USING_DEVMEM2
+        bool "Enable devmem2"
+        def_bool y
+
+    config RT_USING_USAGE
+        bool "Enable CPU usage"
+        def_bool y
+
+    config ENABLE_CANMV_NETWORK_MGMT_DEV
+        bool "Enable NetWork Mgmt for CanMV"
+        default n
+
+    config ENABLE_CANMV_MISC_DEV
+        bool "Enable misc Device for CanMV"
+        default y
+
+    source "components/netutils/Kconfig"
+
+endmenu

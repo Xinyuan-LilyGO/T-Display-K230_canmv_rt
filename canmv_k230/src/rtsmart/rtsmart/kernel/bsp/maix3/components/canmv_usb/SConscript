@@ -1,0 +1,30 @@
+# RT-Thread building script for component
+
+from building import *
+
+cwd     = GetCurrentDir()
+src     = []
+
+CPPPATH = [cwd]
+
+if GetDepend(['ENABLE_CANMV_USB_DEV']):
+    src += Glob('canmv_usbd.c')
+if GetDepend(['CHERRY_USB_DEVICE_ENABLE_CLASS_CDC_ACM']):
+    src += Glob('usbd_cdc.c')
+if GetDepend(['CHERRY_USB_DEVICE_ENABLE_CLASS_MTP']):
+    src += Glob('usbd_mtp.c')
+
+if GetDepend(['CHERRY_USB_HOST_ENABLE_CLASS_NET_RTL8152']):
+    src += Glob('usbh_net_rtl8152.c')
+
+if GetDepend(['CHERRY_USB_HOST_ENABLE_CLASS_CDC_ACM']):
+    src += Glob('usbh_cdc_acm.c')
+
+if GetDepend(['CHERRY_USB_HOST_ENABLE_CLASS_CDC_ECM']):
+    src += Glob('usbh_net_ecm.c')
+
+group = DefineGroup('CanmVUSB', src, depend = [], CPPPATH = CPPPATH)
+
+objs = [group]
+
+Return('objs')

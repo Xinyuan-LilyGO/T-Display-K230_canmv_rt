@@ -1,0 +1,76 @@
+from building import *
+
+cwd = GetCurrentDir()
+
+path = [cwd]
+path += [cwd + '/common']
+path += [cwd + '/core']
+path += [cwd + '/class/cdc']
+path += [cwd + '/class/msc']
+path += [cwd + '/class/hid']
+path += [cwd + '/class/audio']
+path += [cwd + '/class/video']
+path += [cwd + '/class/wireless']
+path += [cwd + '/class/dfu']
+path += [cwd + '/class/midi']
+path += [cwd + '/class/vendor/net']
+path += [cwd + '/class/vendor/serial']
+
+src = []
+
+CPPDEFINES = []
+LOCAL_CCFLAGS = []
+
+if GetDepend(['CHERRY_USB_OSAL_RTTHREAD']):
+    path += [cwd + '/osal']
+    src += Glob('osal/usb_osal_rtthread.c')
+
+# USB DEVICE
+if GetDepend(['ENABLE_CHERRY_USB_DEVICE']):
+    src += Glob('core/usbd_core.c')
+
+    if GetDepend(['CHERRY_USB_DEVICE_SPEED_HS']):
+        CPPDEFINES+=['CONFIG_USB_HS']
+
+    if GetDepend(['CHERRYUSB_DEVICE_DWC2_K230']):
+        src += Glob('port/dwc2/usb_dc_dwc2.c')
+        src += Glob('port/dwc2/usb_glue_kendryte.c')
+
+    if GetDepend(['CHERRY_USB_DEVICE_ENABLE_CLASS_CDC_ACM']):
+        src += Glob('class/cdc/usbd_cdc.c')
+
+    if GetDepend(['CHERRY_USB_DEVICE_ENABLE_CLASS_MSC']):
+        src += Glob('class/msc/usbd_msc.c')
+
+    if GetDepend(['CHERRY_USB_DEVICE_ENABLE_CLASS_MTP']):
+        path += [cwd + '/class/mtp']
+        path += [cwd + '/class/mtp/uMTP-Responder/inc']
+        src += Glob('class/mtp/usbd_mtp.c')
+        src += Glob('class/mtp/uMTP-Responder/src/*.c')
+        src += Glob('class/mtp/uMTP-Responder/src/mtp_operations/*.c')
+
+if GetDepend(['ENABLE_CHERRY_USB_HOST']):
+    src += Glob('core/usbh_core.c')
+
+    path += [cwd + '/class/hub/']
+    src += Glob('class/hub/usbh_hub.c')
+
+    if GetDepend(['CHERRYUSB_HOST_DWC2_K230']):
+        src += Glob('port/dwc2/usb_hc_dwc2.c')
+
+    if GetDepend(['CHERRY_USB_HOST_ENABLE_CLASS_HID']):
+        path += [cwd + '/class/hid/']
+        src += Glob('class/hid/usbh_hid.c')
+
+    if GetDepend(['CHERRY_USB_HOST_ENABLE_CLASS_NET_RTL8152']):
+        src += Glob('class/vendor/net/usbh_rtl8152.c')
+
+    if GetDepend(['CHERRY_USB_HOST_ENABLE_CLASS_CDC_ACM']):
+        src += Glob('class/cdc/usbh_cdc_acm.c')
+
+    if GetDepend(['CHERRY_USB_HOST_ENABLE_CLASS_CDC_ECM']):
+        src += Glob('class/cdc/usbh_cdc_ecm.c')
+
+group = DefineGroup('CherryUSB', src, depend = ['ENABLE_CHERRY_USB'], CPPPATH = path, CPPDEFINES = CPPDEFINES)
+
+Return('group')

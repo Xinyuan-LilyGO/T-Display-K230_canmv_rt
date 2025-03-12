@@ -1,0 +1,24 @@
+# RT-Thread building script for component
+
+from building import *
+
+cwd     = GetCurrentDir()
+src     = Glob('regulator.c')
+CPPPATH = [cwd]
+
+if GetDepend(['RT_USING_REGULATOR_TPS6286X']):
+    src += Glob('tps6286x.c')
+else:
+    src += Glob('dummy.c')
+
+group = DefineGroup('REGULATOR', src, depend = ['RT_USING_PM', 'RT_USING_REGULATOR'], CPPPATH = CPPPATH)
+
+objs = [group]
+
+list = os.listdir(cwd)
+
+for item in list:
+    if os.path.isfile(os.path.join(cwd, item, 'SConscript')):
+        objs = objs + SConscript(os.path.join(item, 'SConscript'))
+
+Return('objs')

@@ -1,0 +1,31 @@
+# RT-Thread building script for component
+
+from building import *
+import os
+cwd     = GetCurrentDir()
+libdir  = os.getenv('CDK_SRC_DIR')
+src     = Glob('*.c')
+CPPPATH = ['inc']
+if os.path.exists(str(libdir) + '/kernel/ipcm/out/node_1'):
+    libdir = libdir + '/kernel/ipcm/out/node_1'
+else:
+    libdir = cwd + '/lib'
+LIBPATH = [libdir]
+libname = ''
+liblist = os.listdir(str(libdir))
+for item in liblist:
+    if item[-2:] == ".a":
+        libname = libname + '-l' + item[3:-2] + ' '
+
+LINKFLAGS = ' -Wl,--whole-archive ' + libname  + ' -Wl,--no-whole-archive'
+group = DefineGroup('Ipcm', src, depend = ['RT_USING_IPCM'], CPPPATH = CPPPATH, LINKFLAGS = LINKFLAGS, LIBPATH=LIBPATH)
+
+objs = [group]
+
+list = os.listdir(cwd)
+
+for item in list:
+    if os.path.isfile(os.path.join(cwd, item, 'SConscript')):
+        objs = objs + SConscript(os.path.join(item, 'SConscript'))
+
+Return('objs')

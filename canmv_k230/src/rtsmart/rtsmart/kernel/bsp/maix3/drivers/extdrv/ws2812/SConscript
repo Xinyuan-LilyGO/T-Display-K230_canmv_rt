@@ -1,0 +1,19 @@
+# RT-Thread building script for component
+
+from building import *
+
+cwd     = GetCurrentDir()
+src     = Glob('*.c')
+CPPPATH = [cwd]
+
+if not GetDepend(['WS2812_USE_DRV_GPIO']):
+    SrcRemove(src, ['ws2812_gpio.c'])
+
+if not GetDepend(['WS2812_USE_DRV_I2S']):
+    SrcRemove(src, ['ws2812_i2s.c'])
+
+group = DefineGroup('WS2812', src, depend = ['RT_USING_WS2812'], CPPPATH = CPPPATH)
+
+objs = [group]
+
+Return('objs')

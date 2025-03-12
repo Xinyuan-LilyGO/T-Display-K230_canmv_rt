@@ -1,0 +1,13 @@
+# RT-Thread building script for component
+
+from building import *
+
+cwd     = GetCurrentDir()
+src     = Glob('*.c')
+CPPPATH = [cwd]
+
+group = DefineGroup('NetworkMgmt', src, depend = ['ENABLE_CANMV_NETWORK_MGMT_DEV'], CPPPATH = CPPPATH)
+
+objs = [group]
+
+Return('objs')
