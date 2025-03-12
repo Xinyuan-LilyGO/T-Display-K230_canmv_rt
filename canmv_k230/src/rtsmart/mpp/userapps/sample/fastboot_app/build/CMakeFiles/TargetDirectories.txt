@@ -1,0 +1,7 @@
+/home/lvzhenhao/pro/k230/init_factory/canmv_k230/src/rtsmart/mpp/userapps/sample/fastboot_app/build/CMakeFiles/fastboot_app.elf.dir
+/home/lvzhenhao/pro/k230/init_factory/canmv_k230/src/rtsmart/mpp/userapps/sample/fastboot_app/build/CMakeFiles/edit_cache.dir
+/home/lvzhenhao/pro/k230/init_factory/canmv_k230/src/rtsmart/mpp/userapps/sample/fastboot_app/build/CMakeFiles/rebuild_cache.dir
+/home/lvzhenhao/pro/k230/init_factory/canmv_k230/src/rtsmart/mpp/userapps/sample/fastboot_app/build/CMakeFiles/list_install_components.dir
+/home/lvzhenhao/pro/k230/init_factory/canmv_k230/src/rtsmart/mpp/userapps/sample/fastboot_app/build/CMakeFiles/install.dir
+/home/lvzhenhao/pro/k230/init_factory/canmv_k230/src/rtsmart/mpp/userapps/sample/fastboot_app/build/CMakeFiles/install/local.dir
+/home/lvzhenhao/pro/k230/init_factory/canmv_k230/src/rtsmart/mpp/userapps/sample/fastboot_app/build/CMakeFiles/install/strip.dir

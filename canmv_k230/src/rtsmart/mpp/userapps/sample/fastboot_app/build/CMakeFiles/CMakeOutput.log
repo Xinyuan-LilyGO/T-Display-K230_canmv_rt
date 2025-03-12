@@ -1,0 +1,408 @@
+The target system is: Generic -  - riscv64
+The host system is: Linux - 5.15.0-122-generic - x86_64
+Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+Compiler: /home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/riscv64-unknown-linux-musl-gcc 
+Build flags: ;-march=rv64imafdcv;-mabi=lp64d;-mcmodel=medany
+Id flags:  
+
+The output was:
+0
+
+
+Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
+
+The C compiler identification is GNU, found in "/home/lvzhenhao/pro/k230/init_factory/canmv_k230/src/rtsmart/mpp/userapps/sample/fastboot_app/build/CMakeFiles/3.22.1/CompilerIdC/a.out"
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+Compiler: /home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/riscv64-unknown-linux-musl-g++ 
+Build flags: ;-fopenmp;-march=rv64imafdcv;-mabi=lp64d;-mcmodel=medany
+Id flags:  
+
+The output was:
+0
+
+
+Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
+
+The CXX compiler identification is GNU, found in "/home/lvzhenhao/pro/k230/init_factory/canmv_k230/src/rtsmart/mpp/userapps/sample/fastboot_app/build/CMakeFiles/3.22.1/CompilerIdCXX/a.out"
+
+Detecting C compiler ABI info compiled with the following output:
+Change Dir: /home/lvzhenhao/pro/k230/init_factory/canmv_k230/src/rtsmart/mpp/userapps/sample/fastboot_app/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_237c5/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_237c5.dir/build.make CMakeFiles/cmTC_237c5.dir/build
+gmake[1]: Entering directory '/home/lvzhenhao/pro/k230/init_factory/canmv_k230/src/rtsmart/mpp/userapps/sample/fastboot_app/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_237c5.dir/CMakeCCompilerABI.c.obj
+/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/riscv64-unknown-linux-musl-gcc   -march=rv64imafdcv -mabi=lp64d -mcmodel=medany    -v -o CMakeFiles/cmTC_237c5.dir/CMakeCCompilerABI.c.obj -c /usr/share/cmake-3.22/Modules/CMakeCCompilerABI.c
+Using built-in specs.
+COLLECT_GCC=/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/riscv64-unknown-linux-musl-gcc
+Target: riscv64-unknown-linux-musl
+Configured with: /builds/canaan-creative/riscv-toolchain/gcc/configure --target=riscv64-unknown-linux-musl --prefix=/builds/canaan-creative/riscv-toolchain/install-native/ --with-sysroot=/builds/canaan-creative/riscv-toolchain/install-native//riscv64-unknown-linux-musl --with-system-zlib --enable-shared --enable-tls --enable-languages=c,c++,fortran --disable-libmudflap --disable-libssp --disable-libquadmath --disable-libsanitizer --disable-nls --disable-bootstrap --src=/builds/canaan-creative/riscv-toolchain/gcc --disable-multilib --with-abi=lp64d --with-arch=rv64imafdcv --with-tune=rocket 'CFLAGS_FOR_TARGET=-O2   -mcmodel=medany -march=rv64imafdcv -mabi=lp64d' 'CXXFLAGS_FOR_TARGET=-O2   -mcmodel=medany -march=rv64imafdcv -mabi=lp64d'
+Thread model: posix
+Supported LTO compression algorithms: zlib
+gcc version 12.0.1 20220505 (prerelease) (GCC) 
+COLLECT_GCC_OPTIONS='-march=rv64imafdcv' '-mabi=lp64d' '-mcmodel=medany' '-v' '-o' 'CMakeFiles/cmTC_237c5.dir/CMakeCCompilerABI.c.obj' '-c' '-mtune=rocket' '-misa-spec=20191213' '-march=rv64imafdcv_zicsr_zve32f_zve32x_zve64d_zve64f_zve64x_zvl128b_zvl32b_zvl64b' '-dumpdir' 'CMakeFiles/cmTC_237c5.dir/'
+ /home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../libexec/gcc/riscv64-unknown-linux-musl/12.0.1/cc1 -quiet -v -iprefix /home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/ /usr/share/cmake-3.22/Modules/CMakeCCompilerABI.c -quiet -dumpdir CMakeFiles/cmTC_237c5.dir/ -dumpbase CMakeCCompilerABI.c.c -dumpbase-ext .c -march=rv64imafdcv -mabi=lp64d -mcmodel=medany -mtune=rocket -misa-spec=20191213 -march=rv64imafdcv_zicsr_zve32f_zve32x_zve64d_zve64f_zve64x_zvl128b_zvl32b_zvl64b -version -o /tmp/cclvB3PY.s
+GNU C17 (GCC) version 12.0.1 20220505 (prerelease) (riscv64-unknown-linux-musl)
+	compiled by GNU C version 9.4.0, GMP version 6.2.1, MPFR version 4.1.0, MPC version 1.2.1, isl version isl-0.24-GMP
+
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+ignoring nonexistent directory "/builds/canaan-creative/riscv-toolchain/install-native//riscv64-unknown-linux-musl/usr/local/include"
+ignoring duplicate directory "/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/../../lib/gcc/riscv64-unknown-linux-musl/12.0.1/../../../../riscv64-unknown-linux-musl/include"
+ignoring nonexistent directory "/builds/canaan-creative/riscv-toolchain/install-native//riscv64-unknown-linux-musl/usr/include"
+ignoring duplicate directory "/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/../../lib/gcc/riscv64-unknown-linux-musl/12.0.1/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/../../../../riscv64-unknown-linux-musl/include
+ /home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/include
+End of search list.
+GNU C17 (GCC) version 12.0.1 20220505 (prerelease) (riscv64-unknown-linux-musl)
+	compiled by GNU C version 9.4.0, GMP version 6.2.1, MPFR version 4.1.0, MPC version 1.2.1, isl version isl-0.24-GMP
+
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+Compiler executable checksum: 3f69e773161d85594256b016a7c76253
+COLLECT_GCC_OPTIONS='-march=rv64imafdcv' '-mabi=lp64d' '-mcmodel=medany' '-v' '-o' 'CMakeFiles/cmTC_237c5.dir/CMakeCCompilerABI.c.obj' '-c' '-mtune=rocket' '-misa-spec=20191213' '-march=rv64imafdcv_zicsr_zve32f_zve32x_zve64d_zve64f_zve64x_zvl128b_zvl32b_zvl64b' '-dumpdir' 'CMakeFiles/cmTC_237c5.dir/'
+ /home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/../../../../riscv64-unknown-linux-musl/bin/as -v --traditional-format -march=rv64imafdcv -march=rv64imafdcv_zicsr_zve32f_zve32x_zve64d_zve64f_zve64x_zvl128b_zvl32b_zvl64b -mabi=lp64d -misa-spec=20191213 -o CMakeFiles/cmTC_237c5.dir/CMakeCCompilerABI.c.obj /tmp/cclvB3PY.s
+GNU assembler version 2.39 (riscv64-unknown-linux-musl) using BFD version (GNU Binutils) 2.39
+COMPILER_PATH=/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../libexec/gcc/riscv64-unknown-linux-musl/12.0.1/:/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../libexec/gcc/:/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/../../../../riscv64-unknown-linux-musl/bin/
+LIBRARY_PATH=/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/:/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/:/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/../../../../riscv64-unknown-linux-musl/lib/
+COLLECT_GCC_OPTIONS='-march=rv64imafdcv' '-mabi=lp64d' '-mcmodel=medany' '-v' '-o' 'CMakeFiles/cmTC_237c5.dir/CMakeCCompilerABI.c.obj' '-c' '-mtune=rocket' '-misa-spec=20191213' '-march=rv64imafdcv_zicsr_zve32f_zve32x_zve64d_zve64f_zve64x_zvl128b_zvl32b_zvl64b' '-dumpdir' 'CMakeFiles/cmTC_237c5.dir/CMakeCCompilerABI.c.'
+Linking C executable cmTC_237c5
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_237c5.dir/link.txt --verbose=1
+/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/riscv64-unknown-linux-musl-gcc  -march=rv64imafdcv -mabi=lp64d -mcmodel=medany   -v CMakeFiles/cmTC_237c5.dir/CMakeCCompilerABI.c.obj -o cmTC_237c5 
+Using built-in specs.
+COLLECT_GCC=/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/riscv64-unknown-linux-musl-gcc
+COLLECT_LTO_WRAPPER=/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../libexec/gcc/riscv64-unknown-linux-musl/12.0.1/lto-wrapper
+Target: riscv64-unknown-linux-musl
+Configured with: /builds/canaan-creative/riscv-toolchain/gcc/configure --target=riscv64-unknown-linux-musl --prefix=/builds/canaan-creative/riscv-toolchain/install-native/ --with-sysroot=/builds/canaan-creative/riscv-toolchain/install-native//riscv64-unknown-linux-musl --with-system-zlib --enable-shared --enable-tls --enable-languages=c,c++,fortran --disable-libmudflap --disable-libssp --disable-libquadmath --disable-libsanitizer --disable-nls --disable-bootstrap --src=/builds/canaan-creative/riscv-toolchain/gcc --disable-multilib --with-abi=lp64d --with-arch=rv64imafdcv --with-tune=rocket 'CFLAGS_FOR_TARGET=-O2   -mcmodel=medany -march=rv64imafdcv -mabi=lp64d' 'CXXFLAGS_FOR_TARGET=-O2   -mcmodel=medany -march=rv64imafdcv -mabi=lp64d'
+Thread model: posix
+Supported LTO compression algorithms: zlib
+gcc version 12.0.1 20220505 (prerelease) (GCC) 
+COMPILER_PATH=/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../libexec/gcc/riscv64-unknown-linux-musl/12.0.1/:/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../libexec/gcc/:/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/../../../../riscv64-unknown-linux-musl/bin/
+LIBRARY_PATH=/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/:/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/:/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/../../../../riscv64-unknown-linux-musl/lib/
+COLLECT_GCC_OPTIONS='-march=rv64imafdcv' '-mabi=lp64d' '-mcmodel=medany' '-v' '-o' 'cmTC_237c5' '-mtune=rocket' '-misa-spec=20191213' '-march=rv64imafdcv_zicsr_zve32f_zve32x_zve64d_zve64f_zve64x_zvl128b_zvl32b_zvl64b' '-dumpdir' 'cmTC_237c5.'
+ /home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../libexec/gcc/riscv64-unknown-linux-musl/12.0.1/collect2 -plugin /home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../libexec/gcc/riscv64-unknown-linux-musl/12.0.1/liblto_plugin.so -plugin-opt=/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../libexec/gcc/riscv64-unknown-linux-musl/12.0.1/lto-wrapper -plugin-opt=-fresolution=/tmp/cc4Msi3r.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --sysroot=/builds/canaan-creative/riscv-toolchain/install-native//riscv64-unknown-linux-musl --eh-frame-hdr -melf64lriscv -dynamic-linker /lib/ld-musl-riscv64.so.1 -o cmTC_237c5 /home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/../../../../riscv64-unknown-linux-musl/lib/crt1.o /home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/crti.o /home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/crtbegin.o -L/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1 -L/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc -L/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/../../../../riscv64-unknown-linux-musl/lib CMakeFiles/cmTC_237c5.dir/CMakeCCompilerABI.c.obj -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/crtend.o /home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/crtn.o
+COLLECT_GCC_OPTIONS='-march=rv64imafdcv' '-mabi=lp64d' '-mcmodel=medany' '-v' '-o' 'cmTC_237c5' '-mtune=rocket' '-misa-spec=20191213' '-march=rv64imafdcv_zicsr_zve32f_zve32x_zve64d_zve64f_zve64x_zvl128b_zvl32b_zvl64b' '-dumpdir' 'cmTC_237c5.'
+gmake[1]: Leaving directory '/home/lvzhenhao/pro/k230/init_factory/canmv_k230/src/rtsmart/mpp/userapps/sample/fastboot_app/build/CMakeFiles/CMakeTmp'
+
+
+
+Parsed C implicit include dir info from above output: rv=done
+  found start of include info
+  found start of implicit include info
+    add: [/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/../../../../riscv64-unknown-linux-musl/include]
+    add: [/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/include]
+  end of search list found
+  collapse include dir [/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/../../../../riscv64-unknown-linux-musl/include] ==> [/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/riscv64-unknown-linux-musl/include]
+  collapse include dir [/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/include] ==> [/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/lib/gcc/riscv64-unknown-linux-musl/12.0.1/include]
+  implicit include dirs: [/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/riscv64-unknown-linux-musl/include;/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/lib/gcc/riscv64-unknown-linux-musl/12.0.1/include]
+
+
+Parsed C implicit link information from above output:
+  link line regex: [^( *|.*[/\])(riscv64-unknown-linux-musl-ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /home/lvzhenhao/pro/k230/init_factory/canmv_k230/src/rtsmart/mpp/userapps/sample/fastboot_app/build/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_237c5/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_237c5.dir/build.make CMakeFiles/cmTC_237c5.dir/build]
+  ignore line: [gmake[1]: Entering directory '/home/lvzhenhao/pro/k230/init_factory/canmv_k230/src/rtsmart/mpp/userapps/sample/fastboot_app/build/CMakeFiles/CMakeTmp']
+  ignore line: [Building C object CMakeFiles/cmTC_237c5.dir/CMakeCCompilerABI.c.obj]
+  ignore line: [/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/riscv64-unknown-linux-musl-gcc   -march=rv64imafdcv -mabi=lp64d -mcmodel=medany    -v -o CMakeFiles/cmTC_237c5.dir/CMakeCCompilerABI.c.obj -c /usr/share/cmake-3.22/Modules/CMakeCCompilerABI.c]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/riscv64-unknown-linux-musl-gcc]
+  ignore line: [Target: riscv64-unknown-linux-musl]
+  ignore line: [Configured with: /builds/canaan-creative/riscv-toolchain/gcc/configure --target=riscv64-unknown-linux-musl --prefix=/builds/canaan-creative/riscv-toolchain/install-native/ --with-sysroot=/builds/canaan-creative/riscv-toolchain/install-native//riscv64-unknown-linux-musl --with-system-zlib --enable-shared --enable-tls --enable-languages=c c++ fortran --disable-libmudflap --disable-libssp --disable-libquadmath --disable-libsanitizer --disable-nls --disable-bootstrap --src=/builds/canaan-creative/riscv-toolchain/gcc --disable-multilib --with-abi=lp64d --with-arch=rv64imafdcv --with-tune=rocket 'CFLAGS_FOR_TARGET=-O2   -mcmodel=medany -march=rv64imafdcv -mabi=lp64d' 'CXXFLAGS_FOR_TARGET=-O2   -mcmodel=medany -march=rv64imafdcv -mabi=lp64d']
+  ignore line: [Thread model: posix]
+  ignore line: [Supported LTO compression algorithms: zlib]
+  ignore line: [gcc version 12.0.1 20220505 (prerelease) (GCC) ]
+  ignore line: [COLLECT_GCC_OPTIONS='-march=rv64imafdcv' '-mabi=lp64d' '-mcmodel=medany' '-v' '-o' 'CMakeFiles/cmTC_237c5.dir/CMakeCCompilerABI.c.obj' '-c' '-mtune=rocket' '-misa-spec=20191213' '-march=rv64imafdcv_zicsr_zve32f_zve32x_zve64d_zve64f_zve64x_zvl128b_zvl32b_zvl64b' '-dumpdir' 'CMakeFiles/cmTC_237c5.dir/']
+  ignore line: [ /home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../libexec/gcc/riscv64-unknown-linux-musl/12.0.1/cc1 -quiet -v -iprefix /home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/ /usr/share/cmake-3.22/Modules/CMakeCCompilerABI.c -quiet -dumpdir CMakeFiles/cmTC_237c5.dir/ -dumpbase CMakeCCompilerABI.c.c -dumpbase-ext .c -march=rv64imafdcv -mabi=lp64d -mcmodel=medany -mtune=rocket -misa-spec=20191213 -march=rv64imafdcv_zicsr_zve32f_zve32x_zve64d_zve64f_zve64x_zvl128b_zvl32b_zvl64b -version -o /tmp/cclvB3PY.s]
+  ignore line: [GNU C17 (GCC) version 12.0.1 20220505 (prerelease) (riscv64-unknown-linux-musl)]
+  ignore line: [	compiled by GNU C version 9.4.0  GMP version 6.2.1  MPFR version 4.1.0  MPC version 1.2.1  isl version isl-0.24-GMP]
+  ignore line: []
+  ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+  ignore line: [ignoring nonexistent directory "/builds/canaan-creative/riscv-toolchain/install-native//riscv64-unknown-linux-musl/usr/local/include"]
+  ignore line: [ignoring duplicate directory "/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/../../lib/gcc/riscv64-unknown-linux-musl/12.0.1/../../../../riscv64-unknown-linux-musl/include"]
+  ignore line: [ignoring nonexistent directory "/builds/canaan-creative/riscv-toolchain/install-native//riscv64-unknown-linux-musl/usr/include"]
+  ignore line: [ignoring duplicate directory "/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/../../lib/gcc/riscv64-unknown-linux-musl/12.0.1/include"]
+  ignore line: [#include "..." search starts here:]
+  ignore line: [#include <...> search starts here:]
+  ignore line: [ /home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/../../../../riscv64-unknown-linux-musl/include]
+  ignore line: [ /home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/include]
+  ignore line: [End of search list.]
+  ignore line: [GNU C17 (GCC) version 12.0.1 20220505 (prerelease) (riscv64-unknown-linux-musl)]
+  ignore line: [	compiled by GNU C version 9.4.0  GMP version 6.2.1  MPFR version 4.1.0  MPC version 1.2.1  isl version isl-0.24-GMP]
+  ignore line: []
+  ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+  ignore line: [Compiler executable checksum: 3f69e773161d85594256b016a7c76253]
+  ignore line: [COLLECT_GCC_OPTIONS='-march=rv64imafdcv' '-mabi=lp64d' '-mcmodel=medany' '-v' '-o' 'CMakeFiles/cmTC_237c5.dir/CMakeCCompilerABI.c.obj' '-c' '-mtune=rocket' '-misa-spec=20191213' '-march=rv64imafdcv_zicsr_zve32f_zve32x_zve64d_zve64f_zve64x_zvl128b_zvl32b_zvl64b' '-dumpdir' 'CMakeFiles/cmTC_237c5.dir/']
+  ignore line: [ /home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/../../../../riscv64-unknown-linux-musl/bin/as -v --traditional-format -march=rv64imafdcv -march=rv64imafdcv_zicsr_zve32f_zve32x_zve64d_zve64f_zve64x_zvl128b_zvl32b_zvl64b -mabi=lp64d -misa-spec=20191213 -o CMakeFiles/cmTC_237c5.dir/CMakeCCompilerABI.c.obj /tmp/cclvB3PY.s]
+  ignore line: [GNU assembler version 2.39 (riscv64-unknown-linux-musl) using BFD version (GNU Binutils) 2.39]
+  ignore line: [COMPILER_PATH=/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../libexec/gcc/riscv64-unknown-linux-musl/12.0.1/:/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../libexec/gcc/:/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/../../../../riscv64-unknown-linux-musl/bin/]
+  ignore line: [LIBRARY_PATH=/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/:/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/:/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/../../../../riscv64-unknown-linux-musl/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-march=rv64imafdcv' '-mabi=lp64d' '-mcmodel=medany' '-v' '-o' 'CMakeFiles/cmTC_237c5.dir/CMakeCCompilerABI.c.obj' '-c' '-mtune=rocket' '-misa-spec=20191213' '-march=rv64imafdcv_zicsr_zve32f_zve32x_zve64d_zve64f_zve64x_zvl128b_zvl32b_zvl64b' '-dumpdir' 'CMakeFiles/cmTC_237c5.dir/CMakeCCompilerABI.c.']
+  ignore line: [Linking C executable cmTC_237c5]
+  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_237c5.dir/link.txt --verbose=1]
+  ignore line: [/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/riscv64-unknown-linux-musl-gcc  -march=rv64imafdcv -mabi=lp64d -mcmodel=medany   -v CMakeFiles/cmTC_237c5.dir/CMakeCCompilerABI.c.obj -o cmTC_237c5 ]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/riscv64-unknown-linux-musl-gcc]
+  ignore line: [COLLECT_LTO_WRAPPER=/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../libexec/gcc/riscv64-unknown-linux-musl/12.0.1/lto-wrapper]
+  ignore line: [Target: riscv64-unknown-linux-musl]
+  ignore line: [Configured with: /builds/canaan-creative/riscv-toolchain/gcc/configure --target=riscv64-unknown-linux-musl --prefix=/builds/canaan-creative/riscv-toolchain/install-native/ --with-sysroot=/builds/canaan-creative/riscv-toolchain/install-native//riscv64-unknown-linux-musl --with-system-zlib --enable-shared --enable-tls --enable-languages=c c++ fortran --disable-libmudflap --disable-libssp --disable-libquadmath --disable-libsanitizer --disable-nls --disable-bootstrap --src=/builds/canaan-creative/riscv-toolchain/gcc --disable-multilib --with-abi=lp64d --with-arch=rv64imafdcv --with-tune=rocket 'CFLAGS_FOR_TARGET=-O2   -mcmodel=medany -march=rv64imafdcv -mabi=lp64d' 'CXXFLAGS_FOR_TARGET=-O2   -mcmodel=medany -march=rv64imafdcv -mabi=lp64d']
+  ignore line: [Thread model: posix]
+  ignore line: [Supported LTO compression algorithms: zlib]
+  ignore line: [gcc version 12.0.1 20220505 (prerelease) (GCC) ]
+  ignore line: [COMPILER_PATH=/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../libexec/gcc/riscv64-unknown-linux-musl/12.0.1/:/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../libexec/gcc/:/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/../../../../riscv64-unknown-linux-musl/bin/]
+  ignore line: [LIBRARY_PATH=/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/:/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/:/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/../../../../riscv64-unknown-linux-musl/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-march=rv64imafdcv' '-mabi=lp64d' '-mcmodel=medany' '-v' '-o' 'cmTC_237c5' '-mtune=rocket' '-misa-spec=20191213' '-march=rv64imafdcv_zicsr_zve32f_zve32x_zve64d_zve64f_zve64x_zvl128b_zvl32b_zvl64b' '-dumpdir' 'cmTC_237c5.']
+  link line: [ /home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../libexec/gcc/riscv64-unknown-linux-musl/12.0.1/collect2 -plugin /home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../libexec/gcc/riscv64-unknown-linux-musl/12.0.1/liblto_plugin.so -plugin-opt=/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../libexec/gcc/riscv64-unknown-linux-musl/12.0.1/lto-wrapper -plugin-opt=-fresolution=/tmp/cc4Msi3r.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --sysroot=/builds/canaan-creative/riscv-toolchain/install-native//riscv64-unknown-linux-musl --eh-frame-hdr -melf64lriscv -dynamic-linker /lib/ld-musl-riscv64.so.1 -o cmTC_237c5 /home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/../../../../riscv64-unknown-linux-musl/lib/crt1.o /home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/crti.o /home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/crtbegin.o -L/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1 -L/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc -L/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/../../../../riscv64-unknown-linux-musl/lib CMakeFiles/cmTC_237c5.dir/CMakeCCompilerABI.c.obj -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/crtend.o /home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/crtn.o]
+    arg [/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../libexec/gcc/riscv64-unknown-linux-musl/12.0.1/collect2] ==> ignore
+    arg [-plugin] ==> ignore
+    arg [/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../libexec/gcc/riscv64-unknown-linux-musl/12.0.1/liblto_plugin.so] ==> ignore
+    arg [-plugin-opt=/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../libexec/gcc/riscv64-unknown-linux-musl/12.0.1/lto-wrapper] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/cc4Msi3r.res] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [-plugin-opt=-pass-through=-lc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [--sysroot=/builds/canaan-creative/riscv-toolchain/install-native//riscv64-unknown-linux-musl] ==> ignore
+    arg [--eh-frame-hdr] ==> ignore
+    arg [-melf64lriscv] ==> ignore
+    arg [-dynamic-linker] ==> ignore
+    arg [/lib/ld-musl-riscv64.so.1] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTC_237c5] ==> ignore
+    arg [/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/../../../../riscv64-unknown-linux-musl/lib/crt1.o] ==> obj [/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/../../../../riscv64-unknown-linux-musl/lib/crt1.o]
+    arg [/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/crti.o] ==> obj [/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/crti.o]
+    arg [/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/crtbegin.o] ==> obj [/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/crtbegin.o]
+    arg [-L/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1] ==> dir [/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1]
+    arg [-L/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc] ==> dir [/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc]
+    arg [-L/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/../../../../riscv64-unknown-linux-musl/lib] ==> dir [/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/../../../../riscv64-unknown-linux-musl/lib]
+    arg [CMakeFiles/cmTC_237c5.dir/CMakeCCompilerABI.c.obj] ==> ignore
+    arg [-lgcc] ==> lib [gcc]
+    arg [--push-state] ==> ignore
+    arg [--as-needed] ==> ignore
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [--pop-state] ==> ignore
+    arg [-lc] ==> lib [c]
+    arg [-lgcc] ==> lib [gcc]
+    arg [--push-state] ==> ignore
+    arg [--as-needed] ==> ignore
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [--pop-state] ==> ignore
+    arg [/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/crtend.o] ==> obj [/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/crtend.o]
+    arg [/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/crtn.o] ==> obj [/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/crtn.o]
+  collapse obj [/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/../../../../riscv64-unknown-linux-musl/lib/crt1.o] ==> [/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/riscv64-unknown-linux-musl/lib/crt1.o]
+  collapse obj [/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/crti.o] ==> [/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/lib/gcc/riscv64-unknown-linux-musl/12.0.1/crti.o]
+  collapse obj [/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/crtbegin.o] ==> [/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/lib/gcc/riscv64-unknown-linux-musl/12.0.1/crtbegin.o]
+  collapse obj [/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/crtend.o] ==> [/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/lib/gcc/riscv64-unknown-linux-musl/12.0.1/crtend.o]
+  collapse obj [/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/crtn.o] ==> [/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/lib/gcc/riscv64-unknown-linux-musl/12.0.1/crtn.o]
+  collapse library dir [/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1] ==> [/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/lib/gcc/riscv64-unknown-linux-musl/12.0.1]
+  collapse library dir [/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc] ==> [/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/lib/gcc]
+  collapse library dir [/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/../../../../riscv64-unknown-linux-musl/lib] ==> [/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/riscv64-unknown-linux-musl/lib]
+  implicit libs: [gcc;gcc_s;c;gcc;gcc_s]
+  implicit objs: [/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/riscv64-unknown-linux-musl/lib/crt1.o;/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/lib/gcc/riscv64-unknown-linux-musl/12.0.1/crti.o;/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/lib/gcc/riscv64-unknown-linux-musl/12.0.1/crtbegin.o;/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/lib/gcc/riscv64-unknown-linux-musl/12.0.1/crtend.o;/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/lib/gcc/riscv64-unknown-linux-musl/12.0.1/crtn.o]
+  implicit dirs: [/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/lib/gcc/riscv64-unknown-linux-musl/12.0.1;/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/lib/gcc;/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/riscv64-unknown-linux-musl/lib]
+  implicit fwks: []
+
+
+Detecting CXX compiler ABI info compiled with the following output:
+Change Dir: /home/lvzhenhao/pro/k230/init_factory/canmv_k230/src/rtsmart/mpp/userapps/sample/fastboot_app/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_c5fbd/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_c5fbd.dir/build.make CMakeFiles/cmTC_c5fbd.dir/build
+gmake[1]: Entering directory '/home/lvzhenhao/pro/k230/init_factory/canmv_k230/src/rtsmart/mpp/userapps/sample/fastboot_app/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_c5fbd.dir/CMakeCXXCompilerABI.cpp.obj
+/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/riscv64-unknown-linux-musl-g++   -fopenmp -march=rv64imafdcv -mabi=lp64d -mcmodel=medany    -v -o CMakeFiles/cmTC_c5fbd.dir/CMakeCXXCompilerABI.cpp.obj -c /usr/share/cmake-3.22/Modules/CMakeCXXCompilerABI.cpp
+Using built-in specs.
+COLLECT_GCC=/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/riscv64-unknown-linux-musl-g++
+Target: riscv64-unknown-linux-musl
+Configured with: /builds/canaan-creative/riscv-toolchain/gcc/configure --target=riscv64-unknown-linux-musl --prefix=/builds/canaan-creative/riscv-toolchain/install-native/ --with-sysroot=/builds/canaan-creative/riscv-toolchain/install-native//riscv64-unknown-linux-musl --with-system-zlib --enable-shared --enable-tls --enable-languages=c,c++,fortran --disable-libmudflap --disable-libssp --disable-libquadmath --disable-libsanitizer --disable-nls --disable-bootstrap --src=/builds/canaan-creative/riscv-toolchain/gcc --disable-multilib --with-abi=lp64d --with-arch=rv64imafdcv --with-tune=rocket 'CFLAGS_FOR_TARGET=-O2   -mcmodel=medany -march=rv64imafdcv -mabi=lp64d' 'CXXFLAGS_FOR_TARGET=-O2   -mcmodel=medany -march=rv64imafdcv -mabi=lp64d'
+Thread model: posix
+Supported LTO compression algorithms: zlib
+gcc version 12.0.1 20220505 (prerelease) (GCC) 
+COLLECT_GCC_OPTIONS='-fopenmp' '-march=rv64imafdcv' '-mabi=lp64d' '-mcmodel=medany' '-v' '-o' 'CMakeFiles/cmTC_c5fbd.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-shared-libgcc' '-mtune=rocket' '-misa-spec=20191213' '-march=rv64imafdcv_zicsr_zve32f_zve32x_zve64d_zve64f_zve64x_zvl128b_zvl32b_zvl64b' '-pthread' '-dumpdir' 'CMakeFiles/cmTC_c5fbd.dir/'
+ /home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../libexec/gcc/riscv64-unknown-linux-musl/12.0.1/cc1plus -quiet -v -iprefix /home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/ -D_GNU_SOURCE -D_REENTRANT /usr/share/cmake-3.22/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles/cmTC_c5fbd.dir/ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -march=rv64imafdcv -mabi=lp64d -mcmodel=medany -mtune=rocket -misa-spec=20191213 -march=rv64imafdcv_zicsr_zve32f_zve32x_zve64d_zve64f_zve64x_zvl128b_zvl32b_zvl64b -version -fopenmp -o /tmp/ccLXwrnK.s
+GNU C++17 (GCC) version 12.0.1 20220505 (prerelease) (riscv64-unknown-linux-musl)
+	compiled by GNU C version 9.4.0, GMP version 6.2.1, MPFR version 4.1.0, MPC version 1.2.1, isl version isl-0.24-GMP
+
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+ignoring duplicate directory "/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/../../lib/gcc/riscv64-unknown-linux-musl/12.0.1/../../../../riscv64-unknown-linux-musl/include/c++/12.0.1"
+ignoring duplicate directory "/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/../../lib/gcc/riscv64-unknown-linux-musl/12.0.1/../../../../riscv64-unknown-linux-musl/include/c++/12.0.1/riscv64-unknown-linux-musl"
+ignoring duplicate directory "/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/../../lib/gcc/riscv64-unknown-linux-musl/12.0.1/../../../../riscv64-unknown-linux-musl/include/c++/12.0.1/backward"
+ignoring nonexistent directory "/builds/canaan-creative/riscv-toolchain/install-native//riscv64-unknown-linux-musl/usr/local/include"
+ignoring duplicate directory "/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/../../lib/gcc/riscv64-unknown-linux-musl/12.0.1/../../../../riscv64-unknown-linux-musl/include"
+ignoring nonexistent directory "/builds/canaan-creative/riscv-toolchain/install-native//riscv64-unknown-linux-musl/usr/include"
+ignoring duplicate directory "/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/../../lib/gcc/riscv64-unknown-linux-musl/12.0.1/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/../../../../riscv64-unknown-linux-musl/include/c++/12.0.1
+ /home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/../../../../riscv64-unknown-linux-musl/include/c++/12.0.1/riscv64-unknown-linux-musl
+ /home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/../../../../riscv64-unknown-linux-musl/include/c++/12.0.1/backward
+ /home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/../../../../riscv64-unknown-linux-musl/include
+ /home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/include
+End of search list.
+GNU C++17 (GCC) version 12.0.1 20220505 (prerelease) (riscv64-unknown-linux-musl)
+	compiled by GNU C version 9.4.0, GMP version 6.2.1, MPFR version 4.1.0, MPC version 1.2.1, isl version isl-0.24-GMP
+
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+Compiler executable checksum: 2a7c4c9326bc576a073cebd355eeafab
+COLLECT_GCC_OPTIONS='-fopenmp' '-march=rv64imafdcv' '-mabi=lp64d' '-mcmodel=medany' '-v' '-o' 'CMakeFiles/cmTC_c5fbd.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-shared-libgcc' '-mtune=rocket' '-misa-spec=20191213' '-march=rv64imafdcv_zicsr_zve32f_zve32x_zve64d_zve64f_zve64x_zvl128b_zvl32b_zvl64b' '-pthread' '-dumpdir' 'CMakeFiles/cmTC_c5fbd.dir/'
+ /home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/../../../../riscv64-unknown-linux-musl/bin/as -v --traditional-format -march=rv64imafdcv -march=rv64imafdcv_zicsr_zve32f_zve32x_zve64d_zve64f_zve64x_zvl128b_zvl32b_zvl64b -mabi=lp64d -misa-spec=20191213 -o CMakeFiles/cmTC_c5fbd.dir/CMakeCXXCompilerABI.cpp.obj /tmp/ccLXwrnK.s
+GNU assembler version 2.39 (riscv64-unknown-linux-musl) using BFD version (GNU Binutils) 2.39
+COMPILER_PATH=/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../libexec/gcc/riscv64-unknown-linux-musl/12.0.1/:/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../libexec/gcc/:/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/../../../../riscv64-unknown-linux-musl/bin/
+LIBRARY_PATH=/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/:/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/:/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/../../../../riscv64-unknown-linux-musl/lib/
+COLLECT_GCC_OPTIONS='-fopenmp' '-march=rv64imafdcv' '-mabi=lp64d' '-mcmodel=medany' '-v' '-o' 'CMakeFiles/cmTC_c5fbd.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-shared-libgcc' '-mtune=rocket' '-misa-spec=20191213' '-march=rv64imafdcv_zicsr_zve32f_zve32x_zve64d_zve64f_zve64x_zvl128b_zvl32b_zvl64b' '-pthread' '-dumpdir' 'CMakeFiles/cmTC_c5fbd.dir/CMakeCXXCompilerABI.cpp.'
+Linking CXX executable cmTC_c5fbd
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c5fbd.dir/link.txt --verbose=1
+/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/riscv64-unknown-linux-musl-g++  -fopenmp -march=rv64imafdcv -mabi=lp64d -mcmodel=medany   -v CMakeFiles/cmTC_c5fbd.dir/CMakeCXXCompilerABI.cpp.obj -o cmTC_c5fbd 
+Using built-in specs.
+COLLECT_GCC=/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/riscv64-unknown-linux-musl-g++
+COLLECT_LTO_WRAPPER=/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../libexec/gcc/riscv64-unknown-linux-musl/12.0.1/lto-wrapper
+Target: riscv64-unknown-linux-musl
+Configured with: /builds/canaan-creative/riscv-toolchain/gcc/configure --target=riscv64-unknown-linux-musl --prefix=/builds/canaan-creative/riscv-toolchain/install-native/ --with-sysroot=/builds/canaan-creative/riscv-toolchain/install-native//riscv64-unknown-linux-musl --with-system-zlib --enable-shared --enable-tls --enable-languages=c,c++,fortran --disable-libmudflap --disable-libssp --disable-libquadmath --disable-libsanitizer --disable-nls --disable-bootstrap --src=/builds/canaan-creative/riscv-toolchain/gcc --disable-multilib --with-abi=lp64d --with-arch=rv64imafdcv --with-tune=rocket 'CFLAGS_FOR_TARGET=-O2   -mcmodel=medany -march=rv64imafdcv -mabi=lp64d' 'CXXFLAGS_FOR_TARGET=-O2   -mcmodel=medany -march=rv64imafdcv -mabi=lp64d'
+Thread model: posix
+Supported LTO compression algorithms: zlib
+gcc version 12.0.1 20220505 (prerelease) (GCC) 
+COMPILER_PATH=/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../libexec/gcc/riscv64-unknown-linux-musl/12.0.1/:/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../libexec/gcc/:/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/../../../../riscv64-unknown-linux-musl/bin/
+LIBRARY_PATH=/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/:/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/:/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/../../../../riscv64-unknown-linux-musl/lib/
+Reading specs from /home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/../../../../riscv64-unknown-linux-musl/lib/libgomp.spec
+COLLECT_GCC_OPTIONS='-fopenmp' '-march=rv64imafdcv' '-mabi=lp64d' '-mcmodel=medany' '-v' '-o' 'cmTC_c5fbd' '-shared-libgcc' '-mtune=rocket' '-misa-spec=20191213' '-march=rv64imafdcv_zicsr_zve32f_zve32x_zve64d_zve64f_zve64x_zvl128b_zvl32b_zvl64b' '-pthread' '-dumpdir' 'cmTC_c5fbd.'
+ /home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../libexec/gcc/riscv64-unknown-linux-musl/12.0.1/collect2 -plugin /home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../libexec/gcc/riscv64-unknown-linux-musl/12.0.1/liblto_plugin.so -plugin-opt=/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../libexec/gcc/riscv64-unknown-linux-musl/12.0.1/lto-wrapper -plugin-opt=-fresolution=/tmp/ccAA67kO.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-latomic -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --sysroot=/builds/canaan-creative/riscv-toolchain/install-native//riscv64-unknown-linux-musl --eh-frame-hdr -melf64lriscv -dynamic-linker /lib/ld-musl-riscv64.so.1 -o cmTC_c5fbd /home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/../../../../riscv64-unknown-linux-musl/lib/crt1.o /home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/crti.o /home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/crtbegin.o -L/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1 -L/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc -L/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/../../../../riscv64-unknown-linux-musl/lib CMakeFiles/cmTC_c5fbd.dir/CMakeCXXCompilerABI.cpp.obj -lstdc++ -lm -lgomp -lgcc_s -lgcc -lpthread -lc --push-state --as-needed -latomic --pop-state -lgcc_s -lgcc /home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/crtend.o /home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/crtn.o
+COLLECT_GCC_OPTIONS='-fopenmp' '-march=rv64imafdcv' '-mabi=lp64d' '-mcmodel=medany' '-v' '-o' 'cmTC_c5fbd' '-shared-libgcc' '-mtune=rocket' '-misa-spec=20191213' '-march=rv64imafdcv_zicsr_zve32f_zve32x_zve64d_zve64f_zve64x_zvl128b_zvl32b_zvl64b' '-pthread' '-dumpdir' 'cmTC_c5fbd.'
+gmake[1]: Leaving directory '/home/lvzhenhao/pro/k230/init_factory/canmv_k230/src/rtsmart/mpp/userapps/sample/fastboot_app/build/CMakeFiles/CMakeTmp'
+
+
+
+Parsed CXX implicit include dir info from above output: rv=done
+  found start of include info
+  found start of implicit include info
+    add: [/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/../../../../riscv64-unknown-linux-musl/include/c++/12.0.1]
+    add: [/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/../../../../riscv64-unknown-linux-musl/include/c++/12.0.1/riscv64-unknown-linux-musl]
+    add: [/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/../../../../riscv64-unknown-linux-musl/include/c++/12.0.1/backward]
+    add: [/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/../../../../riscv64-unknown-linux-musl/include]
+    add: [/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/include]
+  end of search list found
+  collapse include dir [/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/../../../../riscv64-unknown-linux-musl/include/c++/12.0.1] ==> [/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/riscv64-unknown-linux-musl/include/c++/12.0.1]
+  collapse include dir [/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/../../../../riscv64-unknown-linux-musl/include/c++/12.0.1/riscv64-unknown-linux-musl] ==> [/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/riscv64-unknown-linux-musl/include/c++/12.0.1/riscv64-unknown-linux-musl]
+  collapse include dir [/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/../../../../riscv64-unknown-linux-musl/include/c++/12.0.1/backward] ==> [/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/riscv64-unknown-linux-musl/include/c++/12.0.1/backward]
+  collapse include dir [/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/../../../../riscv64-unknown-linux-musl/include] ==> [/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/riscv64-unknown-linux-musl/include]
+  collapse include dir [/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/include] ==> [/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/lib/gcc/riscv64-unknown-linux-musl/12.0.1/include]
+  implicit include dirs: [/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/riscv64-unknown-linux-musl/include/c++/12.0.1;/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/riscv64-unknown-linux-musl/include/c++/12.0.1/riscv64-unknown-linux-musl;/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/riscv64-unknown-linux-musl/include/c++/12.0.1/backward;/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/riscv64-unknown-linux-musl/include;/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/lib/gcc/riscv64-unknown-linux-musl/12.0.1/include]
+
+
+Parsed CXX implicit link information from above output:
+  link line regex: [^( *|.*[/\])(riscv64-unknown-linux-musl-ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /home/lvzhenhao/pro/k230/init_factory/canmv_k230/src/rtsmart/mpp/userapps/sample/fastboot_app/build/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_c5fbd/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_c5fbd.dir/build.make CMakeFiles/cmTC_c5fbd.dir/build]
+  ignore line: [gmake[1]: Entering directory '/home/lvzhenhao/pro/k230/init_factory/canmv_k230/src/rtsmart/mpp/userapps/sample/fastboot_app/build/CMakeFiles/CMakeTmp']
+  ignore line: [Building CXX object CMakeFiles/cmTC_c5fbd.dir/CMakeCXXCompilerABI.cpp.obj]
+  ignore line: [/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/riscv64-unknown-linux-musl-g++   -fopenmp -march=rv64imafdcv -mabi=lp64d -mcmodel=medany    -v -o CMakeFiles/cmTC_c5fbd.dir/CMakeCXXCompilerABI.cpp.obj -c /usr/share/cmake-3.22/Modules/CMakeCXXCompilerABI.cpp]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/riscv64-unknown-linux-musl-g++]
+  ignore line: [Target: riscv64-unknown-linux-musl]
+  ignore line: [Configured with: /builds/canaan-creative/riscv-toolchain/gcc/configure --target=riscv64-unknown-linux-musl --prefix=/builds/canaan-creative/riscv-toolchain/install-native/ --with-sysroot=/builds/canaan-creative/riscv-toolchain/install-native//riscv64-unknown-linux-musl --with-system-zlib --enable-shared --enable-tls --enable-languages=c c++ fortran --disable-libmudflap --disable-libssp --disable-libquadmath --disable-libsanitizer --disable-nls --disable-bootstrap --src=/builds/canaan-creative/riscv-toolchain/gcc --disable-multilib --with-abi=lp64d --with-arch=rv64imafdcv --with-tune=rocket 'CFLAGS_FOR_TARGET=-O2   -mcmodel=medany -march=rv64imafdcv -mabi=lp64d' 'CXXFLAGS_FOR_TARGET=-O2   -mcmodel=medany -march=rv64imafdcv -mabi=lp64d']
+  ignore line: [Thread model: posix]
+  ignore line: [Supported LTO compression algorithms: zlib]
+  ignore line: [gcc version 12.0.1 20220505 (prerelease) (GCC) ]
+  ignore line: [COLLECT_GCC_OPTIONS='-fopenmp' '-march=rv64imafdcv' '-mabi=lp64d' '-mcmodel=medany' '-v' '-o' 'CMakeFiles/cmTC_c5fbd.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-shared-libgcc' '-mtune=rocket' '-misa-spec=20191213' '-march=rv64imafdcv_zicsr_zve32f_zve32x_zve64d_zve64f_zve64x_zvl128b_zvl32b_zvl64b' '-pthread' '-dumpdir' 'CMakeFiles/cmTC_c5fbd.dir/']
+  ignore line: [ /home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../libexec/gcc/riscv64-unknown-linux-musl/12.0.1/cc1plus -quiet -v -iprefix /home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/ -D_GNU_SOURCE -D_REENTRANT /usr/share/cmake-3.22/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles/cmTC_c5fbd.dir/ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -march=rv64imafdcv -mabi=lp64d -mcmodel=medany -mtune=rocket -misa-spec=20191213 -march=rv64imafdcv_zicsr_zve32f_zve32x_zve64d_zve64f_zve64x_zvl128b_zvl32b_zvl64b -version -fopenmp -o /tmp/ccLXwrnK.s]
+  ignore line: [GNU C++17 (GCC) version 12.0.1 20220505 (prerelease) (riscv64-unknown-linux-musl)]
+  ignore line: [	compiled by GNU C version 9.4.0  GMP version 6.2.1  MPFR version 4.1.0  MPC version 1.2.1  isl version isl-0.24-GMP]
+  ignore line: []
+  ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+  ignore line: [ignoring duplicate directory "/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/../../lib/gcc/riscv64-unknown-linux-musl/12.0.1/../../../../riscv64-unknown-linux-musl/include/c++/12.0.1"]
+  ignore line: [ignoring duplicate directory "/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/../../lib/gcc/riscv64-unknown-linux-musl/12.0.1/../../../../riscv64-unknown-linux-musl/include/c++/12.0.1/riscv64-unknown-linux-musl"]
+  ignore line: [ignoring duplicate directory "/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/../../lib/gcc/riscv64-unknown-linux-musl/12.0.1/../../../../riscv64-unknown-linux-musl/include/c++/12.0.1/backward"]
+  ignore line: [ignoring nonexistent directory "/builds/canaan-creative/riscv-toolchain/install-native//riscv64-unknown-linux-musl/usr/local/include"]
+  ignore line: [ignoring duplicate directory "/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/../../lib/gcc/riscv64-unknown-linux-musl/12.0.1/../../../../riscv64-unknown-linux-musl/include"]
+  ignore line: [ignoring nonexistent directory "/builds/canaan-creative/riscv-toolchain/install-native//riscv64-unknown-linux-musl/usr/include"]
+  ignore line: [ignoring duplicate directory "/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/../../lib/gcc/riscv64-unknown-linux-musl/12.0.1/include"]
+  ignore line: [#include "..." search starts here:]
+  ignore line: [#include <...> search starts here:]
+  ignore line: [ /home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/../../../../riscv64-unknown-linux-musl/include/c++/12.0.1]
+  ignore line: [ /home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/../../../../riscv64-unknown-linux-musl/include/c++/12.0.1/riscv64-unknown-linux-musl]
+  ignore line: [ /home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/../../../../riscv64-unknown-linux-musl/include/c++/12.0.1/backward]
+  ignore line: [ /home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/../../../../riscv64-unknown-linux-musl/include]
+  ignore line: [ /home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/include]
+  ignore line: [End of search list.]
+  ignore line: [GNU C++17 (GCC) version 12.0.1 20220505 (prerelease) (riscv64-unknown-linux-musl)]
+  ignore line: [	compiled by GNU C version 9.4.0  GMP version 6.2.1  MPFR version 4.1.0  MPC version 1.2.1  isl version isl-0.24-GMP]
+  ignore line: []
+  ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+  ignore line: [Compiler executable checksum: 2a7c4c9326bc576a073cebd355eeafab]
+  ignore line: [COLLECT_GCC_OPTIONS='-fopenmp' '-march=rv64imafdcv' '-mabi=lp64d' '-mcmodel=medany' '-v' '-o' 'CMakeFiles/cmTC_c5fbd.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-shared-libgcc' '-mtune=rocket' '-misa-spec=20191213' '-march=rv64imafdcv_zicsr_zve32f_zve32x_zve64d_zve64f_zve64x_zvl128b_zvl32b_zvl64b' '-pthread' '-dumpdir' 'CMakeFiles/cmTC_c5fbd.dir/']
+  ignore line: [ /home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/../../../../riscv64-unknown-linux-musl/bin/as -v --traditional-format -march=rv64imafdcv -march=rv64imafdcv_zicsr_zve32f_zve32x_zve64d_zve64f_zve64x_zvl128b_zvl32b_zvl64b -mabi=lp64d -misa-spec=20191213 -o CMakeFiles/cmTC_c5fbd.dir/CMakeCXXCompilerABI.cpp.obj /tmp/ccLXwrnK.s]
+  ignore line: [GNU assembler version 2.39 (riscv64-unknown-linux-musl) using BFD version (GNU Binutils) 2.39]
+  ignore line: [COMPILER_PATH=/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../libexec/gcc/riscv64-unknown-linux-musl/12.0.1/:/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../libexec/gcc/:/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/../../../../riscv64-unknown-linux-musl/bin/]
+  ignore line: [LIBRARY_PATH=/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/:/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/:/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/../../../../riscv64-unknown-linux-musl/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-fopenmp' '-march=rv64imafdcv' '-mabi=lp64d' '-mcmodel=medany' '-v' '-o' 'CMakeFiles/cmTC_c5fbd.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-shared-libgcc' '-mtune=rocket' '-misa-spec=20191213' '-march=rv64imafdcv_zicsr_zve32f_zve32x_zve64d_zve64f_zve64x_zvl128b_zvl32b_zvl64b' '-pthread' '-dumpdir' 'CMakeFiles/cmTC_c5fbd.dir/CMakeCXXCompilerABI.cpp.']
+  ignore line: [Linking CXX executable cmTC_c5fbd]
+  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c5fbd.dir/link.txt --verbose=1]
+  ignore line: [/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/riscv64-unknown-linux-musl-g++  -fopenmp -march=rv64imafdcv -mabi=lp64d -mcmodel=medany   -v CMakeFiles/cmTC_c5fbd.dir/CMakeCXXCompilerABI.cpp.obj -o cmTC_c5fbd ]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/riscv64-unknown-linux-musl-g++]
+  ignore line: [COLLECT_LTO_WRAPPER=/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../libexec/gcc/riscv64-unknown-linux-musl/12.0.1/lto-wrapper]
+  ignore line: [Target: riscv64-unknown-linux-musl]
+  ignore line: [Configured with: /builds/canaan-creative/riscv-toolchain/gcc/configure --target=riscv64-unknown-linux-musl --prefix=/builds/canaan-creative/riscv-toolchain/install-native/ --with-sysroot=/builds/canaan-creative/riscv-toolchain/install-native//riscv64-unknown-linux-musl --with-system-zlib --enable-shared --enable-tls --enable-languages=c c++ fortran --disable-libmudflap --disable-libssp --disable-libquadmath --disable-libsanitizer --disable-nls --disable-bootstrap --src=/builds/canaan-creative/riscv-toolchain/gcc --disable-multilib --with-abi=lp64d --with-arch=rv64imafdcv --with-tune=rocket 'CFLAGS_FOR_TARGET=-O2   -mcmodel=medany -march=rv64imafdcv -mabi=lp64d' 'CXXFLAGS_FOR_TARGET=-O2   -mcmodel=medany -march=rv64imafdcv -mabi=lp64d']
+  ignore line: [Thread model: posix]
+  ignore line: [Supported LTO compression algorithms: zlib]
+  ignore line: [gcc version 12.0.1 20220505 (prerelease) (GCC) ]
+  ignore line: [COMPILER_PATH=/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../libexec/gcc/riscv64-unknown-linux-musl/12.0.1/:/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../libexec/gcc/:/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/../../../../riscv64-unknown-linux-musl/bin/]
+  ignore line: [LIBRARY_PATH=/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/:/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/:/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/../../../../riscv64-unknown-linux-musl/lib/]
+  ignore line: [Reading specs from /home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/../../../../riscv64-unknown-linux-musl/lib/libgomp.spec]
+  ignore line: [COLLECT_GCC_OPTIONS='-fopenmp' '-march=rv64imafdcv' '-mabi=lp64d' '-mcmodel=medany' '-v' '-o' 'cmTC_c5fbd' '-shared-libgcc' '-mtune=rocket' '-misa-spec=20191213' '-march=rv64imafdcv_zicsr_zve32f_zve32x_zve64d_zve64f_zve64x_zvl128b_zvl32b_zvl64b' '-pthread' '-dumpdir' 'cmTC_c5fbd.']
+  link line: [ /home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../libexec/gcc/riscv64-unknown-linux-musl/12.0.1/collect2 -plugin /home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../libexec/gcc/riscv64-unknown-linux-musl/12.0.1/liblto_plugin.so -plugin-opt=/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../libexec/gcc/riscv64-unknown-linux-musl/12.0.1/lto-wrapper -plugin-opt=-fresolution=/tmp/ccAA67kO.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-latomic -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --sysroot=/builds/canaan-creative/riscv-toolchain/install-native//riscv64-unknown-linux-musl --eh-frame-hdr -melf64lriscv -dynamic-linker /lib/ld-musl-riscv64.so.1 -o cmTC_c5fbd /home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/../../../../riscv64-unknown-linux-musl/lib/crt1.o /home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/crti.o /home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/crtbegin.o -L/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1 -L/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc -L/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/../../../../riscv64-unknown-linux-musl/lib CMakeFiles/cmTC_c5fbd.dir/CMakeCXXCompilerABI.cpp.obj -lstdc++ -lm -lgomp -lgcc_s -lgcc -lpthread -lc --push-state --as-needed -latomic --pop-state -lgcc_s -lgcc /home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/crtend.o /home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/crtn.o]
+    arg [/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../libexec/gcc/riscv64-unknown-linux-musl/12.0.1/collect2] ==> ignore
+    arg [-plugin] ==> ignore
+    arg [/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../libexec/gcc/riscv64-unknown-linux-musl/12.0.1/liblto_plugin.so] ==> ignore
+    arg [-plugin-opt=/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../libexec/gcc/riscv64-unknown-linux-musl/12.0.1/lto-wrapper] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/ccAA67kO.res] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lpthread] ==> ignore
+    arg [-plugin-opt=-pass-through=-lc] ==> ignore
+    arg [-plugin-opt=-pass-through=-latomic] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [--sysroot=/builds/canaan-creative/riscv-toolchain/install-native//riscv64-unknown-linux-musl] ==> ignore
+    arg [--eh-frame-hdr] ==> ignore
+    arg [-melf64lriscv] ==> ignore
+    arg [-dynamic-linker] ==> ignore
+    arg [/lib/ld-musl-riscv64.so.1] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTC_c5fbd] ==> ignore
+    arg [/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/../../../../riscv64-unknown-linux-musl/lib/crt1.o] ==> obj [/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/../../../../riscv64-unknown-linux-musl/lib/crt1.o]
+    arg [/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/crti.o] ==> obj [/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/crti.o]
+    arg [/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/crtbegin.o] ==> obj [/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/crtbegin.o]
+    arg [-L/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1] ==> dir [/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1]
+    arg [-L/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc] ==> dir [/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc]
+    arg [-L/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/../../../../riscv64-unknown-linux-musl/lib] ==> dir [/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/../../../../riscv64-unknown-linux-musl/lib]
+    arg [CMakeFiles/cmTC_c5fbd.dir/CMakeCXXCompilerABI.cpp.obj] ==> ignore
+    arg [-lstdc++] ==> lib [stdc++]
+    arg [-lm] ==> lib [m]
+    arg [-lgomp] ==> lib [gomp]
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [-lgcc] ==> lib [gcc]
+    arg [-lpthread] ==> lib [pthread]
+    arg [-lc] ==> lib [c]
+    arg [--push-state] ==> ignore
+    arg [--as-needed] ==> ignore
+    arg [-latomic] ==> lib [atomic]
+    arg [--pop-state] ==> ignore
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [-lgcc] ==> lib [gcc]
+    arg [/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/crtend.o] ==> obj [/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/crtend.o]
+    arg [/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/crtn.o] ==> obj [/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/crtn.o]
+  collapse obj [/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/../../../../riscv64-unknown-linux-musl/lib/crt1.o] ==> [/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/riscv64-unknown-linux-musl/lib/crt1.o]
+  collapse obj [/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/crti.o] ==> [/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/lib/gcc/riscv64-unknown-linux-musl/12.0.1/crti.o]
+  collapse obj [/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/crtbegin.o] ==> [/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/lib/gcc/riscv64-unknown-linux-musl/12.0.1/crtbegin.o]
+  collapse obj [/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/crtend.o] ==> [/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/lib/gcc/riscv64-unknown-linux-musl/12.0.1/crtend.o]
+  collapse obj [/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/crtn.o] ==> [/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/lib/gcc/riscv64-unknown-linux-musl/12.0.1/crtn.o]
+  collapse library dir [/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1] ==> [/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/lib/gcc/riscv64-unknown-linux-musl/12.0.1]
+  collapse library dir [/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc] ==> [/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/lib/gcc]
+  collapse library dir [/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin/../lib/gcc/riscv64-unknown-linux-musl/12.0.1/../../../../riscv64-unknown-linux-musl/lib] ==> [/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/riscv64-unknown-linux-musl/lib]
+  implicit libs: [stdc++;m;gomp;gcc_s;gcc;pthread;c;atomic;gcc_s;gcc]
+  implicit objs: [/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/riscv64-unknown-linux-musl/lib/crt1.o;/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/lib/gcc/riscv64-unknown-linux-musl/12.0.1/crti.o;/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/lib/gcc/riscv64-unknown-linux-musl/12.0.1/crtbegin.o;/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/lib/gcc/riscv64-unknown-linux-musl/12.0.1/crtend.o;/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/lib/gcc/riscv64-unknown-linux-musl/12.0.1/crtn.o]
+  implicit dirs: [/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/lib/gcc/riscv64-unknown-linux-musl/12.0.1;/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/lib/gcc;/home/lvzhenhao/pro/k230/init_factory/canmv_k230/toolchain/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/riscv64-unknown-linux-musl/lib]
+  implicit fwks: []
+
+
