@@ -1,0 +1,10 @@
+# VS/msbuild
+*.suo
+*.user
+*.VC.*db
+Directory.build.props
+# Unix build
+*.o
+*.a
+*.so
+

@@ -1,0 +1,119 @@
+environment:
+  # we need different environments per image but matrices cannot
+  # be combined so need to spell out the image/env combinations manually.
+  matrix:
+    - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2022
+      MICROPY_CPYTHON3: c:/python39/python.exe
+      FullTypeCheck: 0
+      BuildMsys2Version: 1
+    - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2017
+      MICROPY_CPYTHON3: c:/python38/python.exe
+      FullTypeCheck: 1
+      BuildMsys2Version: 0
+    - APPVEYOR_BUILD_WORKER_IMAGE: Ubuntu
+      MICROPY_CPYTHON3: python3
+      FullTypeCheck: 0
+    - APPVEYOR_BUILD_WORKER_IMAGE: Ubuntu
+      MICROPY_CPYTHON3: python3
+      FullTypeCheck: 1
+
+configuration:
+- Debug
+- Release
+
+platform:
+- Win32
+- x64
+
+matrix:
+  fast_finish: true
+  # Only build 64bit release builds for unix.
+  exclude:
+    - configuration: Debug
+      APPVEYOR_BUILD_WORKER_IMAGE: Ubuntu
+    - platform: Win32
+      APPVEYOR_BUILD_WORKER_IMAGE: Ubuntu
+
+skip_tags: true
+
+deploy: off
+
+nuget:
+  disable_publish_on_pr: true
+
+before_build:
+- ps: |
+    git clone -q --depth 1 --branch=windows-pyd https://github.com/stinos/micropython ../micropython
+
+for:
+-
+  matrix:
+    only:
+      - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2017
+      - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2022
+
+  build_script:
+  - ps: |
+      Write-Host "platform=$env:platform configuration=$env:configuration"
+
+      # Not 100% sure why WindowsTargetPlatformVersion etc are needed in Powershell build scripts,
+      # but not when running cmd scripts or when building projects directly. But without it result is
+      # "The build tools for Visual Studio 2010 (Platform Toolset = 'v100') cannot be found"
+      foreach ($projectDir in @('../micropython/ports/windows', './')) {
+      @"
+      <Project>
+        <PropertyGroup>
+          <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+          <PlatformToolset>v141</PlatformToolset>
+        </PropertyGroup>
+        <ItemDefinitionGroup>
+          <ClCompile>
+            <PreProcessorDefinitions>UPYWRAP_FULLTYPECHECK=$env:FullTypeCheck;%(PreProcessorDefinitions)</PreProcessorDefinitions>
+          </ClCompile>
+        </ItemDefinitionGroup>
+      </Project>
+      "@ | Set-Content (Join-Path $projectDir 'directory.build.props')
+      }
+
+      msbuild ../micropython/ports/windows/micropythoncore.vcxproj "/p:platform=$env:platform;configuration=$env:configuration"
+      msbuild ../micropython/ports/windows/micropython.vcxproj "/p:platform=$env:platform;configuration=$env:configuration"
+      msbuild micropython-wrap.vcxproj "/p:platform=$env:platform;configuration=$env:configuration"
+
+  test_script:
+  - ps: |
+      $env:MICROPY_MICROPYTHON = (msbuild ../micropython/ports/windows/micropython.vcxproj /nologo /v:m "/p:platform=$env:platform;configuration=$env:configuration" /t:ShowTargetPath).Trim()
+      # Some versions of msbuild output 2 lines, one with only whitespace, in which case we assigned an array
+      # of strings to $env:MICROPY_MICROPYTHON. And because environment variables must be strings, PS does
+      # that by concatenating the array elements. So: trim again to leave only the path.
+      $env:MICROPY_MICROPYTHON = $env:MICROPY_MICROPYTHON.Trim()
+      # The .pyd is in this directory as well.
+      $env:MICROPYPATH = Split-Path -Parent $env:MICROPY_MICROPYTHON
+
+      & $env:MICROPY_CPYTHON3 ../micropython/tests/run-tests.py --keep-path -d tests/py
+
+      if ($env:BuildMsys2Version -eq 1 -and $env:platform -eq 'x64' -and $env:configuration -eq 'Release') {
+        $env:MSYSTEM = 'MINGW64'
+        $env:CHERE_INVOKING = 'enabled_from_arguments'
+        $env:LIB=''
+        C:\msys64\usr\bin\bash.exe -l -c "gcc --version"
+        C:\msys64\usr\bin\bash.exe -l -c "make V=1 MICROPYTHON_PORT_DIR=../micropython/ports/windows clean"
+        # The redirection is because 'make submodules' might get called, which in turn calls git commands which write to stderr
+        # and that is considered an error on Appveyor. And GIT_REDIRECT_STDERR seems to have no effect on the git version used in this msys2.
+        &{C:\msys64\usr\bin\bash.exe -l -c "make V=1 PYTHON=/usr/bin/python3 MICROPYTHON_PORT_DIR=../micropython/ports/windows test"} 2>&1
+        if ($LASTEXITCODE -ne 0) {
+          throw "MSYS2 build exited with code $LASTEXITCODE"
+        }
+      }
+
+-
+  matrix:
+    only:
+      - APPVEYOR_BUILD_WORKER_IMAGE: Ubuntu
+
+  build_script:
+  - ps: |
+      make test CC=gcc-9 CXX=g++-9 CPPFLAGS_EXTRA="-DUPYWRAP_FULLTYPECHECK=$env:FullTypeCheck"
+
+on_failure:
+- ps: |
+    & $env:MICROPY_CPYTHON3 ../micropython/tests/run-tests.py --print-failures
