@@ -1,0 +1,33 @@
+if TARGET_K230D_CANMV_BPI_ZERO
+
+    config SYS_CPU
+        default "k230"
+
+    config SYS_VENDOR
+        default "kendryte"
+
+    config SYS_BOARD
+        default "k230d_canmv_bpi_zero"
+
+    config SYS_CONFIG_NAME
+        default "k230_common"
+
+    config BOARD_SPECIFIC_OPTIONS
+        def_bool y
+        select KENDRYTE_K230
+
+	choice
+		prompt "DDR Type And Frequency"
+		default K230D_SIP_LPDDR4_2667
+
+		config K230D_SIP_LPDDR4_1600
+			bool "SiP LPDDR4@1600"
+		config K230D_SIP_LPDDR4_2667
+			bool "SiP LPDDR4@2667"
+		config K230D_SIP_LPDDR4_3200_ALLODT
+			bool "SiP LPDDR4@3200 allodt"
+		config K230D_SIP_LPDDR4_3200_HWODT
+			bool "SiP LPDDR4@3200 hwodt"
+	endchoice
+
+endif

@@ -1,0 +1,13 @@
+/dts-v1/;
+#include "k230_canmv_dongshanpi.dtsi"
+
+/ {
+	model = "kendryte k230 canmv dongshanpi 512MiB";
+	compatible = "kendryte,k230_canmv_dongshanpi";
+
+	memory@0 {
+		device_type = "memory";
+		//512MB
+		reg = <0x0 0 0x0 0x20000000>;
+	};
+};

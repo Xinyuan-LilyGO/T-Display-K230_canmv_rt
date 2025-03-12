@@ -1,0 +1,26 @@
+if TARGET_K230_CANMV
+
+    config SYS_CPU
+        default "k230"
+
+    config SYS_VENDOR
+        default "kendryte"
+
+    config SYS_BOARD
+        default "k230_canmv"
+
+    config SYS_CONFIG_NAME
+        default "k230_common"
+
+    config BOARD_SPECIFIC_OPTIONS
+        def_bool y
+        select KENDRYTE_K230
+
+    choice
+        prompt "DDR Type And Frequency"
+        default CANMV_LPDDR3_2133
+
+        config CANMV_LPDDR3_2133
+            bool "k230 canmv ddr3 2133"    
+    endchoice
+endif

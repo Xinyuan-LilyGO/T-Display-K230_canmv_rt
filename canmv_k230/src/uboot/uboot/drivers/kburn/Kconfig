@@ -1,0 +1,32 @@
+menu "Kendryte burning support"
+
+config KBURN
+    bool
+    imply KBURN_OVER_USB if USB_GADGET
+
+config KBURN_OVER_USB
+    bool
+	depends on USB_GADGET
+
+if KBURN
+config KBURN_MMC
+    bool "MMC backend for KBURN"
+    select DM_MMC
+    help
+	  This option enables using KBURN to read and write to MMC based storage.
+
+config KBURN_SF
+    bool "sf(SPI Flash) backend for KBURN"
+    select DM_SPI_FLASH
+	help
+	  This option enables using KBURN to read and write to SPI flash based
+	  storage.
+
+config KBURN_MTD
+	bool "MTD back end for KBURN"
+	depends on DM_MTD
+	help
+	  This option enables using KBURN to read and write to on any MTD device.
+
+endif
+endmenu
