@@ -12,7 +12,7 @@ linux下直接使用dd命令进行烧录，windows下使用烧录工具进行烧
 Operator:
 
 compile app:
-##change to current dir anmv_k230
+change to current dir anmv_k230
 cd anmv_k230/src/rtsmart/mpp
 source build.sh
 cd /userapps/sample/sample_display
