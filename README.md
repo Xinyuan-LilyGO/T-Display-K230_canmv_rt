@@ -11,9 +11,10 @@ base platform:
 linux下直接使用dd命令进行烧录，windows下使用烧录工具进行烧录，可参考K230 CanMV 如何烧录固件
 Operator:
 
+compile app:
+change to current dir anmv_k230
 
-      compile app:
-      change to current dir anmv_k230
+      
       cd anmv_k230/src/rtsmart/mpp
       source build.sh
       cd /userapps/sample/sample_display
