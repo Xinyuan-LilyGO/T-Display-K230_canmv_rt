@@ -22,5 +22,6 @@ change to current dir anmv_k230
 in the dir sample/elf     generate sample_display.elf
 
 default app: sample_display
+将sample_display.elf 改名为app.elf   拷到sd卡即可运行
       
 
