@@ -17,7 +17,7 @@ cd anmv_k230/src/rtsmart/mpp
 source build.sh
 cd /userapps/sample/sample_display
 make
-in the sample/elf 
+in the sample/elf generate   sample_display.elf
 
 default app: sample_display
       
