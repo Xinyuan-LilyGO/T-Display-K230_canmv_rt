@@ -11,6 +11,16 @@ base platform:
 linux下直接使用dd命令进行烧录，windows下使用烧录工具进行烧录，可参考K230 CanMV 如何烧录固件
 Operator:
 
+编译固件：
+
+
+      cd anmv_k230
+      time make log
+     
+canmv_k230/output/k230_canmv_v3p0    生成CanMV-K230-V3P0_rtsmart_localnncase_v2.9.0.img   可烧录至sd卡
+
+
+
 compile app:
 change to current dir anmv_k230
 
