@@ -18,14 +18,17 @@
 ## Version iteration:
 | Version                              | Update date                       |Update description|
 | :-------------------------------: | :-------------------------------: | :-------------------------------: |
-| T-Display-S3-AMOLED-1.43_V1.0     | 2024-05-20      |Original version      |
-| T-Display-S3-AMOLED-1.43-1.75_V1.0     | 2024-11-25       |   Additional wiring harness, additional H0175Y003AM screen compatibility   |
+| T-Display-K230_canmv_rt
+_V1.0     | 2025-02-20      |Original version      |
+| T-Display-K230_canmv_rt
+_V1.1     | 2025-03-25       |  *************************************   |
 
 ## PurchaseLink
 
-| Product                     | SOC           |  FLASH  |  PSRAM   | Link                   |
+| Product                     | SOC           |  FLASH  |  LPDDR   | Link                   |
 | :------------------------: | :-----------: |:-------: | :---------: | :------------------: |
-| T-Display-S3-AMOLED-1.43-1.75_V1.0   | ESP32S3R8 |   16M   | 8M (Octal SPI) | [LILYGO Mall](https://lilygo.cc/products/t-display-s3-amoled-1-64?_pos=8&_sid=eacfa858d&_ss=r)  |
+| T-Display-K230_canmv_rt
+   | k230 |   SD Card   | 1GiB (Octal SPI) | [LILYGO Mall]([https://lilygo.cc/products/t-display-s3-amoled-1-64?_pos=8&_sid=eacfa858d&_ss=r](https://lilygo.cc/products/t-display-k230?_pos=2&_psq=k230&_ss=e&_v=1.0&variant=45197449953461))  |
 
 ## Directory
 - [Describe](#describe)
