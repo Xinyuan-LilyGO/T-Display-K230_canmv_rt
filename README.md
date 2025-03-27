@@ -25,7 +25,7 @@
 
 | Product                     | SOC           |  FLASH  |  LPDDR   | Link                   |
 | :------------------------: | :-----------: |:-------: | :---------: | :------------------: |
-| T-Display-K230_canmv_rt| k230 |   SD Card   | 1GiB (Octal SPI) | [LILYGO Mall]([https://lilygo.cc/products/t-display-s3-amoled-1-64?_pos=8&_sid=eacfa858d&_ss=r](https://lilygo.cc/products/t-display-k230?_pos=2&_psq=k230&_ss=e&_v=1.0&variant=45197449953461))  |
+| T-Display-K230_canmv_rt| k230 |   SD Card   | 1GiB | [LILYGO Mall](https://lilygo.cc/products/t-display-k230?_pos=2&_psq=k230&_ss=e&_v=1.0&variant=45197449953461)  |
 
 ## Directory
 - [Describe](#describe)
