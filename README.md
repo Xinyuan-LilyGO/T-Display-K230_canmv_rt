@@ -18,17 +18,14 @@
 ## Version iteration:
 | Version                              | Update date                       |Update description|
 | :-------------------------------: | :-------------------------------: | :-------------------------------: |
-| T-Display-K230_canmv_rt
-_V1.0     | 2025-02-20      |Original version      |
-| T-Display-K230_canmv_rt
-_V1.1     | 2025-03-25       |  *************************************   |
+| T-Display-K230_canmv_rt_V1.0     | 2025-02-20      |Original version      |
+| T-Display-K230_canmv_rt_V1.1     | 2025-03-25       |  *************************************   |
 
 ## PurchaseLink
 
 | Product                     | SOC           |  FLASH  |  LPDDR   | Link                   |
 | :------------------------: | :-----------: |:-------: | :---------: | :------------------: |
-| T-Display-K230_canmv_rt
-   | k230 |   SD Card   | 1GiB (Octal SPI) | [LILYGO Mall]([https://lilygo.cc/products/t-display-s3-amoled-1-64?_pos=8&_sid=eacfa858d&_ss=r](https://lilygo.cc/products/t-display-k230?_pos=2&_psq=k230&_ss=e&_v=1.0&variant=45197449953461))  |
+| T-Display-K230_canmv_rt| k230 |   SD Card   | 1GiB (Octal SPI) | [LILYGO Mall]([https://lilygo.cc/products/t-display-s3-amoled-1-64?_pos=8&_sid=eacfa858d&_ss=r](https://lilygo.cc/products/t-display-k230?_pos=2&_psq=k230&_ss=e&_v=1.0&variant=45197449953461))  |
 
 ## Directory
 - [Describe](#describe)
