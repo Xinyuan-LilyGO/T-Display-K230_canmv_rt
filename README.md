@@ -7,7 +7,7 @@
  * @LastEditTime: 2025-03-05 18:07:02
  * @License: GPL 3.0
 -->
-<h1 align = "center">T-Display-S3-AMOLED-1.43-1.75</h1>
+<h1 align = "center">T-Display-K230_canmv_rt</h1>
 
 <p align="center" width="100%">
     <img src="image/14.jpg" alt="">
