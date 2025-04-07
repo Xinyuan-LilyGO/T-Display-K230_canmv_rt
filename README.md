@@ -41,7 +41,7 @@
 
 ## Describe
 
-T-Display-S3-AMOLED-1.43-1.75 is a development board featuring a high-definition AMOLED display with a circular shape, based on the ESP32S3, designed for standalone battery connectivity.
+T-Display-K230 is a development board featuring a high-definition AMOLED display, based on the k230, designed for standalone battery connectivity.
 
 ## Preview
 
