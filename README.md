@@ -89,11 +89,6 @@ T-Display-K230 is a development board featuring a high-definition AMOLED display
 
 | Firmware | Description | Picture |
 | ------  | ------  | ------ |
-| [Original_Test](./firmware/(修改屏幕频率为6.5MHz)[T-Display-S3-AMOLED-1.43_V1.0][Original_Test_DO0143FAT01(DO0143FMST02)]_firmware_202501231354.bin) | Original |  |
-| [Light_Sleep](./firmware/[T-Display-S3-AMOLED-1.43_V1.0][Light_Sleep_Wake_Up]_firmware_V1.0.0.bin) |  |  |
-| [Deep_Sleep](./firmware/[T-Display-S3-AMOLED-1.43_V1.0][Deep_Sleep_Wake_Up]_firmware_V1.0.0.bin) |  |  |
-| [Original_Test_H0175Y003AM](./firmware/(更新开机启动认证图片)[T-Display-S3-AMOLED-1.75_V1.0][Original_Test_H0175Y003AM]_firmware_202501141532.bin) | Original |  |
-| [Original_Test_DO0143FMST10](./firmware/(更新开机启动认证图片)[T-Display-S3-AMOLED-1.43_V1.0][Original_Test_DO0143FMST10]_firmware_202501141532.bin) | Original |  |
 
 ### PlatformIO
 1. Install[VisualStudioCode](https://code.visualstudio.com/Download),Choose installation based on your system type.
