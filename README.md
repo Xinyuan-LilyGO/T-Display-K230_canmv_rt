@@ -69,7 +69,7 @@ T-Display-K230 is a development board featuring a high-definition AMOLED display
 
 * Chip: GT9895
 * Bus communication protocol: IIC
-
+<!--
 ### 4. Charging chip
 
 * Chip: SY6970
@@ -80,7 +80,7 @@ T-Display-K230 is a development board featuring a high-definition AMOLED display
 
 * Chip: PCF8563
 * Bus communication protocol: IIC
-
+-->
 ## QuickStart
 
 ### Examples Support
