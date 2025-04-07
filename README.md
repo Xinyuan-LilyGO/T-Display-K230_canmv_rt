@@ -61,7 +61,7 @@ T-Display-K230 is a development board featuring a high-definition AMOLED display
 ### 2. Screen
 
 * Size: 4.1-inch AMOLED  screen
-* Resolution: 168x1232px
+* Resolution: 568x1232px
 * Screen type: AMOLED
 * Driver chip: RM69A10
 
