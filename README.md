@@ -19,7 +19,7 @@
 | Version                              | Update date                       |Update description|
 | :-------------------------------: | :-------------------------------: | :-------------------------------: |
 | T-Display-K230_canmv_rt_V1.0     | 2025-02-20      |Original version      |
-| T-Display-K230_canmv_rt_V1.1     | 2025-03-25       |  *************************************   |
+| T-Display-K230_canmv_rt_V1.1     | 2025-03-25       |  ********************   |
 
 ## PurchaseLink
 
