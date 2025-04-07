@@ -85,27 +85,7 @@ T-Display-K230 is a development board featuring a high-definition AMOLED display
 
 ### Examples Support
 
-| Example | Support IDE And Version| Description | Picture |
-| ------  | ------  | ------ | ------ | 
-| [FT3168](./examples/FT3168) | `[Platformio IDE][espressif32-v6.5.0]`<br />`[Arduino IDE][esp32_v2.0.14]` |  |  |
-| [Original Test](./examples/Original_Test) | `[Platformio IDE][espressif32-v6.5.0]`<br />`[Arduino IDE][esp32_v2.0.14]` | DO0143FAT01(DO0143FMST02)Product factory original testing |  |
-| [GFX](./examples/GFX) | `[Platformio IDE][espressif32-v6.5.0]`<br />`[Arduino IDE][esp32_v2.0.14]` |  |  |
-| [GFX FT3168 Image](./examples/GFX_FT3168_Image) | `[Platformio IDE][espressif32-v6.5.0]`<br />`[Arduino IDE][esp32_v2.0.14]` |  |  |
-| [SY6970](./examples/SY6970) | `[Platformio IDE][espressif32-v6.5.0]`<br />`[Arduino IDE][esp32_v2.0.14]` |  |  |
-| [SY6970 OTG](./examples/SY6970_OTG) | `[Platformio IDE][espressif32-v6.5.0]`<br />`[Arduino IDE][esp32_v2.0.14]` |  |  |
-| [Light Sleep Wake Up](./examples/Light_Sleep_Wake_Up) | `[Platformio IDE][espressif32-v6.5.0]`<br />`[Arduino IDE][esp32_v2.0.14]` |  |  |
-| [Deep Sleep Wake Up](./examples/Deep_Sleep_Wake_Up) | `[Platformio IDE][espressif32-v6.5.0]`<br />`[Arduino IDE][esp32_v2.0.14]` |  |  |
-| [PCF8563](./examples/PCF8563) | `[Platformio IDE][espressif32-v6.5.0]`<br />`[Arduino IDE][esp32_v2.0.14]` |  |  |
-| [PCF8563 Scheduled INT](./examples/PCF8563_Scheduled_INT) | `[Platformio IDE][espressif32-v6.5.0]`<br />`[Arduino IDE][esp32_v2.0.14]` |  |  |
-| [PCF8563 Timer INT](./examples/PCF8563_Timer_INT) | `[Platformio IDE][espressif32-v6.5.0]`<br />`[Arduino IDE][esp32_v2.0.14]` |  |  |
-| [Deep Sleep PCF8563 Scheduled Wake Up](./examples/Deep_Sleep_PCF8563_Scheduled_Wake_Up) | `[Platformio IDE][espressif32-v6.5.0]`<br />`[Arduino IDE][esp32_v2.0.14]` |  |  |
-| [Deep Sleep PCF8563 Timer Wake Up](./examples/Deep_Sleep_PCF8563_Timer_Wake_Up) | `[Platformio IDE][espressif32-v6.5.0]`<br />`[Arduino IDE][esp32_v2.0.14]` |  |  |
-| [SD](./examples/SD) | `[Platformio IDE][espressif32-v6.5.0]`<br />`[Arduino IDE][esp32_v2.0.14]` |  |  |
-| [Original_Test_H0175Y003AM](./examples/Original_Test_H0175Y003AM) | `[Platformio IDE][espressif32-v6.5.0]`<br />`[Arduino IDE][esp32_v2.0.14]` | H0175Y003AM new screen adaptation |  |
-| [Original_Test_DO0143FMST10](./examples/Original_Test_DO0143FMST10) | `[Platformio IDE][espressif32-v6.5.0]`<br />`[Arduino IDE][esp32_v2.0.14]` | DO0143FMST10 new screen adaptation |  |
-| [Deep_Sleep_Wake_Up_H0175Y003AM](./examples/Deep_Sleep_Wake_Up_H0175Y003AM) | `[Platformio IDE][espressif32-v6.5.0]`<br />`[Arduino IDE][esp32_v2.0.14]` | H0175Y003AM new screen adaptation |  |
-| [Light_Sleep_Wake_Up_H0175Y003AM](./examples/Light_Sleep_Wake_Up_H0175Y003AM) | `[Platformio IDE][espressif32-v6.5.0]`<br />`[Arduino IDE][esp32_v2.0.14]` | H0175Y003AM new screen adaptation |  |
-| [lvgl_benchmark](./examples/lvgl_benchmark) | `[Platformio IDE][espressif32-v6.5.0]`<br />`[Arduino IDE][esp32_v2.0.14]` |  |  |
+
 
 | Firmware | Description | Picture |
 | ------  | ------  | ------ |
