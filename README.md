@@ -55,9 +55,7 @@ T-Display-K230 is a development board featuring a high-definition AMOLED display
 
 ### 1.MCU
 
-* Chip: ESP32-S3-R8
-* PSRAM: 8M (Octal SPI) 
-* FLASH: 16M
+* Chip: k230
 * For more details, please visit[Espressif ESP32-S3 Datashee](https://www.espressif.com.cn/sites/default/files/documentation/esp32-s3_datasheet_en.pdf)
 
 ### 2. Screen
