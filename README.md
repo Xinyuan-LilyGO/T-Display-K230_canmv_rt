@@ -56,7 +56,7 @@ T-Display-K230 is a development board featuring a high-definition AMOLED display
 ### 1.MCU
 
 * Chip: k230
-* For more details, please visit[Espressif ESP32-S3 Datashee](https://www.espressif.com.cn/sites/default/files/documentation/esp32-s3_datasheet_en.pdf)
+* For more details, please visit[k230 Datashee](https://developer.canaan-creative.com/k230/dev/zh/00_hardware/K230_datasheet.html)
 
 ### 2. Screen
 
