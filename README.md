@@ -1,7 +1,7 @@
 <!--
  * @Description: None
  * @version: V1.0.0
- * @Author: LILYGO_L
+ * @Author: LILYGO
  * @Date: 2023-09-11 16:13:14
  * @LastEditors: Please set LastEditors
  * @LastEditTime: 2025-03-05 18:07:02
@@ -90,22 +90,23 @@ T-Display-K230 is a development board featuring a high-definition AMOLED display
 | Firmware | Description | Picture |
 | ------  | ------  | ------ |
 #### k230
-| Setting                               | Value                                 |
-| :-------------------------------: | :-------------------------------: |
-| Board                                 | ESP32S3 Dev Module           |
-| Upload Speed                     | 921600                               |
-| USB Mode                           | Hardware CDC and JTAG     |
-| USB CDC On Boot                | Enabled                              |
-| USB Firmware MSC On Boot | Disabled                             |
-| USB DFU On Boot                | Disabled                             |
-| CPU Frequency                   | 240MHz (WiFi)                    |
-| Flash Mode                         | QIO 80MHz                         |
-| Flash Size                           | 16MB (128Mb)                    |
-| Core Debug Level                | None                                 |
-| Partition Scheme                | 16M Flash (3MB APP/9.9MB FATFS) |
-| PSRAM                                | OPI PSRAM                         |
-| Arduino Runs On                  | Core 1                               |
-| Events Run On                     | Core 1                               |           
+| 序号 | 说明             |
+|------------|------------------|
+| 1      | CKLINK调试 |
+| 2      | LCD扩展, 4lane MIPI DSI|
+| 3      | LPDDR3 512MB|
+| 4      | K230 SoC |
+| 5      | 32Mbit QSPI NOR Flash|
+| 6      | Sensor转接卡 (4Lane MIPI CSI)|
+| 7      | 4GB eMMC|
+| 8      | USB转串口FT2232|
+| 9      | SD卡座|
+| 10     | USB转二路串口|
+| 11     | USB0可接USB转以太网|
+| 12     | 复位按键|
+| 13     | 电源开关|
+| 14     | Boot启动开关|
+| 15     | USB 5V电源|        
 
 6. Select the correct port.
 
