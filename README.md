@@ -92,9 +92,9 @@ T-Display-K230 is a development board featuring a high-definition AMOLED display
 #### k230
 | 序号 | 说明             |
 |------------|------------------|
-| 1      | CKLINK调试 |
-| 2      | LCD扩展, 4lane MIPI DSI|
-| 3      | LPDDR3 512MB|
+| 1      | CKLINK Debug |
+| 2      | LCD expand, 4lane MIPI DSI|
+| 3      | LPDDR4 1GB|
 | 4      | K230 SoC |
 | 5      | 32Mbit QSPI NOR Flash|
 | 6      | Sensor转接卡 (4Lane MIPI CSI)|
