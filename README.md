@@ -1,8 +1,9 @@
 <!--
+
  * @Description: None
  * @version: V1.0.0
  * @Author: LILYGO
- * @Date: 2023-09-11 16:13:14
+ * @Date: 2025-02-20 16:13:14
  * @LastEditors: Please set LastEditors
  * @LastEditTime: 2025-03-05 18:07:02
  * @License: GPL 3.0
@@ -10,8 +11,9 @@
 <h1 align = "center">T-Display-K230_canmv_rt</h1>
 
 <p align="center" width="100%">
-    <img src="image/14.jpg" alt="">
+    <img src="image/k230_display_product.png" alt="">
 </p>
+
 
 ## **English | [中文](./README_CN.md)**
 
@@ -19,7 +21,8 @@
 | Version                              | Update date                       |Update description|
 | :-------------------------------: | :-------------------------------: | :-------------------------------: |
 | T-Display-K230_canmv_rt_V1.0     | 2025-02-20      |Original version      |
-| T-Display-K230_canmv_rt_V1.1     | 2025-03-25       |  ********************   |
+| T-Display-K230_canmv_rt_V1.1     | 2025-03-25       | update lora model（sx1262） |
+|  |  |  |
 
 ## PurchaseLink
 
@@ -48,15 +51,16 @@ T-Display-K230 is a development board featuring a high-definition AMOLED display
 ### Actual Product Image
 
 <p align="center" width="100%">
-    <img src="image/14.jpg" alt="">
+    <img src="image/k230_display_product.png" alt="">
 </p>
+
 
 ## Module
 
 ### 1.MCU
 
 * Chip: k230
-* For more details, please visit[k230 Datashee](https://developer.canaan-creative.com/k230/dev/zh/00_hardware/K230_datasheet.html)
+* For more details, please visit[k230 Datashee](datasheet/K230_datasheet.pdf)
 
 ### 2. Screen
 
@@ -89,41 +93,41 @@ T-Display-K230 is a development board featuring a high-definition AMOLED display
 
 | Firmware | Description | Picture |
 | ------  | ------  | ------ |
+
 #### k230
-| 序号 | 说明             |
-|------------|------------------|
-| 1      | CKLINK Debug |
-| 2      | LCD expand, 4lane MIPI DSI|
-| 3      | LPDDR4 1GB|
-| 4      | K230 SoC |
-| 5      | 32Mbit QSPI NOR Flash|
-| 6      | Sensor转接卡 (4Lane MIPI CSI)|
-| 7      | 4GB eMMC|
-| 8      | USB转串口FT2232|
-| 9      | SD卡座|
-| 10     | USB转二路串口|
-| 11     | USB0可接USB转以太网|
-| 12     | 复位按键|
-| 13     | 电源开关|
-| 14     | Boot启动开关|
-| 15     | USB 5V电源|        
+
+1.
 
 6. Select the correct port.
 
-7. Click "<kbd>[√](image/8.png)</kbd>" in the upper right corner to compile,If the compilation is correct, connect the microcontroller to the computer,Click "<kbd>[→](image/9.png)</kbd>" in the upper right corner to download.
+6. Click "<kbd>[√](image/8.png)</kbd>" in the upper right corner to compile,If the compilation is correct, connect the microcontroller to the computer,Click "<kbd>[→](image/9.png)</kbd>" in the upper right corner to download.
 
 ### firmware download
-1. Open the project file "tools" and locate the ESP32 burning tool. Open it.
 
-2. Select the correct burning chip and burning method, then click "OK." As shown in the picture, follow steps 1->2->3->4->5 to burn the program. If the burning is not successful, press and hold the "BOOT-0" button and then download and burn again.
+### 1. Flashing on Windows Platform
 
-3. Burn the file in the root directory of the project file "[firmware](./firmware/)" file,There is a description of the firmware file version inside, just choose the appropriate version to download.
+On a Windows system, you can use the Rufus tool to flash the firmware to a TF card. The download address for Rufus is: [Rufus Official Website](http://rufus.ie/downloads/).
 
-<p align="center" width="100%">
-    <img src="image/10.png" alt="example">
-    <img src="image/11.png" alt="example">
-</p>
+1. Insert the TF card into your computer and start the Rufus tool. Click the “Select” button in the interface and choose the firmware file to be flashed. ![rufus-flash-from-file](https://www.kendryte.com/k230_canmv/en/main/_images/rufus_select.png)
+2. Click the “Start” button, and Rufus will automatically proceed with the flashing. The progress bar will display the flashing progress, and the system will prompt “Ready” upon completion. ![rufus-flash](https://www.kendryte.com/k230_canmv/en/main/_images/rufus_start.png) ![rufus-sure](https://www.kendryte.com/k230_canmv/en/main/_images/rufus_sure.png) ![rufus-warning](https://www.kendryte.com/k230_canmv/en/main/_images/rufus_warning.png) ![rufus-finish](https://www.kendryte.com/k230_canmv/en/main/_images/rufus_finish.png)
 
+### 2 Flashing on Linux Platform
+
+Before inserting the TF card, first run the following command to check the current storage devices:
+
+```
+ls -l /dev/sd\*
+```
+
+
+
+Next, insert the TF card into the host machine and run the same command again to identify the newly added device node, which is the device node for the TF card.
+
+Assuming the device node for the TF card is `/dev/sdc`, you can use the following command to flash the firmware to the TF card:
+
+```
+sudo dd if=sysimage-sdcard.img of=/dev/sdc bs=1M oflag=sync
+```
 
 ## PinOverview
 
@@ -164,7 +168,7 @@ T-Display-K230 is a development board featuring a high-definition AMOLED display
 
 ### Power Dissipation
 | Firmware | Program| Description | Picture |
-| ------  | ------  | ------ | ------ | 
+| ------  | ------  | ------ | ------ |
 | `[T-Display-S3-AMOLED-1.43_V1.0][Light_Sleep_Wake_Up]_firmware_V1.0.0.bin` | `Light Sleep Wake Up` | Power dissipation: 1282.8uA | <p align="center" width="10%"> <img src="image/13.jpg" alt="example" width="50%"> </p> |
 | `[T-Display-S3-AMOLED-1.43_V1.0][Deep_Sleep_Wake_Up]_firmware_V1.0.0.bin` | `Deep Sleep Wake Up` | Power dissipation: 174.2uA |<p align="center" width="10%"> <img src="image/12.jpg" alt="example" width="50%"> </p> |
 
@@ -200,10 +204,5 @@ T-Display-K230 is a development board featuring a high-definition AMOLED display
 * [EVB_SY6970](./information/EVB_SY6970.pdf)
 
 ## DependentLibraries
-* [Arduino_GFX-1.3.7](https://github.com/moononournation/Arduino_GFX)
-* [Arduino_DriveBus-1.1.12](https://github.com/Xk-w/Arduino_DriveBus)
-* [JPEGDEC-1.2.8](https://github.com/bitbank2/JPEGDEC)
 * [lvgl-8.3.5](https://lvgl.io)
-* [MiniTV](https://github.com/moononournation/MiniTV)
-* [SensorLib](https://github.com/lewisxhe/SensorsLib)
 
