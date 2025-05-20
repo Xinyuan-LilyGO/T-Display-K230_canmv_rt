@@ -15,7 +15,7 @@
 </p>
 
 
-## **English | [中文](./README_CN.md)**
+## **English**
 
 ## Version iteration:
 | Version                              | Update date                       |Update description|
@@ -92,15 +92,155 @@ T-Display-K230 is a development board featuring a high-definition AMOLED display
 
 
 | Firmware | Description | Picture |
-| ------  | ------  | ------ |
+| -------- | ----------- | ------- |
+|          |             |         |
 
-#### k230
 
-1.
+#### **k230**
 
-6. Select the correct port.
+# App Compilation
 
-6. Click "<kbd>[√](image/8.png)</kbd>" in the upper right corner to compile,If the compilation is correct, connect the microcontroller to the computer,Click "<kbd>[→](image/9.png)</kbd>" in the upper right corner to download.
+change to current dir canmv_k230
+
+
+      cd anmv_k230/src/rtsmart/mpp
+      source build.sh
+      cd /userapps/sample/sample_display
+      make
+
+in the dir sample/elf     generate sample_display.elf
+
+default app: sample_display
+
+
+rename sample_display.elf to app.elf  copy to sdcard  ,Power on again and start running by default.
+
+# Advanced - Custom Firmware
+
+## 1. Overview
+
+Note
+
+This chapter introduces how to develop on the K230 CanMV. If you have no custom requirements, you can skip this chapter.
+
+The K230 CanMV is developed based on the K230 SDK 
+
+## 2. Setting Up the Development Environment
+
+| Host Environment            | Description                                                  |
+| --------------------------- | ------------------------------------------------------------ |
+| Ubuntu 20.04.4 LTS (x86_64) | The K230 CanMV compilation environment is suitable for Ubuntu 20.04 and above. |
+
+Currently, K230 CanMV has only been verified to compile in a Linux environment. Other Linux versions have not been tested, so compatibility with other systems cannot be guaranteed.
+
+### 2.1 Local Build Environment
+
+- Update APT sources (optional)
+
+```
+sudo bash -c 'cp /etc/apt/sources.list /etc/apt/sources_bak.list && \
+  sed -i "s/archive.ubuntu.com/mirrors.tuna.tsinghua.edu.cn/g" /etc/apt/sources.list && \
+  sed -i "s/security.ubuntu.com/mirrors.tuna.tsinghua.edu.cn/g" /etc/apt/sources.list'
+```
+
+
+
+- Install necessary dependencies
+
+```
+# Add support for i386 architecture
+sudo bash -c 'dpkg --add-architecture i386 && \
+  apt-get clean all && \
+  apt-get update && \
+  apt-get install -y --fix-broken --fix-missing --no-install-recommends \
+    sudo vim wget curl git git-lfs openssh-client net-tools sed tzdata expect mtd-utils inetutils-ping locales \
+    sed make cmake binutils build-essential diffutils gcc g++ bash patch gzip bzip2 perl tar cpio unzip rsync \
+    file bc findutils dosfstools mtools bison flex autoconf automake python3 python3-pip python3-dev python-is-python3 \
+    lib32z1 scons libncurses5-dev kmod fakeroot pigz tree doxygen gawk pkg-config libyaml-dev libconfuse2 libconfuse-dev \
+    libssl-dev libc6-dev-i386 libncurses5:i386'
+```
+
+
+
+- Update PIP sources (optional)
+
+```
+pip3 config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple && \
+pip3 config set global.extra-index-url "https://mirrors.aliyun.com/pypi/simple https://mirrors.cloud.tencent.com/pypi/simple"
+```
+
+
+
+- Install Python dependencies
+
+```
+pip3 install -U pyyaml pycryptodome gmssl jsonschema jinja2
+```
+
+
+
+- Install the repo tool
+
+```
+mkdir -p ~/.bin
+curl https://storage.googleapis.com/git-repo-downloads/repo > ~/.bin/repo
+chmod a+rx ~/.bin/repo
+echo 'export PATH="${HOME}/.bin:${PATH}"' >> ~/.bashrc
+source ~/.bashrc
+```
+
+
+
+## 3. Compilation Process
+
+### 3.1 Source Code Download
+
+The source code of CanMV-K230 is hosted on Github. Users can download the source code using the repo tool.
+
+```
+# It's recommended to create a directory in the user's home directory before downloading the code
+mkdir -p ~/canmv_k230_pro && cd ~/canmv_k230_pro
+
+# Download the RT-Smart + CanMV project
+git clone https://github.com/Xinyuan-LilyGO/T-Display-K230_canmv_rt.git
+```
+
+
+
+### 3.2 Code Preparation
+
+When compiling for the first time, you need to download the toolchain. The following command only needs to be executed once.
+
+```
+cd canmv_k230
+# Download the toolchain when running for the first time
+make dl_toolchain
+```
+
+
+
+### 3.3 Compilation
+
+Select the corresponding board configuration file according to actual needs, and then start compiling.
+
+```
+# List available configuration options
+make list_def 
+# Select the corresponding board configuration file
+make k230_canmv_defconfig  # Replace with the appropriate defconfig for your board
+# Start compilation
+time make log
+```
+
+
+
+After compilation, the image files will be generated in the `canmv_k230_pro/canmv_k230/output/xxxx/xxx.img` directory.
+
+
+
+```
+
+```
 
 ### firmware download
 
@@ -133,75 +273,53 @@ sudo dd if=sysimage-sdcard.img of=/dev/sdc bs=1M oflag=sync
 
 | AMOLED Screen Pin  | k230 Pin|
 | :------------------: | :------------------:|
-| SDIO0         | IO11       |
-| SDIO1         | IO13       |
-| SDIO2         | IO14       |
-| SDIO3         | IO15       |
-| SCLK         | IO12       |
-| CS         | IO10       |
-| RST         | IO17       |
-| EN         | IO16       |
+| LCD_RST   | GPIO22  |
 
-| Touch Chip Pin  | ESP32S3 Pin|
+| Touch Chip Pin  | k230 Pin |
 | :------------------: | :------------------:|
-| INT         | IO9       |
-| SDA         | IO7       |
-| SCL         | IO6       |
+| TP_RST   | GPIO24 |
+| TP_SCL | GPIO36 |
+| TP_SDA | GPIO37 |
+| TP_INT | GPIO23 |
 
-| Power Chip Pin  | ESP32S3 Pin|
+| HDMI Pin | k230 Pin |
 | :------------------: | :------------------:|
-| SDA         | IO7       |
-| SCL         | IO6       |
+| HDMI_RSTN | GPIO24  |
+| HDMI_INT | GPIO22 |
+| HDMI_CSCL | GPIO36 |
+| HDMI_CSDA | GPIO37 |
 
-| Battery Measurement Pin  | ESP32S3 Pin|
+| SD Card Pin  | k230 Pin |
 | :------------------: | :------------------:|
-| BATTERY_VOLTAGE_ADC_DATA         | IO4       |
-
-| SD Card Pin  | ESP32S3 Pin|
-| :------------------: | :------------------:|
-| CS         | IO4       |
-| MOSI        | IO39       |
-| MISO         | IO40       |
-| SCLK         | IO41       |
+| TFCARD_CMD  |  GPIO54  |
+| TFCARD_CLK  |  GPIO55  |
+|  TFCARD_D0  |  GPIO56  |
+|  TFCARD_D1  |  GPIO57  |
+|  TFCARD_D2  |  GPIO58  |
+|  TFCARD_D3  |  GPIO59  |
 
 ## RelatedTests
 
-### Power Dissipation
+### <!--Power Dissipation
 | Firmware | Program| Description | Picture |
 | ------  | ------  | ------ | ------ |
 | `[T-Display-S3-AMOLED-1.43_V1.0][Light_Sleep_Wake_Up]_firmware_V1.0.0.bin` | `Light Sleep Wake Up` | Power dissipation: 1282.8uA | <p align="center" width="10%"> <img src="image/13.jpg" alt="example" width="50%"> </p> |
 | `[T-Display-S3-AMOLED-1.43_V1.0][Deep_Sleep_Wake_Up]_firmware_V1.0.0.bin` | `Deep Sleep Wake Up` | Power dissipation: 174.2uA |<p align="center" width="10%"> <img src="image/12.jpg" alt="example" width="50%"> </p> |
+
+-->
 
 ## FAQ
 
 * Q. After reading the above tutorials, I still don't know how to build a programming environment. What should I do?
 * A. If you still don't understand how to build an environment after reading the above tutorials, you can refer to the [LilyGo-Document](https://github.com/Xinyuan-LilyGO/LilyGo-Document) document instructions to build it.
 
-<br />
-
-* Q. Why does Arduino IDE prompt me to update library files when I open it? Should I update them or not?
-* A. Choose not to update library files. Different versions of library files may not be mutually compatible, so it is not recommended to update library files.
-
-<br />
-
-* Q. Why is there no serial data output on the "Uart" interface on my board? Is it defective and unusable?
-* A. The default project configuration uses the USB interface as Uart0 serial output for debugging purposes. The "Uart" interface is connected to Uart0, so it won't output any data without configuration.<br />For PlatformIO users, please open the project file "platformio.ini" and modify the option under "build_flags = xxx" from "-D ARDUINO_USB_CDC_ON_BOOT=true" to "-D ARDUINO_USB_CDC_ON_BOOT=false" to enable external "Uart" interface.<br />For Arduino users, open the "Tools" menu and select "USB CDC On Boot: Disabled" to enable the external "Uart" interface.
-
-<br />
-
-* Q. Why is my board continuously failing to download the program?
-* A. Please hold down the "BOOT-0" button and try downloading the program again.
-
 ## Project
-* [T-Display-S3-AMOLED-1.43-1.75_V1.0](./project/T-Display-S3-AMOLED-1.43-1.75_V1.0.pdf)
+* [T-Display K230 V1.0.pdf](./schematic/T-Display K230 V1.0.pdf)
 
 ## Information
-* [FT3168](./information/FT3168.pdf)
-* [PCF8563](./information/PCF8563.pdf)
-* [SH8601](./information/SH8601Z.pdf)
-* [DO0143FAT01](./information/SPEC-DO0143FAT01-20230830.pdf)
-* [AN_SY6970](./information/AN_SY6970.pdf)
-* [EVB_SY6970](./information/EVB_SY6970.pdf)
+* [sx1262](./datasheet/HPDTEK_HPD16A_Series_规格书_V0.3.pdf)
+
+  
 
 ## DependentLibraries
 * [lvgl-8.3.5](https://lvgl.io)
