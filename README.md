@@ -60,7 +60,7 @@ T-Display-K230 is a development board featuring a high-definition AMOLED display
 ### 1.MCU
 
 * Chip: k230
-* For more details, please visit[k230 Datashee](datasheet/K230_datasheet.pdf)
+* For more details, please visit    [k230 Datashee](datasheet/K230_datasheet.pdf)
 
 ### 2. Screen
 
@@ -300,11 +300,14 @@ sudo dd if=sysimage-sdcard.img of=/dev/sdc bs=1M oflag=sync
 
 ## RelatedTests
 
-### <!--Power Dissipation
+<!--
+
+### Power Dissipation
+
 | Firmware | Program| Description | Picture |
 | ------  | ------  | ------ | ------ |
-| `[T-Display-S3-AMOLED-1.43_V1.0][Light_Sleep_Wake_Up]_firmware_V1.0.0.bin` | `Light Sleep Wake Up` | Power dissipation: 1282.8uA | <p align="center" width="10%"> <img src="image/13.jpg" alt="example" width="50%"> </p> |
-| `[T-Display-S3-AMOLED-1.43_V1.0][Deep_Sleep_Wake_Up]_firmware_V1.0.0.bin` | `Deep Sleep Wake Up` | Power dissipation: 174.2uA |<p align="center" width="10%"> <img src="image/12.jpg" alt="example" width="50%"> </p> |
+| `[T-Display-k230-AMOLED-1.43_V1.0][Light_Sleep_Wake_Up]_firmware_V1.0.0.bin` | `Light Sleep Wake Up` | Power dissipation: 1282.8uA | <p align="center" width="10%"> <img src="image/13.jpg" alt="example" width="50%"> </p> |
+| `[T-Display-k230-AMOLED-1.43_V1.0][Deep_Sleep_Wake_Up]_firmware_V1.0.0.bin` | `Deep Sleep Wake Up` | Power dissipation: 174.2uA |<p align="center" width="10%"> <img src="image/12.jpg" alt="example" width="50%"> </p> |
 
 -->
 
@@ -322,5 +325,5 @@ sudo dd if=sysimage-sdcard.img of=/dev/sdc bs=1M oflag=sync
   
 
 ## DependentLibraries
-* [lvgl-8.3.5](https://lvgl.io)
+* [lvgl-8.4.1](https://lvgl.io)
 
