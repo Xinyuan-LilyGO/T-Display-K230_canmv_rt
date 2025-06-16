@@ -44,7 +44,7 @@
 
 ## Describe
 
-T-Display-K230 is a development board featuring a high-definition AMOLED display, based on the k230, designed for standalone battery connectivity.
+T-Display-K230 is a development board featuring a high-definition AMOLED display, based on the k230. <!--designed for standalone battery connectivity.-->
 
 ## Preview
 
