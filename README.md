@@ -242,7 +242,7 @@ On a Windows system, you can use the Rufus tool to flash the firmware to a TF ca
 1. Insert the TF card into your computer and start the Rufus tool. Click the “Select” button in the interface and choose the firmware file to be flashed. ![rufus-flash-from-file](https://www.kendryte.com/k230_canmv/en/main/_images/rufus_select.png)
 2. Click the “Start” button, and Rufus will automatically proceed with the flashing. The progress bar will display the flashing progress, and the system will prompt “Ready” upon completion. ![rufus-flash](https://www.kendryte.com/k230_canmv/en/main/_images/rufus_start.png) ![rufus-sure](https://www.kendryte.com/k230_canmv/en/main/_images/rufus_sure.png) ![rufus-warning](https://www.kendryte.com/k230_canmv/en/main/_images/rufus_warning.png) ![rufus-finish](https://www.kendryte.com/k230_canmv/en/main/_images/rufus_finish.png)
 
-### 2 Flashing on Linux Platform
+### 2. Flashing on Linux Platform
 
 Before inserting the TF card, first run the following command to check the current storage devices:
 
