@@ -1,5 +1,9 @@
 # T-Display-K230_canmv_rt
 
+<p align="center" width="100%">
+    <img src="image/k230_display_product.png" alt="T-Display K230 development board">
+</p>
+
 [English](README.md) | **中文**
 
 ## K230芯片简介

@@ -11,7 +11,7 @@
 <h1 align = "center">T-Display-K230_canmv_rt</h1>
 
 <p align="center" width="100%">
-    <img src="image/k230_display_product.png" alt="">
+    <img src="image/k230_display_product.png" alt="T-Display K230 development board">
 </p>
 
 **English** | [中文](README_CN.md)
