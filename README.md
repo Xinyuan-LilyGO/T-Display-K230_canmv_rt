@@ -42,13 +42,13 @@
 - [Information](#information)
 - [DependentLibraries](#dependentlibraries)
 
-## Describe
+## Description
 
 T-Display-K230 is a development board featuring a high-definition AMOLED display, based on the k230. <!--designed for standalone battery connectivity.-->
 
-## Preview
+### Preview
 
-### Actual Product Image
+#### Actual Product Image
 
 <p align="center" width="100%">
     <img src="image/k230_display_product.png" alt="">
@@ -57,7 +57,7 @@ T-Display-K230 is a development board featuring a high-definition AMOLED display
 
 ## Module
 
-### 1.MCU
+### 1. MCU
 
 * Chip: k230
 * For more details, please visit    [k230 Datasheet](datasheet/K230_datasheet.pdf)
@@ -98,7 +98,7 @@ T-Display-K230 is a development board featuring a high-definition AMOLED display
 
 #### **k230**
 
-# App Compilation
+## App Compilation
 
 change to current dir canmv_k230
 
@@ -115,9 +115,9 @@ default app: sample_display
 
 rename sample_display.elf to app.elf  copy to sdcard, Power on again and start running by default.
 
-# Advanced - Custom Firmware
+## Advanced - Custom Firmware
 
-## 1. Overview
+### 1. Overview
 
 Note
 
@@ -125,7 +125,7 @@ This chapter introduces how to develop on the K230 CanMV. If you have no custom 
 
 The K230 CanMV is developed based on the K230 SDK 
 
-## 2. Setting Up the Development Environment
+### 2. Setting Up the Development Environment
 
 | Host Environment            | Description                                                  |
 | --------------------------- | ------------------------------------------------------------ |
@@ -133,7 +133,7 @@ The K230 CanMV is developed based on the K230 SDK
 
 Currently, K230 CanMV has only been verified to compile in a Linux environment. Other Linux versions have not been tested, so compatibility with other systems cannot be guaranteed.
 
-### 2.1 Local Build Environment
+#### 2.1 Local Build Environment
 
 - Update APT sources (optional)
 
@@ -142,8 +142,6 @@ sudo bash -c 'cp /etc/apt/sources.list /etc/apt/sources_bak.list && \
   sed -i "s/archive.ubuntu.com/mirrors.tuna.tsinghua.edu.cn/g" /etc/apt/sources.list && \
   sed -i "s/security.ubuntu.com/mirrors.tuna.tsinghua.edu.cn/g" /etc/apt/sources.list'
 ```
-
-
 
 - Install necessary dependencies
 
@@ -178,7 +176,6 @@ pip3 install -U pyyaml pycryptodome gmssl jsonschema jinja2
 ```
 
 
-
 - Install the repo tool
 
 ```sh
@@ -189,11 +186,9 @@ echo 'export PATH="${HOME}/.bin:${PATH}"' >> ~/.bashrc
 source ~/.bashrc
 ```
 
+### 3. Compilation Process
 
-
-## 3. Compilation Process
-
-### 3.1 Source Code Download
+#### 3.1 Source Code Download
 
 The source code of CanMV-K230 is hosted on Github. Users can download the source code using the repo tool.
 
@@ -206,8 +201,7 @@ git clone https://github.com/Xinyuan-LilyGO/T-Display-K230_canmv_rt.git
 ```
 
 
-
-### 3.2 Code Preparation
+#### 3.2 Code Preparation
 
 When compiling for the first time, you need to download the toolchain. The following command only needs to be executed once.
 
@@ -218,8 +212,7 @@ make dl_toolchain
 ```
 
 
-
-### 3.3 Compilation
+#### 3.3 Compilation
 
 Select the corresponding board configuration file according to actual needs, and then start compiling.
 
@@ -233,16 +226,14 @@ time make log
 ```
 
 
-
 After compilation, the image files will be generated in the `canmv_k230_pro/canmv_k230/output/xxxx/xxx.img` directory.
 
 
-
 ```
 
 ```
 
-### firmware download
+## Firmware download
 
 ### 1. Flashing on Windows Platform
 
@@ -258,7 +249,6 @@ Before inserting the TF card, first run the following command to check the curre
 ```sh
 ls -l /dev/sd\*
 ```
-
 
 
 Next, insert the TF card into the host machine and run the same command again to identify the newly added device node, which is the device node for the TF card.
