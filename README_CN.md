@@ -1,4 +1,7 @@
 # T-Display-K230_canmv_rt
+
+[English](README_CN.md) | **中文**
+
 ## K230芯片简介
 
 K230芯片是嘉楠科技 Kendryte®系列AIoT芯片中的最新一代SoC产品。该芯片采用全新的多异构单元加速计算架构，集成了2个RISC-V高能效计算核心，内置新一代KPU（Knowledge Process Unit）智能计算单元，具备多精度AI算力，广泛支持通用的AI计算框架，部分典型网络的利用率超过了70%。
@@ -212,7 +215,7 @@ Operator:
 编译固件：
 
 
-      cd anmv_k230
+      cd canmv_k230
       time make log
      
 canmv_k230/output/k230_canmv_v3p0    生成CanMV-K230-V3P0_rtsmart_localnncase_v2.9.0.img   可烧录至sd卡
@@ -220,12 +223,12 @@ canmv_k230/output/k230_canmv_v3p0    生成CanMV-K230-V3P0_rtsmart_localnncase_v
 
 
 compile app:
-change to current dir anmv_k230
+change to current dir canmv_k230
 
       
-      cd anmv_k230/src/rtsmart/mpp
-      source build.sh
-      cd /userapps/sample/sample_display
+      cd canmv_k230/src/rtsmart/mpp
+      source build_env.sh
+      cd userapps/sample/sample_display
       make
 in the dir sample/elf     generate sample_display.elf
 

@@ -5,7 +5,7 @@
  * @Author: LILYGO
  * @Date: 2025-02-20 16:13:14
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2025-03-05 18:07:02
+ * @LastEditTime: 2025-06-17 09:00:00
  * @License: GPL 3.0
 -->
 <h1 align = "center">T-Display-K230_canmv_rt</h1>
@@ -14,8 +14,8 @@
     <img src="image/k230_display_product.png" alt="">
 </p>
 
+**English** | [中文](README_CN.md)
 
-## **English**
 
 ## Version iteration:
 | Version                              | Update date                       |Update description|
@@ -60,7 +60,7 @@ T-Display-K230 is a development board featuring a high-definition AMOLED display
 ### 1.MCU
 
 * Chip: k230
-* For more details, please visit    [k230 Datashee](datasheet/K230_datasheet.pdf)
+* For more details, please visit    [k230 Datasheet](datasheet/K230_datasheet.pdf)
 
 ### 2. Screen
 
@@ -103,17 +103,17 @@ T-Display-K230 is a development board featuring a high-definition AMOLED display
 change to current dir canmv_k230
 
 
-      cd anmv_k230/src/rtsmart/mpp
-      source build.sh
-      cd /userapps/sample/sample_display
+      cd canmv_k230/src/rtsmart/mpp
+      source build_env.sh
+      cd userapps/sample/sample_display
       make
 
-in the dir sample/elf     generate sample_display.elf
+in the directory sample/elf     generate sample_display.elf
 
 default app: sample_display
 
 
-rename sample_display.elf to app.elf  copy to sdcard  ,Power on again and start running by default.
+rename sample_display.elf to app.elf  copy to sdcard, Power on again and start running by default.
 
 # Advanced - Custom Firmware
 
@@ -137,7 +137,7 @@ Currently, K230 CanMV has only been verified to compile in a Linux environment. 
 
 - Update APT sources (optional)
 
-```
+```sh
 sudo bash -c 'cp /etc/apt/sources.list /etc/apt/sources_bak.list && \
   sed -i "s/archive.ubuntu.com/mirrors.tuna.tsinghua.edu.cn/g" /etc/apt/sources.list && \
   sed -i "s/security.ubuntu.com/mirrors.tuna.tsinghua.edu.cn/g" /etc/apt/sources.list'
@@ -147,7 +147,7 @@ sudo bash -c 'cp /etc/apt/sources.list /etc/apt/sources_bak.list && \
 
 - Install necessary dependencies
 
-```
+```sh
 # Add support for i386 architecture
 sudo bash -c 'dpkg --add-architecture i386 && \
   apt-get clean all && \
@@ -164,7 +164,7 @@ sudo bash -c 'dpkg --add-architecture i386 && \
 
 - Update PIP sources (optional)
 
-```
+```sh
 pip3 config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple && \
 pip3 config set global.extra-index-url "https://mirrors.aliyun.com/pypi/simple https://mirrors.cloud.tencent.com/pypi/simple"
 ```
@@ -173,7 +173,7 @@ pip3 config set global.extra-index-url "https://mirrors.aliyun.com/pypi/simple h
 
 - Install Python dependencies
 
-```
+```sh
 pip3 install -U pyyaml pycryptodome gmssl jsonschema jinja2
 ```
 
@@ -181,7 +181,7 @@ pip3 install -U pyyaml pycryptodome gmssl jsonschema jinja2
 
 - Install the repo tool
 
-```
+```sh
 mkdir -p ~/.bin
 curl https://storage.googleapis.com/git-repo-downloads/repo > ~/.bin/repo
 chmod a+rx ~/.bin/repo
@@ -197,7 +197,7 @@ source ~/.bashrc
 
 The source code of CanMV-K230 is hosted on Github. Users can download the source code using the repo tool.
 
-```
+```sh
 # It's recommended to create a directory in the user's home directory before downloading the code
 mkdir -p ~/canmv_k230_pro && cd ~/canmv_k230_pro
 
@@ -211,7 +211,7 @@ git clone https://github.com/Xinyuan-LilyGO/T-Display-K230_canmv_rt.git
 
 When compiling for the first time, you need to download the toolchain. The following command only needs to be executed once.
 
-```
+```sh
 cd canmv_k230
 # Download the toolchain when running for the first time
 make dl_toolchain
@@ -223,7 +223,7 @@ make dl_toolchain
 
 Select the corresponding board configuration file according to actual needs, and then start compiling.
 
-```
+```sh
 # List available configuration options
 make list_def 
 # Select the corresponding board configuration file
@@ -255,7 +255,7 @@ On a Windows system, you can use the Rufus tool to flash the firmware to a TF ca
 
 Before inserting the TF card, first run the following command to check the current storage devices:
 
-```
+```sh
 ls -l /dev/sd\*
 ```
 
@@ -265,7 +265,7 @@ Next, insert the TF card into the host machine and run the same command again to
 
 Assuming the device node for the TF card is `/dev/sdc`, you can use the following command to flash the firmware to the TF card:
 
-```
+```sh
 sudo dd if=sysimage-sdcard.img of=/dev/sdc bs=1M oflag=sync
 ```
 
