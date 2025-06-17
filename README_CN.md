@@ -1,6 +1,6 @@
 # T-Display-K230_canmv_rt
 
-[English](README_CN.md) | **中文**
+[English](README.md) | **中文**
 
 ## K230芯片简介
 
