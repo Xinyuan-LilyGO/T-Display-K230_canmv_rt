@@ -228,11 +228,6 @@ time make log
 
 After compilation, the image files will be generated in the `canmv_k230_pro/canmv_k230/output/xxxx/xxx.img` directory.
 
-
-```
-
-```
-
 ## Firmware download
 
 ### 1. Flashing on Windows Platform
