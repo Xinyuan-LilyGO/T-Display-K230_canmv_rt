@@ -5,17 +5,17 @@
  * @Author: LILYGO
  * @Date: 2025-02-20 16:13:14
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2025-03-05 18:07:02
+ * @LastEditTime: 2025-06-17 09:00:00
  * @License: GPL 3.0
 -->
 <h1 align = "center">T-Display-K230_canmv_rt</h1>
 
 <p align="center" width="100%">
-    <img src="image/k230_display_product.png" alt="">
+    <img src="image/k230_display_product.png" alt="T-Display K230 development board">
 </p>
 
+**English** | [中文](README_CN.md)
 
-## **English**
 
 ## Version iteration:
 | Version                              | Update date                       |Update description|
@@ -42,13 +42,13 @@
 - [Information](#information)
 - [DependentLibraries](#dependentlibraries)
 
-## Describe
+## Description
 
 T-Display-K230 is a development board featuring a high-definition AMOLED display, based on the k230. <!--designed for standalone battery connectivity.-->
 
-## Preview
+### Preview
 
-### Actual Product Image
+#### Actual Product Image
 
 <p align="center" width="100%">
     <img src="image/k230_display_product.png" alt="">
@@ -57,10 +57,10 @@ T-Display-K230 is a development board featuring a high-definition AMOLED display
 
 ## Module
 
-### 1.MCU
+### 1. MCU
 
 * Chip: k230
-* For more details, please visit    [k230 Datashee](datasheet/K230_datasheet.pdf)
+* For more details, please visit    [k230 Datasheet](datasheet/K230_datasheet.pdf)
 
 ### 2. Screen
 
@@ -98,26 +98,26 @@ T-Display-K230 is a development board featuring a high-definition AMOLED display
 
 #### **k230**
 
-# App Compilation
+## App Compilation
 
 change to current dir canmv_k230
 
 
-      cd anmv_k230/src/rtsmart/mpp
-      source build.sh
-      cd /userapps/sample/sample_display
+      cd canmv_k230/src/rtsmart/mpp
+      source build_env.sh
+      cd userapps/sample/sample_display
       make
 
-in the dir sample/elf     generate sample_display.elf
+in the directory sample/elf     generate sample_display.elf
 
 default app: sample_display
 
 
-rename sample_display.elf to app.elf  copy to sdcard  ,Power on again and start running by default.
+rename sample_display.elf to app.elf  copy to sdcard, Power on again and start running by default.
 
-# Advanced - Custom Firmware
+## Advanced - Custom Firmware
 
-## 1. Overview
+### 1. Overview
 
 Note
 
@@ -125,7 +125,7 @@ This chapter introduces how to develop on the K230 CanMV. If you have no custom 
 
 The K230 CanMV is developed based on the K230 SDK 
 
-## 2. Setting Up the Development Environment
+### 2. Setting Up the Development Environment
 
 | Host Environment            | Description                                                  |
 | --------------------------- | ------------------------------------------------------------ |
@@ -133,21 +133,19 @@ The K230 CanMV is developed based on the K230 SDK
 
 Currently, K230 CanMV has only been verified to compile in a Linux environment. Other Linux versions have not been tested, so compatibility with other systems cannot be guaranteed.
 
-### 2.1 Local Build Environment
+#### 2.1 Local Build Environment
 
 - Update APT sources (optional)
 
-```
+```sh
 sudo bash -c 'cp /etc/apt/sources.list /etc/apt/sources_bak.list && \
   sed -i "s/archive.ubuntu.com/mirrors.tuna.tsinghua.edu.cn/g" /etc/apt/sources.list && \
   sed -i "s/security.ubuntu.com/mirrors.tuna.tsinghua.edu.cn/g" /etc/apt/sources.list'
 ```
 
-
-
 - Install necessary dependencies
 
-```
+```sh
 # Add support for i386 architecture
 sudo bash -c 'dpkg --add-architecture i386 && \
   apt-get clean all && \
@@ -164,7 +162,7 @@ sudo bash -c 'dpkg --add-architecture i386 && \
 
 - Update PIP sources (optional)
 
-```
+```sh
 pip3 config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple && \
 pip3 config set global.extra-index-url "https://mirrors.aliyun.com/pypi/simple https://mirrors.cloud.tencent.com/pypi/simple"
 ```
@@ -173,15 +171,14 @@ pip3 config set global.extra-index-url "https://mirrors.aliyun.com/pypi/simple h
 
 - Install Python dependencies
 
-```
+```sh
 pip3 install -U pyyaml pycryptodome gmssl jsonschema jinja2
 ```
 
 
-
 - Install the repo tool
 
-```
+```sh
 mkdir -p ~/.bin
 curl https://storage.googleapis.com/git-repo-downloads/repo > ~/.bin/repo
 chmod a+rx ~/.bin/repo
@@ -189,15 +186,13 @@ echo 'export PATH="${HOME}/.bin:${PATH}"' >> ~/.bashrc
 source ~/.bashrc
 ```
 
+### 3. Compilation Process
 
-
-## 3. Compilation Process
-
-### 3.1 Source Code Download
+#### 3.1 Source Code Download
 
 The source code of CanMV-K230 is hosted on Github. Users can download the source code using the repo tool.
 
-```
+```sh
 # It's recommended to create a directory in the user's home directory before downloading the code
 mkdir -p ~/canmv_k230_pro && cd ~/canmv_k230_pro
 
@@ -206,24 +201,22 @@ git clone https://github.com/Xinyuan-LilyGO/T-Display-K230_canmv_rt.git
 ```
 
 
-
-### 3.2 Code Preparation
+#### 3.2 Code Preparation
 
 When compiling for the first time, you need to download the toolchain. The following command only needs to be executed once.
 
-```
+```sh
 cd canmv_k230
 # Download the toolchain when running for the first time
 make dl_toolchain
 ```
 
 
-
-### 3.3 Compilation
+#### 3.3 Compilation
 
 Select the corresponding board configuration file according to actual needs, and then start compiling.
 
-```
+```sh
 # List available configuration options
 make list_def 
 # Select the corresponding board configuration file
@@ -233,16 +226,9 @@ time make log
 ```
 
 
-
 After compilation, the image files will be generated in the `canmv_k230_pro/canmv_k230/output/xxxx/xxx.img` directory.
 
-
-
-```
-
-```
-
-### firmware download
+## Firmware download
 
 ### 1. Flashing on Windows Platform
 
@@ -251,21 +237,20 @@ On a Windows system, you can use the Rufus tool to flash the firmware to a TF ca
 1. Insert the TF card into your computer and start the Rufus tool. Click the “Select” button in the interface and choose the firmware file to be flashed. ![rufus-flash-from-file](https://www.kendryte.com/k230_canmv/en/main/_images/rufus_select.png)
 2. Click the “Start” button, and Rufus will automatically proceed with the flashing. The progress bar will display the flashing progress, and the system will prompt “Ready” upon completion. ![rufus-flash](https://www.kendryte.com/k230_canmv/en/main/_images/rufus_start.png) ![rufus-sure](https://www.kendryte.com/k230_canmv/en/main/_images/rufus_sure.png) ![rufus-warning](https://www.kendryte.com/k230_canmv/en/main/_images/rufus_warning.png) ![rufus-finish](https://www.kendryte.com/k230_canmv/en/main/_images/rufus_finish.png)
 
-### 2 Flashing on Linux Platform
+### 2. Flashing on Linux Platform
 
 Before inserting the TF card, first run the following command to check the current storage devices:
 
-```
+```sh
 ls -l /dev/sd\*
 ```
-
 
 
 Next, insert the TF card into the host machine and run the same command again to identify the newly added device node, which is the device node for the TF card.
 
 Assuming the device node for the TF card is `/dev/sdc`, you can use the following command to flash the firmware to the TF card:
 
-```
+```sh
 sudo dd if=sysimage-sdcard.img of=/dev/sdc bs=1M oflag=sync
 ```
 
