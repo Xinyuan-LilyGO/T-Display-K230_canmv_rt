@@ -103,6 +103,10 @@ T-Display-K230 is a development board featuring a high-definition AMOLED display
 |  camera                            | three  camera    preview                   |     [camera](canmv_k230/src/rtsmart/mpp/userapps/sample/sample_display/ui_brookesia/src/app_examples/phone/camera)                                   |
 |  Face_detect                            | face detect by camera                  |     [Face_detect](canmv_k230/src/rtsmart/mpp/userapps/sample/sample_display/ui_brookesia/src/app_examples/phone/camera_face_detect)                                   |
 |  Setting                            | 1.control screen backlight2.connect wifi3.see version                 |     [setting](canmv_k230/src/rtsmart/mpp/userapps/sample/sample_display/ui_brookesia/src/app_examples/phone/setting)                                   |
+|  music                            | play music    Listen to the sound through the headphones             |     [music](canmv_k230/src/rtsmart/mpp/userapps/sample/sample_display/ui_brookesia/src/app_examples/phone/music)                                   |
+|  calculator                            |   calc（+—*/%）          |     [calculator](canmv_k230/src/rtsmart/mpp/userapps/sample/sample_display/ui_brookesia/src/app_examples/phone/calculator)                                   |
+|  led                            |   control corlor led          |     [led](canmv_k230/src/rtsmart/mpp/userapps/sample/sample_display/ui_brookesia/src/app_examples/phone/led)                                   |
+|  Artboard                            |   test screen color/touch          |     [artboard](canmv_k230/src/rtsmart/mpp/userapps/sample/sample_display/ui_brookesia/src/app_examples/phone/artboard)                                   |
 #### **k230**
 
 ## App Compilation
