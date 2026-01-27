@@ -112,6 +112,9 @@ T-Display-K230 is a development board featuring a high-definition AMOLED display
 |  Keyboard                           |   Inputting text through the keyboard and backlight control        |     [keyboard](canmv_k230/src/rtsmart/mpp/userapps/sample/sample_display/ui_brookesia/src/app_examples/phone/keyboard)                                   |
 |  LiveCall                           |    Realize remote video transmission through LR2021       |     [Livecall](canmv_k230/src/rtsmart/mpp/userapps/sample/sample_display/ui_brookesia/src/app_examples/phone/live_call)                                   |
 |  Gnss                           |     GPS satellite positioning      |     [gnss](canmv_k230/src/rtsmart/mpp/userapps/sample/sample_display/ui_brookesia/src/app_examples/phone/gnss)                                   |
+|  Cellular                           |     SIM information confirmation and acquisition      |     [cellular](canmv_k230/src/rtsmart/mpp/userapps/sample/sample_display/ui_brookesia/src/app_examples/phone/cellular)                                   |
+|  Battery                           |    Monitor the charging and discharging as well as the battery's power level information     |     [battery](canmv_k230/src/rtsmart/mpp/userapps/sample/sample_display/ui_brookesia/src/app_examples/phone/battery)                                   |
+|  game_2048                           |    2048 game     |     [game_2048](canmv_k230/src/rtsmart/mpp/userapps/sample/sample_display/ui_brookesia/src/app_examples/phone/game_2048)                                   |
 #### **k230**
 
 ## App Compilation
