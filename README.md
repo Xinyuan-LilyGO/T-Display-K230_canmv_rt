@@ -99,9 +99,10 @@ T-Display-K230 is a development board featuring a high-definition AMOLED display
 |             app_name             |             Description                 |                   path                 |
 |----------------------------------| ----------------------------------------| -------------------------------------- |
 |  lora                            |   sx1262/lr2021  send and receive                      |     [lora](canmv_k230/src/rtsmart/mpp/userapps/sample/sample_display/ui_brookesia/src/app_examples/phone/lora)                                   |
-|  clock                            |   aaaaa                      |     [lora](canmv_k230/src/rtsmart/mpp/userapps/sample/sample_display/ui_brookesia/src/app_examples/phone/lora)                                   |
-
-
+|  clock                            |   stopwatch timer                      |     [clock](canmv_k230/src/rtsmart/mpp/userapps/sample/sample_display/ui_brookesia/src/app_examples/phone/clock)                                   |
+|  camera                            | three  camera    preview                   |     [camera](canmv_k230/src/rtsmart/mpp/userapps/sample/sample_display/ui_brookesia/src/app_examples/phone/camera)                                   |
+|  Face_detect                            | face detect by camera                  |     [Face_detect](canmv_k230/src/rtsmart/mpp/userapps/sample/sample_display/ui_brookesia/src/app_examples/phone/camera_face_detect)                                   |
+|  Setting                            | 1.control screen backlight2.connect wifi3.see version                 |     [setting](canmv_k230/src/rtsmart/mpp/userapps/sample/sample_display/ui_brookesia/src/app_examples/phone/setting)                                   |
 #### **k230**
 
 ## App Compilation
