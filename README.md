@@ -100,13 +100,18 @@ T-Display-K230 is a development board featuring a high-definition AMOLED display
 |----------------------------------| ----------------------------------------| -------------------------------------- |
 |  lora                            |   sx1262/lr2021  send and receive                      |     [lora](canmv_k230/src/rtsmart/mpp/userapps/sample/sample_display/ui_brookesia/src/app_examples/phone/lora)                                   |
 |  clock                            |   stopwatch timer                      |     [clock](canmv_k230/src/rtsmart/mpp/userapps/sample/sample_display/ui_brookesia/src/app_examples/phone/clock)                                   |
-|  camera                            | three  camera    preview                   |     [camera](canmv_k230/src/rtsmart/mpp/userapps/sample/sample_display/ui_brookesia/src/app_examples/phone/camera)                                   |
+|  camera                            |support three  camera    preview                   |     [camera](canmv_k230/src/rtsmart/mpp/userapps/sample/sample_display/ui_brookesia/src/app_examples/phone/camera)                                   |
 |  Face_detect                            | face detect by camera                  |     [Face_detect](canmv_k230/src/rtsmart/mpp/userapps/sample/sample_display/ui_brookesia/src/app_examples/phone/camera_face_detect)                                   |
 |  Setting                            | 1.control screen backlight2.connect wifi3.see version                 |     [setting](canmv_k230/src/rtsmart/mpp/userapps/sample/sample_display/ui_brookesia/src/app_examples/phone/setting)                                   |
 |  music                            | play music    Listen to the sound through the headphones             |     [music](canmv_k230/src/rtsmart/mpp/userapps/sample/sample_display/ui_brookesia/src/app_examples/phone/music)                                   |
 |  calculator                            |   calc（+—*/%）          |     [calculator](canmv_k230/src/rtsmart/mpp/userapps/sample/sample_display/ui_brookesia/src/app_examples/phone/calculator)                                   |
 |  led                            |   control corlor led          |     [led](canmv_k230/src/rtsmart/mpp/userapps/sample/sample_display/ui_brookesia/src/app_examples/phone/led)                                   |
 |  Artboard                            |   test screen color/touch          |     [artboard](canmv_k230/src/rtsmart/mpp/userapps/sample/sample_display/ui_brookesia/src/app_examples/phone/artboard)                                   |
+|  Ble                            |   test ble（send/receive）  commit to your phone by bluebooth          |     [ble](canmv_k230/src/rtsmart/mpp/userapps/sample/sample_display/ui_brookesia/src/app_examples/phone/ble)                                   |
+|  Video                            |   record/play video by camers         |     [video](canmv_k230/src/rtsmart/mpp/userapps/sample/sample_display/ui_brookesia/src/app_examples/phone/video)                                   |
+|  Keyboard                           |   input content by keyboard        |     [keyboard](canmv_k230/src/rtsmart/mpp/userapps/sample/sample_display/ui_brookesia/src/app_examples/phone/keyboard)                                   |
+|  LiveCall                           |    Realize remote video transmission through LR2021       |     [Livecall](canmv_k230/src/rtsmart/mpp/userapps/sample/sample_display/ui_brookesia/src/app_examples/phone/live_call)                                   |
+|  Gnss                           |     GPS satellite positioning      |     [gnss](canmv_k230/src/rtsmart/mpp/userapps/sample/sample_display/ui_brookesia/src/app_examples/phone/gnss)                                   |
 #### **k230**
 
 ## App Compilation
