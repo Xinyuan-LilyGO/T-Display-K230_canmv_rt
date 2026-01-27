@@ -98,8 +98,8 @@ T-Display-K230 is a development board featuring a high-definition AMOLED display
 
 |             app_name             |             Description                 |                   path                 |
 |----------------------------------| ----------------------------------------| -------------------------------------- |
-|  lora                            |                                         |                                        |
-
+|  lora                            |   sx1262/lr2021  send and receive                      |     [lora](canmv_k230/src/rtsmart/mpp/userapps/sample/sample_display/ui_brookesia/src/app_examples/phone/lora)                                   |
+|  clock                            |   aaaaa                      |     [lora](canmv_k230/src/rtsmart/mpp/userapps/sample/sample_display/ui_brookesia/src/app_examples/phone/lora)                                   |
 
 
 #### **k230**
