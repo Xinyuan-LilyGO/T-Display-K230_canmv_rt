@@ -96,6 +96,12 @@ T-Display-K230 is a development board featuring a high-definition AMOLED display
 |          |             |         |
 
 
+|             app_name             |             Description                 |                   path                 |
+|----------------------------------| ----------------------------------------| -------------------------------------- |
+|  lora                            |                                         |                                        |
+
+
+
 #### **k230**
 
 ## App Compilation
