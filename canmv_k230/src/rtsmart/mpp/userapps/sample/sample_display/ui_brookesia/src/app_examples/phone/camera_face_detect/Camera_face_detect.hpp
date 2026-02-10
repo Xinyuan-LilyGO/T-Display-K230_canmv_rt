@@ -20,7 +20,7 @@ public:
 
     uint16_t _height;
     uint16_t _width;
-  static  int camera_open(int sensor_type);
+  static  int camera_open(int sensor_type,int _rotation);
    static void camera_close();
 
 

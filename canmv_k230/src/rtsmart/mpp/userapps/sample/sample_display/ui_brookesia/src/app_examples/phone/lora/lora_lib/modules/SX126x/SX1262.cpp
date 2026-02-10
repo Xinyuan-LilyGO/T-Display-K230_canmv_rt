@@ -25,7 +25,6 @@ int16_t SX1262::begin(float freq, float bw, uint8_t sf, uint8_t cr, uint8_t sync
 
   state = setOutputPower(power);
   RADIOLIB_ASSERT(state);
-
   return(state);
 }
 

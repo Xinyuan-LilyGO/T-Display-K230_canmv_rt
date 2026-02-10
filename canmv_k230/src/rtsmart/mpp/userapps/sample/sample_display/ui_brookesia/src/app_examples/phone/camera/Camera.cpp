@@ -3,7 +3,8 @@
 #include "Camera.hpp"
 #include "../../../../../cap_vio.h"
 using namespace std;
-
+#include <unistd.h>
+#include "fpioa/rt_fpioa.h"
 LV_IMG_DECLARE(img_app_camera);
 
 #define KEYBOARD_H_PERCENT      65
@@ -16,66 +17,73 @@ LV_IMG_DECLARE(img_app_camera);
 #define LABEL_COLOR             lv_color_make(170, 170, 170)
 #define LABEL_FORMULA_LEN_MAX   256
 
-lv_obj_t * btn1;
-lv_obj_t * btn2;
-lv_obj_t * btn3;
+lv_obj_t * btn1=NULL;
+lv_obj_t * btn2=NULL;
+lv_obj_t * btn3=NULL;
  void Camera::btn_clicked_event(lv_event_t * e)
-{
+{   
     lv_event_code_t code = lv_event_get_code(e);
     lv_obj_t * btn = lv_event_get_target(e);
     if(code == LV_EVENT_CLICKED) {
-      
         static uint8_t cnt = 0;
         cnt++;
 
         /*Get the first child of the button which is the label and change its text*/
         lv_obj_t * label = lv_obj_get_child(btn, 0);
         //lv_label_set_text_fmt(label, "x%d", cnt);
-        camera_close();
+        if(strcmp(lv_label_get_text(label),"1")==0) //3
+        {
+        fpioa_set_function(7,IIC4_SCL,-1,-1,-1,-1,-1,-1,-1);//void i2c4 camera and peripheral(i2c) conflict
+        fpioa_set_function(8,IIC4_SDA,-1,-1,-1,-1,-1,-1,-1);
+        }
+        else
+        {
+        fpioa_set_function(46,IIC4_SCL,-1,-1,-1,-1,-1,-1,-1);//void i2c4 camera and peripheral(i2c) conflict
+        fpioa_set_function(47,IIC4_SDA,-1,-1,-1,-1,-1,-1,-1);            
+        }
+        camera_close();        
         if(strcmp(lv_label_get_text(label),"1")==0)
         {
-            lv_obj_set_size(btn1, 60, 60);
-            lv_obj_set_size(btn2, 40, 40);
-            lv_obj_set_size(btn3, 40, 40); 
+            //lv_obj_set_size(btn1, 80, 80);
+            //lv_obj_set_size(btn2, 60, 60);
+           // lv_obj_set_size(btn3, 60, 60); 
             lv_obj_set_style_bg_opa(btn1, LV_OPA_80, LV_PART_MAIN);
             lv_obj_set_style_bg_opa(btn2, LV_OPA_20, LV_PART_MAIN);
             lv_obj_set_style_bg_opa(btn3, LV_OPA_20, LV_PART_MAIN);
-            lv_obj_set_style_border_width(btn1, 2, LV_PART_MAIN);
-            lv_obj_set_style_border_width(btn2, 0, LV_PART_MAIN);
-            lv_obj_set_style_border_width(btn3, 0, LV_PART_MAIN);
+            //lv_obj_set_style_border_width(btn1, 2, LV_PART_MAIN);
+            //lv_obj_set_style_border_width(btn2, 0, LV_PART_MAIN);
+            //lv_obj_set_style_border_width(btn3, 0, LV_PART_MAIN);
+            
+            //pthread_create(&g_pthread_handle, NULL, Camera::camera_thread_preview, NULL);
               
-        int ret=camera_open(GC2093_MIPI_CSI2_1920X1080_30FPS_10BIT_LINEAR);
-        if(ret==0)
-        {
-           
-        }
-
+        camera_open(GC2093_MIPI_CSI2_1920X1080_30FPS_10BIT_LINEAR,3); //ratation 0:0 1:90 2:180 3:270      
         }
         else if(strcmp(lv_label_get_text(label),"2")==0)
         {
-            lv_obj_set_size(btn1, 40, 40);
-            lv_obj_set_size(btn2, 60, 60);
-            lv_obj_set_size(btn3, 40, 40);
+            //lv_obj_set_size(btn1, 60, 60);
+            //lv_obj_set_size(btn2, 80, 80);
+            //lv_obj_set_size(btn3, 60, 60);
             lv_obj_set_style_bg_opa(btn1, LV_OPA_20, LV_PART_MAIN);
             lv_obj_set_style_bg_opa(btn2, LV_OPA_80, LV_PART_MAIN);
             lv_obj_set_style_bg_opa(btn3, LV_OPA_20, LV_PART_MAIN);
-            lv_obj_set_style_border_width(btn1, 0, LV_PART_MAIN);
-            lv_obj_set_style_border_width(btn2, 2, LV_PART_MAIN);
-            lv_obj_set_style_border_width(btn3, 0, LV_PART_MAIN);
-        camera_open(GC2093_MIPI_CSI1_1920X1080_30FPS_10BIT_LINEAR);//0
+            //lv_obj_set_style_border_width(btn1, 0, LV_PART_MAIN);
+            //lv_obj_set_style_border_width(btn2, 2, LV_PART_MAIN);
+            //lv_obj_set_style_border_width(btn3, 0, LV_PART_MAIN);
+        camera_open(GC2093_MIPI_CSI1_1920X1080_30FPS_10BIT_LINEAR,1);//0 
+             
         }
          else if(strcmp(lv_label_get_text(label),"3")==0)
         {
-            lv_obj_set_size(btn1, 40, 40);
-            lv_obj_set_size(btn2, 40, 40);
-            lv_obj_set_size(btn3, 60, 60);
+            //lv_obj_set_size(btn1, 60, 60);
+            //lv_obj_set_size(btn2, 60, 60);
+            //lv_obj_set_size(btn3, 80, 80);
             lv_obj_set_style_bg_opa(btn1, LV_OPA_20, LV_PART_MAIN);
             lv_obj_set_style_bg_opa(btn2, LV_OPA_20, LV_PART_MAIN);
             lv_obj_set_style_bg_opa(btn3, LV_OPA_80, LV_PART_MAIN);
-            lv_obj_set_style_border_width(btn1, 0, LV_PART_MAIN);
-            lv_obj_set_style_border_width(btn2, 0, LV_PART_MAIN);
-            lv_obj_set_style_border_width(btn3, 2, LV_PART_MAIN);
-        camera_open(GC2093_MIPI_CSI0_1920X1080_30FPS_10BIT_LINEAR);//1
+            //lv_obj_set_style_border_width(btn1, 0, LV_PART_MAIN);
+            //lv_obj_set_style_border_width(btn2, 0, LV_PART_MAIN);
+            //lv_obj_set_style_border_width(btn3, 2, LV_PART_MAIN);
+        camera_open(GC2093_MIPI_CSI0_1920X1080_30FPS_10BIT_LINEAR,1);//1
         }
         
         
@@ -100,9 +108,9 @@ Camera::~Camera()
 {
 
 }
-int Camera::camera_open(int _sensor_type)
+int Camera::camera_open(int _sensor_type,int _rotation)
 {
-k_vicap_dev dev_num=VICAP_DEV_ID_0;
+    k_vicap_dev dev_num=VICAP_DEV_ID_0;
     k_s32 chn_num=0;
     //k_u32 pool_id;
     k_vicap_sensor_type sensor_type=k_vicap_sensor_type(_sensor_type);//GC2093_MIPI_CSI2_1920X1080_30FPS_10BIT_LINEAR;
@@ -120,9 +128,9 @@ k_vicap_dev dev_num=VICAP_DEV_ID_0;
     //k_pixel_format 
     pix_format=PIXEL_FORMAT_YVU_PLANAR_420;
 
-    display_width=560;
-    display_height=992;
-    vo_layer_config(vo_layer,display_width,display_height,pix_format);
+    //display_width=560;
+    //display_height=992;
+    vo_layer_config(vo_layer,display_width,display_height,pix_format,_rotation);
     vio_start_stream(dev_num);
 return 0;
 
@@ -200,14 +208,16 @@ bool Camera::run(void)
     //face detect
     face_detect_start();
    #endif
-     camera_open(GC2093_MIPI_CSI2_1920X1080_30FPS_10BIT_LINEAR);
+     //camera_open(GC2093_MIPI_CSI2_1920X1080_30FPS_10BIT_LINEAR);
+     //camera_open(GC2093_MIPI_CSI1_1920X1080_30FPS_10BIT_LINEAR);
+    #if 1
     lv_obj_t * label;
 
    // lv_obj_t * 
     btn1 = lv_btn_create(lv_scr_act());
     lv_obj_add_event_cb(btn1, btn_clicked_event, LV_EVENT_CLICKED, NULL);    
-    lv_obj_set_pos(btn1, 185, 980);                            /*Set its position*/
-    lv_obj_set_size(btn1, 40, 40);                          /*Set its size*/
+    lv_obj_set_pos(btn1, 135, 980);                            /*Set its position*/
+    lv_obj_set_size(btn1, 100, 100);  //40                        /*Set its size*/
 
     label = lv_label_create(btn1);
     lv_label_set_text(label, "1");
@@ -216,8 +226,8 @@ bool Camera::run(void)
     //lv_obj_t * 
     btn2 = lv_btn_create(lv_scr_act());
     lv_obj_add_event_cb(btn2, btn_clicked_event, LV_EVENT_CLICKED, NULL);
-    lv_obj_set_pos(btn2, 265, 980);                            /*Set its position*/
-    lv_obj_set_size(btn2, 40, 40);                          /*Set its size*/
+    lv_obj_set_pos(btn2, 255, 980);                            /*Set its position*/
+    lv_obj_set_size(btn2, 100, 100);                          /*Set its size*/
 
     label = lv_label_create(btn2);
     lv_label_set_text(label, "2");
@@ -226,8 +236,8 @@ bool Camera::run(void)
     //lv_obj_t * 
     btn3 = lv_btn_create(lv_scr_act());
     lv_obj_add_event_cb(btn3, btn_clicked_event, LV_EVENT_CLICKED, NULL);
-    lv_obj_set_pos(btn3, 345, 980);                            /*Set its position*/
-    lv_obj_set_size(btn3, 40, 40);                          /*Set its size*/
+    lv_obj_set_pos(btn3, 375, 980);                            /*Set its position*/
+    lv_obj_set_size(btn3, 100, 100);                          /*Set its size*/
 
     label = lv_label_create(btn3);
     lv_label_set_text(label, "3");
@@ -248,6 +258,9 @@ bool Camera::run(void)
     lv_obj_set_style_border_width(btn1, 0, LV_PART_MAIN);
     lv_obj_set_style_border_width(btn2, 0, LV_PART_MAIN);
     lv_obj_set_style_border_width(btn3, 0, LV_PART_MAIN);
+    
+    lv_event_send(btn1, LV_EVENT_CLICKED, NULL);
+    #endif
     
     /*
      lv_obj_set_style_radius(btn1, LV_RADIUS_CIRCLE, 40);
@@ -288,7 +301,9 @@ bool Camera::close(void)
  vio_stop_stream(dev_num);
   printf("vi_unbind_vo before \n");
  vi_unbind_vo(dev_num, chn_num, K_VO_DISPLAY_CHN_ID1); 
- printf("vi_unbind_vo after \n");    
+ printf("vi_unbind_vo after \n"); 
+ fpioa_set_function(46,IIC4_SCL,-1,-1,-1,-1,-1,-1,-1);//void i2c4 camera and peripheral(i2c) conflict
+ fpioa_set_function(47,IIC4_SDA,-1,-1,-1,-1,-1,-1,-1);  
     return true;
 }
 

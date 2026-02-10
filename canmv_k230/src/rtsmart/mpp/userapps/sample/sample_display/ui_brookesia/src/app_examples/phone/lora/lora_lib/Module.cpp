@@ -216,7 +216,7 @@ void Module::SPItransfer(uint16_t cmd, uint32_t reg, uint8_t* dataOut, uint8_t* 
   }
 
   // print debug information
-  #if RADIOLIB_DEBUG_SPI
+  /*#if RADIOLIB_DEBUG_SPI
     uint8_t* debugBuffPtr = NULL;
     if(cmd == spiConfig.cmds[RADIOLIB_MODULE_SPI_COMMAND_WRITE]) {
       RADIOLIB_DEBUG_SPI_PRINT("W\t%X\t", reg);
@@ -229,7 +229,7 @@ void Module::SPItransfer(uint16_t cmd, uint32_t reg, uint8_t* dataOut, uint8_t* 
       RADIOLIB_DEBUG_SPI_PRINT_NOTAG("%X\t", debugBuffPtr[n]);
     }
     RADIOLIB_DEBUG_SPI_PRINTLN_NOTAG();
-  #endif
+  #endif*/
 
   #if !RADIOLIB_STATIC_ONLY
     delete[] buffOut;
@@ -343,7 +343,7 @@ int16_t Module::SPItransferStream(const uint8_t* cmd, uint8_t cmdLen, bool write
 
   // ensure GPIO is low
   if(this->gpioPin == RADIOLIB_NC) {
-    this->hal->delay(50);
+    //this->hal->delay(1);//50
   } else {
     RadioLibTime_t start = this->hal->millis();
     while(this->hal->digitalRead(this->gpioPin)) {
@@ -364,18 +364,17 @@ int16_t Module::SPItransferStream(const uint8_t* cmd, uint8_t cmdLen, bool write
   #else
     uint8_t* buffIn = new uint8_t[buffLen];
   #endif
-
   // do the transfer
   this->hal->spiBeginTransaction();
   this->hal->digitalWrite(this->csPin, this->hal->GpioLevelLow);
   this->hal->spiTransfer(buffOut, buffLen, buffIn);
   this->hal->digitalWrite(this->csPin, this->hal->GpioLevelHigh);
   this->hal->spiEndTransaction();
-
   // wait for GPIO to go high and then low
   if(waitForGpio) {
     if(this->gpioPin == RADIOLIB_NC) {
-      this->hal->delay(1);
+      //this->hal->delay(1);
+      this->hal->delayMicroseconds(50);//50
     } else {
       this->hal->delayMicroseconds(1);
       RadioLibTime_t start = this->hal->millis();
@@ -406,7 +405,7 @@ int16_t Module::SPItransferStream(const uint8_t* cmd, uint8_t cmdLen, bool write
   }
 
   // print debug information
-  #if RADIOLIB_DEBUG_SPI
+  /*#if RADIOLIB_DEBUG_SPI
     // print command byte(s)
     RADIOLIB_DEBUG_SPI_PRINT("CMD");
     if(write) {
@@ -434,7 +433,7 @@ int16_t Module::SPItransferStream(const uint8_t* cmd, uint8_t cmdLen, bool write
       RADIOLIB_DEBUG_SPI_PRINT_NOTAG("%X\t", buffIn[n]);
     }
     RADIOLIB_DEBUG_SPI_PRINTLN_NOTAG();
-  #endif
+  #endif*/
 
   #if !RADIOLIB_STATIC_ONLY
     delete[] buffOut;

@@ -73,7 +73,7 @@
 
 #include "modules/SX126x/SX1262.h"
 
-
+#include "modules/LR20xx/LR2021.h"
 
 // physical layer protocols
 #include "protocols/PhysicalLayer/PhysicalLayer.h"

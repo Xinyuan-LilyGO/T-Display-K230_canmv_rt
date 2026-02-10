@@ -26,6 +26,31 @@
 #define RADIOLIB_LR11X0_CRYSTAL_FREQ                            32.0
 #define RADIOLIB_LR11X0_DIV_EXPONENT                            25
 
+// LR11X0 SPI commands
+//#define RADIOLIB_LR11X0_CMD_NOP                                 (0x0000)
+//#define RADIOLIB_LR11X0_CMD_WRITE_REG_MEM                       (0x0105)
+//#define RADIOLIB_LR11X0_CMD_READ_REG_MEM                        (0x0106)
+//#define RADIOLIB_LR11X0_CMD_WRITE_BUFFER                        (0x0109)
+//#define RADIOLIB_LR11X0_CMD_READ_BUFFER                         (0x010A)
+//#define RADIOLIB_LR11X0_CMD_CLEAR_RX_BUFFER                     (0x010B)
+//#define RADIOLIB_LR11X0_CMD_WRITE_REG_MEM_MASK                  (0x010C)
+//
+
+//#define RADIOLIB_LR11X0_CMD_GET_ERRORS                          (0x010D)
+//#define RADIOLIB_LR11X0_CMD_CLEAR_ERRORS                        (0x010E)
+//#define RADIOLIB_LR11X0_CMD_CALIBRATE                           (0x010F)
+
+
+
+
+
+//#define RADIOLIB_LR11X0_CMD_SET_REG_MODE                        (0x0110)
+//#define RADIOLIB_LR11X0_CMD_CALIB_IMAGE                         (0x0111)
+//#define RADIOLIB_LR11X0_CMD_SET_DIO_AS_RF_SWITCH                (0x0112)
+//#define RADIOLIB_LR11X0_CMD_SET_DIO_IRQ_PARAMS                  (0x0113)
+//#define RADIOLIB_LR11X0_CMD_CLEAR_IRQ                           (0x0114)
+
+
 
 #define RADIOLIB_LR20xx_CMD_NOP                                 (0x0000)
 #define RADIOLIB_LR20xx_CMD_WRITE_REG_MEM                       (0x0104)
@@ -2078,7 +2103,7 @@ class LR20xx: public PhysicalLayer {
   private:
 #endif
     Module* mod;
-    int is_switch=1;
+    int is_switch=1;//1
     // cached LoRa parameters
     uint8_t bandwidth = 0, spreadingFactor = 0, codingRate = 0, ldrOptimize = 0, crcTypeLoRa = 0, headerType = 0;
     uint16_t preambleLengthLoRa = 0;

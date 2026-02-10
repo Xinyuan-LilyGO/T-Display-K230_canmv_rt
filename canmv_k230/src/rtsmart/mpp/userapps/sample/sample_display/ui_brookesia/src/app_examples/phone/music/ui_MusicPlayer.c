@@ -10,6 +10,57 @@ LV_IMG_DECLARE(ui_music_album_png);    // assets/album.png
 LV_IMG_DECLARE(ui_music_backward_png);    // assets/backward.png
 LV_IMG_DECLARE(ui_music_forward_png);    // assets/forward.png
 LV_IMG_DECLARE(ui_music_pause_png); 
+//////////////////////////////////////
+extern k_bool    g_enable_audio_codec2;
+static uint32_t active_index_sound = 0;
+static lv_style_t style_radio;
+static lv_style_t style_radio_chk;
+static void radiobutton_init()
+{
+    lv_style_init(&style_radio);
+    lv_style_set_radius(&style_radio, LV_RADIUS_CIRCLE);
+
+    lv_style_init(&style_radio_chk);
+    lv_style_set_bg_img_src(&style_radio_chk, NULL);
+
+}
+static void radiobutton_create(lv_obj_t * parent, const char * txt)
+{
+    lv_obj_t * obj = lv_checkbox_create(parent);
+    lv_checkbox_set_text(obj, txt);
+    lv_obj_add_flag(obj, LV_OBJ_FLAG_EVENT_BUBBLE);
+    lv_obj_add_style(obj, &style_radio, LV_PART_INDICATOR);
+    lv_obj_add_style(obj, &style_radio_chk, LV_PART_INDICATOR | LV_STATE_CHECKED);
+}
+
+static void radio_event_handler(lv_event_t * e)
+{
+    uint32_t * active_id = lv_event_get_user_data(e);
+    lv_obj_t * cont = lv_event_get_current_target(e);
+    lv_obj_t * act_cb = lv_event_get_target(e);
+    lv_obj_t * old_cb = lv_obj_get_child(cont, *active_id);
+
+    /*Do nothing if the container was clicked*/
+    if(act_cb == cont) return;
+
+    lv_obj_clear_state(old_cb, LV_STATE_CHECKED);   /*Uncheck the previous radio button*/
+    lv_obj_add_state(act_cb, LV_STATE_CHECKED);     /*Uncheck the current radio button*/
+
+    *active_id = lv_obj_get_index(act_cb);
+
+    printf("Selected radio buttons: %d, %d\n", *active_id, (int)active_index_sound);  //0 1
+    if(*active_id==0)//earphone
+    {
+    g_enable_audio_codec2=K_TRUE;
+    }
+    else//speaker
+    {   
+    g_enable_audio_codec2=K_FALSE; //
+    }  
+}
+
+
+/////////////////////////////////////
 int flag_music_state=0;
 void ui_event_MusicPlayer(lv_event_t * e)
 {
@@ -140,5 +191,26 @@ void ui_MusicPlayer_screen_init(void)
    
 
     lv_obj_add_event_cb(ui_SmartGadgetMusicPlayer_Panel_Play_btn, ui_event_MusicPlayer, LV_EVENT_CLICKED, NULL);
+    
+    radiobutton_init();
+    lv_obj_t * cont_sound_device = lv_obj_create(lv_scr_act());
+    lv_obj_set_flex_flow(cont_sound_device, LV_FLEX_FLOW_COLUMN);
+    lv_obj_set_size(cont_sound_device, lv_pct(30), lv_pct(10));
+    lv_obj_set_x(cont_sound_device, lv_pct(70));
+    lv_obj_add_event_cb(cont_sound_device, radio_event_handler, LV_EVENT_CLICKED, &active_index_sound);
+    radiobutton_create(cont_sound_device, "earphone");
+    radiobutton_create(cont_sound_device, "speaker");
+
+    /*Make the first checkbox checked*/
+    lv_obj_add_state(lv_obj_get_child(cont_sound_device, 0), LV_STATE_CHECKED);
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
 }

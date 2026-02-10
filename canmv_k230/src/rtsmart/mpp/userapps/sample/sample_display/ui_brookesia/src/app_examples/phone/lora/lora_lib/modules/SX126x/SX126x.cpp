@@ -76,7 +76,7 @@ int16_t SX126x::begin(uint8_t cr, uint8_t syncWord, uint16_t preambleLength, flo
   }
   RADIOLIB_ASSERT(state);
   // set publicly accessible settings that are not a part of begin method
-  state = setCurrentLimit(0.0);//60.0
+  state = setCurrentLimit(140.0);//60.0
   RADIOLIB_ASSERT(state);
 
   state = setDio2AsRfSwitch(true);
@@ -556,12 +556,16 @@ int16_t SX126x::startTransmit(uint8_t* data, size_t len, uint8_t addr) {
 
   // start transmission
   state = setTx(RADIOLIB_SX126X_TX_TIMEOUT_NONE);
+  //state = setTx(0x3D0900);//4s
   RADIOLIB_ASSERT(state);
 
   // wait for BUSY to go low (= PA ramp up done)
-  /*while(this->mod->hal->digitalRead(this->mod->getGpio())) {
+  if(this->mod->getGpio()!=RADIOLIB_NC)
+  {
+  while(this->mod->hal->digitalRead(this->mod->getGpio())) {
     this->mod->hal->yield();
-  }*/
+  }
+  }
 
   return(state);
 }
@@ -588,7 +592,6 @@ int16_t SX126x::startReceive(uint32_t timeout, uint32_t irqFlags, uint32_t irqMa
 
   // set mode to receive
   state = setRx(timeout);
-
   return(state);
 }
 
@@ -1058,11 +1061,12 @@ int16_t SX126x::setRxBandwidth(float rxBw) {
 }
 
 int16_t SX126x::setRxBoostedGainMode(bool rxbgm, bool persist) {
+  printf("SX126x::setRxBoostedGainMode\n");
   // read the current register value
   uint8_t rxGain = 0;
   int16_t state = readRegister(RADIOLIB_SX126X_REG_RX_GAIN, &rxGain, 1);
   RADIOLIB_ASSERT(state);
-
+  printf("read rx gain state:%04X,rx gain:%d\n",state,rxGain);
   // gain mode register value (SX1261/2 datasheet v2.1 section 9.6)
   if(rxbgm) {
     rxGain = RADIOLIB_SX126X_RX_GAIN_BOOSTED;

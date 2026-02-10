@@ -26,7 +26,7 @@ public:
  static void custom_timer_cb_lora_send(lv_timer_t * timer);
  static void custom_timer_cb_lora_receive(lv_timer_t * timer);  
  static void btn_clicked_event(lv_event_t * e); 
-      
+ static void roller_changed_event(lv_event_t * e);    
 private:
 
      //lv_timer_t * timer_lora_send;

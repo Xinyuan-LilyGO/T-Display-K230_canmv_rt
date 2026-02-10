@@ -21,7 +21,8 @@ public:
     uint16_t _height;
     uint16_t _width;
 static void btn_clicked_event(lv_event_t * e);
-  static  int camera_open(int sensor_type);
+
+  static  int camera_open(int sensor_type,int _rotation);
    static void camera_close();
 
 

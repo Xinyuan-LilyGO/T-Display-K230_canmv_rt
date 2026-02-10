@@ -11,11 +11,11 @@
 
 
 
-typedef struct kd_pin_gpio
-{
-    unsigned short pin;     /* pin number, from 0 to 63 */
-    unsigned short val;    /* pin level status, 0 low level, 1 high level */
-} pin_gpio_t;
+//typedef struct kd_pin_gpio
+//{
+//    unsigned short pin;     /* pin number, from 0 to 63 */
+//    unsigned short val;    /* pin level status, 0 low level, 1 high level */
+//} pin_gpio_t;
 /*!
   \class ArduinoHal
   \brief Arduino default hardware abstraction library implementation.
@@ -51,7 +51,6 @@ class k230Hal:public RadioLibHal {
     void spiTransfer(uint8_t* out, size_t len, uint8_t* in) override;
     void spiEndTransaction() override;
     void spiEnd() override;
-
     // implementations of virtual RadioLibHal methods
     void init() override;
     void term() override;
@@ -68,7 +67,7 @@ class k230Hal:public RadioLibHal {
     //bool initInterface = false;
     int gpio_fd;
     int fd_soft_spi;
-    
+    int fd_hw_spi;
    
     
     

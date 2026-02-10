@@ -45,6 +45,8 @@ int16_t LR20xx::begin(float bw, uint8_t sf, uint8_t cr, uint8_t syncWord, uint16
 
   state = setRegulatorLDO();
   RADIOLIB_ASSERT(state);
+  //setRegulatorDCDC();
+ // RADIOLIB_ASSERT(state);
   printf("begin........\n");
   return(RADIOLIB_ERR_NONE);
 }
@@ -62,6 +64,20 @@ int16_t LR20xx::beginGFSK(float br, float freqDev, float rxBw, uint16_t preamble
    printf("setModulationParamsGFSK ,state:%d\n",state);
    RADIOLIB_ASSERT(state);
    printf("setModulationParamsGFSK after\n");
+   
+  /* 
+  // configure publicly accessible settings
+  state = setBitRate(br);
+  RADIOLIB_ASSERT(state);
+   printf("setBitRate after\n");
+  state = setFrequencyDeviation(freqDev);
+  RADIOLIB_ASSERT(state);
+printf("setFrequencyDeviation after\n");
+  state = setRxBandwidth(rxBw);
+  RADIOLIB_ASSERT(state);
+printf("setRxBandwidth after\n");
+  //state = setPreambleLength(preambleLength);
+  //RADIOLIB_ASSERT(state);*/
   int len=229;
   this->preambleLengthGFSK=32;
   this->preambleDetLength=RADIOLIB_LR20xx_GFSK_PREAMBLE_DETECTOR_DISABLED;
@@ -72,6 +88,9 @@ int16_t LR20xx::beginGFSK(float br, float freqDev, float rxBw, uint16_t preamble
   this->whitening=RADIOLIB_LR20xx_GFSK_WHITENING_ON;//RADIOLIB_LR20xx_GFSK_WHITENING_OFF
   state = setPacketParamsGFSK(this->preambleLengthGFSK, this->preambleDetLength, 0, this->addrComp, this->packetType, len, this->crcTypeGFSK, this->whitening);
   RADIOLIB_ASSERT(state);
+
+  // set publicly accessible settings that are not a part of begin method
+  //uint8_t gfsk_sync_word[8] = { 0x01, 0x23, 0x45, 0x67, 0x89, 0xAB, 0xCD, 0xEF };
    uint64_t gfsk_sync_word =0x0123456789ABCDEF;
   state =setFSKSyncWord(gfsk_sync_word,1,40);//40
   RADIOLIB_ASSERT(state);
@@ -91,6 +110,24 @@ printf("setFSKSyncWord after\n");
   state=configFifoIrq(RADIOLIB_LR20xx_FIFO_FLAG_THRESHOLD_HIGH,RADIOLIB_LR20xx_FIFO_FLAG_THRESHOLD_LOW,250,200,0,0);
   RADIOLIB_ASSERT(state);
   printf("configFifoIrq after \n");
+ /* state = setDataShaping(RADIOLIB_LR20xx_GFSK_SHAPING_NONE);
+  RADIOLIB_ASSERT(state);
+printf("setDataShaping after\n");*/
+
+//setPacketParamsGFSK
+//state=this->setModulationParamsFSK(RADIOLIB_LR20xx_FLRC_BR_2_600_BW_2_6, RADIOLIB_LR20xx_FLRC_CR_1_1, RADIOLIB_LR20xx_FLRC_PULSE_SHAPE_BT_05);
+ // RADIOLIB_ASSERT(state);
+ // printf("setModulationParamsFLRC after\n");
+
+  //state = setEncoding(RADIOLIB_ENCODING_NRZ);
+  //RADIOLIB_ASSERT(state);
+
+  //state = variablePacketLengthMode(RADIOLIB_LR11X0_MAX_PACKET_LENGTH);
+  //RADIOLIB_ASSERT(state);
+
+  //state = setCRC(2);
+  //RADIOLIB_ASSERT(state);
+
   state = setRegulatorLDO();
   RADIOLIB_ASSERT(state);
 
@@ -168,7 +205,11 @@ int16_t LR20xx::beginFLRC(uint16_t br, uint8_t cr,uint16_t preambleLength,float 
     state = setTCXO(tcxoVoltage,320000);//9156
     RADIOLIB_ASSERT(state);
   }
-
+  
+  
+  //state=configLfClock(0x00);
+  //RADIOLIB_ASSERT(state);
+  //printf("configLfClock after\n");
   state=clearErrors();
   RADIOLIB_ASSERT(state);
   printf("clearErrors after\n");
@@ -195,8 +236,10 @@ int16_t LR20xx::beginFLRC(uint16_t br, uint8_t cr,uint16_t preambleLength,float 
     state=setDioFunction(6,2,0);
    RADIOLIB_ASSERT(state);
     printf("setDioFunction(6,2,0) after\n");
-    state=setDioRfSwitchCfg(5,0,1,0,1,1);
-    state=setDioRfSwitchCfg(6,1,0,1,0,0);
+    //state=setDioRfSwitchCfg(5,0,1,0,1,1);//16E31
+    //state=setDioRfSwitchCfg(6,1,0,1,0,0);//16E31
+    state=setDioRfSwitchCfg(5,1,1,0,0,0);//Lily v0.2
+    state=setDioRfSwitchCfg(6,0,0,1,1,1);//Lily v0.2
     }
    // set Rx/Tx fallback mode to STDBY_RC
   state = this->setRxTxFallbackMode(RADIOLIB_LR20xx_FALLBACK_MODE_STBY_XOSC);//RADIOLIB_LR20xx_FALLBACK_MODE_STBY_RC
@@ -208,6 +251,20 @@ int16_t LR20xx::beginFLRC(uint16_t br, uint8_t cr,uint16_t preambleLength,float 
   RADIOLIB_ASSERT(state);
   printf("setDioIrqParams:%08X\n",(RADIOLIB_LR20xx_IRQ_TX_DONE | RADIOLIB_LR20xx_IRQ_RX_DONE | RADIOLIB_LR20xx_IRQ_TIMEOUT |RADIOLIB_LR20xx_IRQ_LORA_HEADER_ERROR |RADIOLIB_LR20xx_IRQ_LEN_ERROR | RADIOLIB_LR20xx_IRQ_CRC_ERROR));
   printf("setDioIrqParams,state:%d\n",state);
+  
+  
+  
+  //state=setRfFrequency((uint32_t)(868*1000000.0f));
+ // printf("setRfFrequency,state:%d\n",state);
+  // calibrate all blocks
+  //(void)this->calibrate(RADIOLIB_LR20xx_CALIBRATE_ALL);
+  /*state=this->calibrate_front_end(0,(uint32_t)(868*1000000.0f),0,(uint32_t)(0*1000000.0f),0,(uint32_t)(0*1000000.0f));//LR20XX_RADIO_COMMON_PA_SEL_LF:0x00,LR20XX_RADIO_COMMON_PA_SEL_HF:0x01
+  printf("calibrate_front_end,state:%d\n",state);*/
+  // wait for calibration completion
+  /*this->mod->hal->delay(5);
+  while(this->mod->hal->digitalRead(this->mod->getGpio())) {
+    this->mod->hal->yield();
+  }*/
   
   // if something failed, show the device errors
   #if RADIOLIB_DEBUG_BASIC
@@ -238,6 +295,10 @@ int16_t LR20xx::beginFLRC(uint16_t br, uint8_t cr,uint16_t preambleLength,float 
    RADIOLIB_ASSERT(state);
   printf("setPacketParamsFLRC after \n");
   
+  /*state=this->setFLRCSyncWord(1,0x55555555);//0x55555555
+  RADIOLIB_ASSERT(state);
+  printf("setFLRCSyncWord after\n");*/
+  
    state=configFifoIrq(0x3F,0x3F,229,0,0,229);//RADIOLIB_LR20xx_FIFO_FLAG_THRESHOLD_HIGH
   RADIOLIB_ASSERT(state);
   printf("configFifoIrq after \n");
@@ -245,6 +306,8 @@ int16_t LR20xx::beginFLRC(uint16_t br, uint8_t cr,uint16_t preambleLength,float 
   
    state = setRegulatorLDO();
    RADIOLIB_ASSERT(state);
+  //state = setRegulatorDCDC();
+  //RADIOLIB_ASSERT(state);
   return(state); 
 
 /*
@@ -831,6 +894,18 @@ int16_t LR20xx::startReceive(uint32_t timeout, uint32_t irqFlags, uint32_t irqMa
   }
    state = clearIrq(RADIOLIB_LR20xx_IRQ_ALL);
   RADIOLIB_ASSERT(state);
+  //printf("clearIrq(),state:%d\n",state);
+  /*if(is_switch==1)
+  {
+   state=setDioRfSwitchCfg(5,0,1,0,0,0);
+   RADIOLIB_ASSERT(state);
+   state=setDioRfSwitchCfg(6,0,0,0,0,0);
+   RADIOLIB_ASSERT(state);
+ }*/
+  //state = setDioIrqParams(11, (RADIOLIB_LR20xx_IRQ_RX_DONE | RADIOLIB_LR20xx_IRQ_TX_DONE | RADIOLIB_LR20xx_IRQ_TIMEOUT |RADIOLIB_LR20xx_IRQ_LORA_HEADER_ERROR |RADIOLIB_LR20xx_IRQ_LEN_ERROR | RADIOLIB_LR20xx_IRQ_CRC_ERROR));
+  //RADIOLIB_ASSERT(state);
+  //printf("setDioIrqParams,state:%d\n",state);
+
      state=clearRxBuffer();
      RADIOLIB_ASSERT(state);
      //printf("clearRxBuffer after \n");
@@ -843,7 +918,18 @@ int16_t LR20xx::startReceive(uint32_t timeout, uint32_t irqFlags, uint32_t irqMa
      printf("preambleLengthLoRa:%d,headerType:%d,implicitLen:%d,crcTypeLoRa:%d,invertIQEnabled:%d\n",this->preambleLengthLoRa, this->headerType, this->implicitLen, this->crcTypeLoRa, this->invertIQEnabled);
     printf("setPacketParamsLoRa,state:%d\n",state);
   } 
+  //if((this->headerType == 0) && (modem == RADIOLIB_LR20xx_PACKET_TYPE_FLRC))
+ /* if(modem == RADIOLIB_LR20xx_PACKET_TYPE_FLRC)
+  {
+  this->headerType=1;
+  this->implicitLen=8;//64
+  this->preambleLengthFLRC=RADIOLIB_LR20xx_FLRC_PREAMBLE_LEN_32_BITS;
 
+  this->crcTypeFLRC=RADIOLIB_LR20xx_FLRC_CRC_OFF;
+   state = setPacketParamsFLRC(this->preambleLengthFLRC,RADIOLIB_LR20xx_FLRC_SYNCWORD_LENGTH_2_BYTES, RADIOLIB_LR20xx_FLRC_RX_MATCH_SYNCWORD_1,this->headerType, this->implicitLen, this->crcTypeFLRC);
+  printf("setPacketParamsFLRC after \n");
+
+  }*/
   
    if(modem == RADIOLIB_LR20xx_PACKET_TYPE_FSK) {
   /*this->preambleLengthGFSK=32;
@@ -860,8 +946,26 @@ int16_t LR20xx::startReceive(uint32_t timeout, uint32_t irqFlags, uint32_t irqMa
   
   
   
-   
+   /*uint16_t errors = 0;
+   getErrors(&errors);
+
+   printf("setRx before, device errors: 0x%X\n", errors);*/
+  // set mode to receive
   state = setRx(timeout);
+  //printf("setRx(),state:%d\n",state);    
+   /*errors = 0;
+
+   getErrors(&errors);
+   printf("setRx failed, device errors: 0x%X\n", errors);*/
+   /* if(modem == RADIOLIB_LR20xx_PACKET_TYPE_FLRC)
+   { uint16_t pkt_rx=0;
+     uint16_t pkt_crc_err=0;
+
+     uint16_t pkt_len_err=0;
+     state=getRxStatsFLRC(&pkt_rx,&pkt_crc_err,&pkt_len_err);
+     printf("getRxStatsFLRC,state:%d,pkt_rx:%d,pkt_crc_err:%d,pkt_len_err:%d\n",state,pkt_rx,pkt_crc_err,pkt_len_err);
+ }*/
+
   return(state);
 }
 #if 0 
@@ -898,7 +1002,13 @@ int16_t LR20xx::startReceive(uint32_t timeout, uint32_t irqFlags, uint32_t irqMa
      RADIOLIB_ASSERT(state);
      printf("clearRxBuffer after \n");
      
-     
+     //state=configFifoIrq(RADIOLIB_LR20xx_FIFO_FLAG_FULL,RADIOLIB_LR20xx_FIFO_FLAG_EMPTY,32,0,0,32);
+     //RADIOLIB_ASSERT(state);
+     //printf("configFifoIrq after \n");
+  // clear interrupt flags
+  //state = clearIrq(RADIOLIB_LR20xx_IRQ_ALL);
+  //RADIOLIB_ASSERT(state);
+  //printf("clearIrq(),state:%d\n",state);
   // set implicit mode and expected len if applicable
   if((this->headerType == RADIOLIB_LR20xx_LORA_HEADER_IMPLICIT) && (modem == RADIOLIB_LR20xx_PACKET_TYPE_LORA)) {
     state = setPacketParamsLoRa(this->preambleLengthLoRa, this->headerType, this->implicitLen, this->crcTypeLoRa, this->invertIQEnabled);
@@ -916,12 +1026,26 @@ int16_t LR20xx::startReceive(uint32_t timeout, uint32_t irqFlags, uint32_t irqMa
    state = setPacketParamsFLRC(this->preambleLengthFLRC,RADIOLIB_LR20xx_FLRC_SYNCWORD_LENGTH_2_BYTES, RADIOLIB_LR20xx_FLRC_RX_MATCH_SYNCWORD_1,this->headerType, this->implicitLen, this->crcTypeFLRC);
   printf("setPacketParamsFLRC after \n");
   }
+  
+   /*state = clearIrq(RADIOLIB_LR20xx_IRQ_ALL);
+   RADIOLIB_ASSERT(state);
+   printf("clearIrq(),state:%d\n",state);
+   state=clearRxBuffer();
+   RADIOLIB_ASSERT(state);
+   printf("clearRxBuffer after \n");*/
+  
+  
+  
+  
    uint16_t errors = 0;
    getErrors(&errors);
    printf("setRx before, device errors: 0x%X\n", errors);
   // set mode to receive
   state = setRx(timeout);
   printf("setRx(),state:%d\n",state);    
+   /*errors = 0;
+   getErrors(&errors);
+   printf("setRx failed, device errors: 0x%X\n", errors);*/
     if(modem == RADIOLIB_LR20xx_PACKET_TYPE_FLRC)
    { uint16_t pkt_rx=0;
      uint16_t pkt_crc_err=0;
@@ -971,6 +1095,30 @@ uint16_t LR20xx::get_clear_FifoIrqFlags() {
 int16_t LR20xx::readData(uint8_t* data, size_t len) {
   // check active modem
   int16_t state = RADIOLIB_ERR_NONE;
+  /*uint8_t modem = RADIOLIB_LR20xx_PACKET_TYPE_NONE;
+  state = getPacketType(&modem);
+  RADIOLIB_ASSERT(state);
+  if((modem != RADIOLIB_LR20xx_PACKET_TYPE_LORA) && 
+     (modem != RADIOLIB_LR20xx_PACKET_TYPE_FSK) &&
+     (modem != RADIOLIB_LR20xx_PACKET_TYPE_LRFHSS)&&(modem != RADIOLIB_LR20xx_PACKET_TYPE_FLRC)) {
+    return(RADIOLIB_ERR_WRONG_MODEM);
+  }
+
+  // check integrity CRC
+  uint32_t irq = getIrqStatus();
+  int16_t crcState = RADIOLIB_ERR_NONE;
+  if((irq & RADIOLIB_LR20xx_IRQ_CRC_ERROR) || (irq & RADIOLIB_LR20xx_IRQ_LORA_HEADER_ERROR)) {
+    crcState = RADIOLIB_ERR_CRC_MISMATCH;
+  }*/
+
+  // get packet length
+  // the offset is needed since LR11x0 seems to move the buffer base by 4 bytes on every packet
+  /*uint8_t offset = 0;
+  size_t length = getPacketLength(true, &offset);
+  if((len != 0) && (len < length)) {
+    // user requested less data than we got, only return what was requested
+    length = len;
+  }*/
   uint8_t offset = 0;
    size_t length=len;
   // read packet data
@@ -980,6 +1128,13 @@ int16_t LR20xx::readData(uint8_t* data, size_t len) {
   // clear the Rx buffer
   state = clearRxBuffer();
   RADIOLIB_ASSERT(state);
+
+  // clear interrupt flags
+  /*state = clearIrq(RADIOLIB_LR20xx_IRQ_ALL);
+
+  // check if CRC failed - this is done after reading data to give user the option to keep them
+  RADIOLIB_ASSERT(crcState);*/
+
   return(state);
 }
 
@@ -2575,8 +2730,13 @@ int16_t LR20xx::modSetup(float tcxoVoltage, uint8_t modem) {
     state=setDioFunction(6,2,0);
    RADIOLIB_ASSERT(state);
     printf("setDioFunction(6,2,0) after\n"); 
-    state=setDioRfSwitchCfg(5,0,1,0,1,1);
-    state=setDioRfSwitchCfg(6,1,0,1,0,0);
+    //state=setDioRfSwitchCfg(5,0,1,0,1,1);//16E31
+    //state=setDioRfSwitchCfg(6,1,0,1,0,0);//16E31
+    state=setDioRfSwitchCfg(5,1,1,0,0,0);//Lily v0.2
+    state=setDioRfSwitchCfg(6,0,0,1,1,1);//Lily v0.2
+    
+    //state=setDioRfSwitchCfg(5,1,1,1,1,1);//Lily v0.2
+    //state=setDioRfSwitchCfg(6,0,0,0,0,0);//Lily v0.2
     }
   // configure settings not accessible by API
   return(config(modem));

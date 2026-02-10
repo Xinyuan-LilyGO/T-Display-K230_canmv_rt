@@ -20,7 +20,7 @@ static bool flag_model_run;
 pthread_t thread_handle_face_detect;
 static void *fn_face_detect(void *arg)
 {
-    MobileRetinaface model("test.kmodel", 3, ISP_CHN1_HEIGHT, ISP_CHN1_WIDTH);
+    MobileRetinaface model("/sdcard/test.kmodel", 3, ISP_CHN1_HEIGHT, ISP_CHN1_WIDTH);
     DetectResult box_result;
     std::vector<face_coordinate> boxes;
     

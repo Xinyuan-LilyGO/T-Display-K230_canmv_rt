@@ -4,7 +4,7 @@
 #include "../../../../../cap_vio.h"
 #include "face_detect/face_detect.h"
 using namespace std;
-
+#include "fpioa/rt_fpioa.h"
 LV_IMG_DECLARE(img_app_face_detect);
 
 #define KEYBOARD_H_PERCENT      65
@@ -31,7 +31,7 @@ Camera_face_detect::~Camera_face_detect()
 {
 
 }
-int Camera_face_detect::camera_open(int _sensor_type)
+int Camera_face_detect::camera_open(int _sensor_type,int _rotation)
 {
 k_vicap_dev dev_num=VICAP_DEV_ID_0;
     k_s32 chn_num=0;
@@ -51,9 +51,9 @@ k_vicap_dev dev_num=VICAP_DEV_ID_0;
     //k_pixel_format 
     pix_format=PIXEL_FORMAT_YVU_PLANAR_420;
 
-    display_width=560;
-    display_height=992;
-    vo_layer_config(vo_layer,display_width,display_height,pix_format);
+    //display_width=560;
+    //display_height=992;
+    vo_layer_config(vo_layer,display_width,display_height,pix_format,_rotation);
     vio_start_stream(dev_num);
 return 0;
 
@@ -63,7 +63,9 @@ void Camera_face_detect::camera_close()
  k_vicap_dev dev_num=VICAP_DEV_ID_0;
  k_s32 chn_num=0;
  vio_stop_stream(dev_num); 
- vi_unbind_vo(dev_num, chn_num, K_VO_DISPLAY_CHN_ID1);       
+ vi_unbind_vo(dev_num, chn_num, K_VO_DISPLAY_CHN_ID1);
+ fpioa_set_function(46,IIC4_SCL,-1,-1,-1,-1,-1,-1,-1);//void i2c4 camera and peripheral(i2c) conflict
+ fpioa_set_function(47,IIC4_SDA,-1,-1,-1,-1,-1,-1,-1);        
  }
 
 bool Camera_face_detect::run(void)
@@ -82,9 +84,23 @@ bool Camera_face_detect::run(void)
     /* 这里设置屏幕背景是透明的 */
     lv_disp_set_bg_opa(lv_disp_get_default(), LV_OPA_TRANSP);
    #endif
-     camera_open(GC2093_MIPI_CSI2_1920X1080_30FPS_10BIT_LINEAR);
+   
+        if(1) //3
+        {
+        fpioa_set_function(7,IIC4_SCL,-1,-1,-1,-1,-1,-1,-1);//void i2c4 camera and peripheral(i2c) conflict
+        fpioa_set_function(8,IIC4_SDA,-1,-1,-1,-1,-1,-1,-1);
+        }
+        else
+        {
+        fpioa_set_function(46,IIC4_SCL,-1,-1,-1,-1,-1,-1,-1);//void i2c4 camera and peripheral(i2c) conflict
+        fpioa_set_function(47,IIC4_SDA,-1,-1,-1,-1,-1,-1,-1);            
+        }
+   
+   
+   
+     camera_open(GC2093_MIPI_CSI2_1920X1080_30FPS_10BIT_LINEAR,3);
     //face detect
-    face_detect_start();
+     face_detect_start();
 
     return true;
 }

@@ -9,15 +9,31 @@ int16_t LR2021::begin(float freq, float bw, uint8_t sf, uint8_t cr, uint8_t sync
   // execute common part
   int16_t state = LR20xx::begin(bw, sf, cr, syncWord, preambleLength, tcxoVoltage);
   RADIOLIB_ASSERT(state);
- 
+     /*state=setPaConfig(1,0,6,7,16);//LR20XX_RADIO_COMMON_PA_SEL_LF:0x00,LR20XX_RADIO_COMMON_PA_SEL_HF:0x01   6
+   RADIOLIB_ASSERT(state);
+   printf("setPaConfig after\n");
+   state=setPa(1);
+   RADIOLIB_ASSERT(state);
+   printf("setPa,state:%d\n",state);*/
+   
+   //state=setRxPath(1,4);//LR20XX_RADIO_COMMON_PA_SEL_LF:0x00,LR20XX_RADIO_COMMON_PA_SEL_HF:0x01  
+   //RADIOLIB_ASSERT(state);
+  // printf("setRxPath after\n");
   // configure publicly accessible settings
   state = setFrequency(freq);
   RADIOLIB_ASSERT(state);
+ // state=LR20xx::calibrate_front_end(0,(uint32_t)(freq*1000000.0f),0,(uint32_t)(0*1000000.0f),0,(uint32_t)(0*1000000.0f));
+ // printf("calibrate_front_end,state:%d\n",state);
+  //RADIOLIB_ASSERT(state);
+  //printf("setFrequency after\n");
+  //state=setRxPath(1,4);//LR20XX_RADIO_COMMON_PA_SEL_LF:0x00,LR20XX_RADIO_COMMON_PA_SEL_HF:0x01  
+   //RADIOLIB_ASSERT(state);
+   //printf("setRxPath after\n");
   printf("qqqqqqqqqqqqqqqqqqqqqqqqqq\n");
   state=calibrate(0x6F);//
   RADIOLIB_ASSERT(state);
   usleep(80000);
-  printf("calibrate after\n"); 
+  //printf("calibrate after\n"); 
   if(freq<1600)//433MHZ 868MHZ 915MHZ 960MHZ
   {
     state=configLfClock(0x00);
@@ -49,6 +65,30 @@ int16_t LR2021::begin(float freq, float bw, uint8_t sf, uint8_t cr, uint8_t sync
     //usleep(155000);
   }  
   usleep(500000);
+  
+  
+  
+  
+  
+  
+  
+   // state=calibrate(0x08);//
+    //RADIOLIB_ASSERT(state); 
+    //state=calibrate(0x6F);//
+   // RADIOLIB_ASSERT(state); 
+   // printf("calibrate after\n");
+   /*state=setPaConfig(1,0,6,7,16);//LR20XX_RADIO_COMMON_PA_SEL_LF:0x00,LR20XX_RADIO_COMMON_PA_SEL_HF:0x01   6
+   RADIOLIB_ASSERT(state);
+   printf("setPaConfig after\n");
+   state=setPa(1);
+   RADIOLIB_ASSERT(state);
+   state=setRxPath(1,4);//LR20XX_RADIO_COMMON_PA_SEL_LF:0x00,LR20XX_RADIO_COMMON_PA_SEL_HF:0x01
+   RADIOLIB_ASSERT(state);
+  printf("setRxPath after\n");*/
+  
+  
+  
+  
   state = setOutputPower(power);
   printf("setOutputPower after\n");
   return(state);
@@ -112,7 +152,15 @@ int16_t LR2021::beginFLRC(float freq, uint16_t br_bw, uint8_t cr2, int8_t power2
   state = setFrequency(freq);
   RADIOLIB_ASSERT(state);
   printf("setFrequency,state:%d,freq:%f\n",state,freq);
- 
+  //state=LR20xx::calibrate_front_end(1,(uint32_t)(freq*1000000.0f),0,(uint32_t)(0*1000000.0f),0,(uint32_t)(0*1000000.0f));
+  //printf("calibrate_front_end,state:%d\n",state);
+  //RADIOLIB_ASSERT(state);
+  
+  //from startTransmit
+   /*state = setDioIrqParams(11, (RADIOLIB_LR20xx_IRQ_TX_DONE | RADIOLIB_LR20xx_IRQ_RX_DONE | RADIOLIB_LR20xx_IRQ_TIMEOUT |RADIOLIB_LR20xx_IRQ_LORA_HEADER_ERROR |RADIOLIB_LR20xx_IRQ_LEN_ERROR | RADIOLIB_LR20xx_IRQ_CRC_ERROR));//11
+  RADIOLIB_ASSERT(state);*/
+  //state=configFifoIrq(RADIOLIB_LR20xx_FIFO_FLAG_FULL,RADIOLIB_LR20xx_FIFO_FLAG_EMPTY,32,0,0,32);
+  // RADIOLIB_ASSERT(state);
   state=calibrate(0x6F);
   RADIOLIB_ASSERT(state); 
   usleep(80000);
@@ -148,6 +196,7 @@ int16_t LR2021::beginFLRC(float freq, uint16_t br_bw, uint8_t cr2, int8_t power2
     
   }
   usleep(500000);
+  //usleep(155000);
   state = setOutputPower(power2);
   return(state);
 
@@ -168,11 +217,11 @@ int16_t LR2021::beginFLRC(float freq, uint16_t br_bw, uint8_t cr2, int8_t power2
 
 
 int16_t LR2021::setFrequency(float freq) {
-  return(this->setFrequency(freq, true));//true
+  return(this->setFrequency(freq, true));//true 
 }
 
 int16_t LR2021::setFrequency(float freq, bool calibrate, float band) {
-  
+  //RADIOLIB_CHECK_RANGE(freq, 150.0, 960.0, RADIOLIB_ERR_INVALID_FREQUENCY);
 
   // calibrate image rejection
   if(calibrate) {
@@ -193,12 +242,17 @@ int16_t LR2021::setFrequency(float freq, bool calibrate, float band) {
     }
   }
   //usleep(155000); //5000
-  usleep(500000); 
+  usleep(500000);
   // set frequency
   return(LR20xx::setRfFrequency((uint32_t)(freq*1000000.0f)));
 }
 
 int16_t LR2021::setOutputPower(int8_t power) {
+ // return(this->setOutputPower(power, false));
+  
+  //int16_t state = setPaConfig(0x1, 0, 0x06, 0x07,0x0F);
+  //RADIOLIB_ASSERT(state);
+  //printf("setPaConfig,state:%d\n",state);
   // set output power
   int16_t state = setTxParams(power*2, RADIOLIB_LR20xx_PA_RAMP_2_US);// init_factory:RADIOLIB_LR20xx_PA_RAMP_2_US  32
   printf("setTxParams,state:%d,power:%d\n",state,power);
