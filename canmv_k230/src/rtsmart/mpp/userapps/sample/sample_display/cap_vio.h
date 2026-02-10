@@ -16,6 +16,7 @@
 #include "k_type.h"
 #include "k_vicap_comm.h"
 #include "k_connector_comm.h"
+#include "rt_cache.h"
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -68,9 +69,10 @@ typedef struct
  **********************/
 /* Initialize low level display driver */
 void vo_display_init(k_connector_type connector_type);
-
+void vo_display_set_brightness(int bright_val);
+k_u32 vb_create_pool(k_u32 pool_blk_cnt,k_u64 pool_blk_size);
 void vio_vb_config(k_u32* pool_id);
-void vo_layer_config(k_vo_layer vo_layer,k_u32 display_width, k_u32 display_height,k_pixel_format pix_format);
+void vo_layer_config(k_vo_layer vo_layer,k_u32 display_width, k_u32 display_height,k_pixel_format pix_format,k_u16 _rotation);
 
 void vo_osd_config(k_vo_osd osd_vo,osd_info* osd_msg,k_u32 display_width, k_u32 display_height,k_pixel_format pix_format);
 /* 
@@ -85,6 +87,23 @@ void vi_bind_vo(k_s32 vicap_dev, k_s32 vicap_chn, k_s32 vo_chn);
 void vi_unbind_vo(k_s32 vicap_dev, k_s32 vicap_chn, k_s32 vo_chn);
 void vio_start_stream(k_s32 vicap_dev);
 void vio_stop_stream(k_s32 vicap_dev);
+
+void vi_bind_venc(k_s32 vicap_dev, k_s32 vicap_chn, k_s32 venc_dev,k_s32 venc_chn);
+void vi_unbind_venc(k_s32 vicap_dev, k_s32 vicap_chn, k_s32 venc_dev,k_s32 venc_chn);
+
+void venc_chn_config(k_s32 chn_num,k_u32 display_width, k_u32 display_height);
+void venc_write_data(k_s32 chn_num);
+void venc_write_data_to_file(k_s32 chn_num,char* venc_file);
+void venc_stop_stream(k_s32 venc_chn);
+void vdec_chn_config(k_s32 chn_num,k_u32 display_width, k_u32 display_height);
+void vdec_bind_vo(k_s32 vicap_dev, k_s32 vicap_chn, k_s32 vo_chn);
+void vdec_unbind_vo(k_s32 vicap_dev, k_s32 vicap_chn, k_s32 vo_chn);
+void vdec_read_data(k_s32 chn_num,char* venc_file);
+void venc_write_data_to_cache(k_s32 chn_num,pkg_cache_t *cache,int is_save_file);
+void vdec_read_data_live(k_s32 chn_num,char* venc_file);
+void vdec_process_data(k_s32 chn_num,k_u32 pool_id,uint8_t * data,int data_len,int is_end);
+int vdec_output(k_s32 chn_num);
+void vdec_stop_stream(k_s32 vdec_chn);
 /**********************
  *      MACROS
  **********************/

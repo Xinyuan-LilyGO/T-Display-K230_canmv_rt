@@ -37,10 +37,10 @@
 static pthread_t g_pthread_handle;
 static k_u32     g_sample_rate = 44100;//44100;
 static k_audio_bit_width g_bit_width = KD_AUDIO_BIT_WIDTH_16;
-static k_bool    g_enable_audio_codec = K_TRUE;
+k_bool    g_enable_audio_codec2 = K_TRUE;//K_TRUE
 static k_i2s_work_mode g_i2s_work_mode = K_STANDARD_MODE;
 //static k_bool    g_enable_audio3a = K_FALSE;
-static char g_wav_name[256];
+static char g_wav_name[256]={0};
 //static k_u32     g_channel_count = 2;
 //static k_i2s_in_mono_channel  g_mono_channel = KD_I2S_IN_MONO_RIGHT_CHANNEL;//mono channel use mic input
 
@@ -54,9 +54,10 @@ static void *sample_thread_fn(void *arg)
 
 void audio_ao_play()
 {
-    memcpy(g_wav_name,"44k_16.wav",strlen("44k_16.wav")+1); 
-    audio_sample_enable_audio_codec(g_enable_audio_codec); 
+    memcpy(g_wav_name,"/sdcard/44k_16.wav",strlen("/sdcard/44k_16.wav")+1); 
+    audio_sample_enable_audio_codec(g_enable_audio_codec2); 
     pthread_create(&g_pthread_handle, NULL, sample_thread_fn, NULL);
+    usleep(100*1000);
         /*printf("enter q key to exit\n");
         while(getchar() != 'q')
         {

@@ -628,11 +628,11 @@ k_s32 audio_sample_send_ao_data(const char *filename, int nDev, int nChannel, in
     ao_dev_attr.kd_audio_attr.i2s_attr.frame_num = AUDIO_PERSEC_DIV_NUM;
     ao_dev_attr.kd_audio_attr.i2s_attr.point_num_per_frame = ao_dev_attr.kd_audio_attr.i2s_attr.sample_rate / ao_dev_attr.kd_audio_attr.i2s_attr.frame_num;
     ao_dev_attr.kd_audio_attr.i2s_attr.i2s_type = g_enable_audio_codec ? K_AIO_I2STYPE_INNERCODEC : K_AIO_I2STYPE_EXTERN;
-    if (!g_enable_audio_codec)
+   /* if (!g_enable_audio_codec)
     {
         printf("force the i2s_mode to right justified(tm8821)\n");
         ao_dev_attr.kd_audio_attr.i2s_attr.i2s_mode = K_RIGHT_JUSTIFYING_MODE; // tm8821 为i2s 右对齐
-    }
+    }*/
     kd_mpi_ao_set_pub_attr(nDev, &ao_dev_attr);
 
     kd_mpi_ao_enable(nDev);

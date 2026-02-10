@@ -239,7 +239,11 @@ int fpioa_set_function(int pin,int func,int ie, int oe, int pu, int pd, int ds, 
 
 
 
-
+typedef struct kd_pin_gpio
+{
+    unsigned short pin;     /* pin number, from 0 to 63 */
+    unsigned short val;    /* pin level status, 0 low level, 1 high level */
+} pin_gpio_t;
 
 
 
