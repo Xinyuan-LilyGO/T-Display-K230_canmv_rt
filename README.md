@@ -23,7 +23,7 @@
 | T-Display-K230_canmv_rt_V1.0     | 2025-02-20      |Original version      |
 | T-Display-K230_canmv_rt_V1.1     | 2025-03-25       | update lora model（sx1262） |
 | T-Display-K230_canmv_rt_V1.2     | 2025-06-17       |  add ble  |
-| T-Display-K230_canmv_rt_V1.3     | 2026-02-10       | add lr2021 battery keyboard gps lte-m aht20  |
+| T-Display-K230_canmv_rt_V1.3     | 2026-02-10       | add lr2021 battery keyboard gps lte-m fan speaker aht20  |
 ## PurchaseLink
 
 | Product                     | SOC           |  FLASH  |  LPDDR   | Link                   |
