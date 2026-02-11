@@ -73,18 +73,7 @@ T-Display-K230 is a development board featuring a high-definition AMOLED display
 
 * Chip: GT9895
 * Bus communication protocol: IIC
-<!--
-### 4. Charging chip
 
-* Chip: SY6970
-* Bus communication protocol: IIC
-* Other: The output waveform of the chip will be highly unstable when powered by a 5V supply without a battery connected. To stabilize the situation, it is necessary to either connect a battery or use software to disable the battery channel. By doing so, the instability will be alleviated.
-
-### 5. RTC
-
-* Chip: PCF8563
-* Bus communication protocol: IIC
--->
 ## QuickStart
 
 ### Examples Support
