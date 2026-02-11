@@ -80,10 +80,10 @@ T-Display-K230 is a development board featuring a high-definition AMOLED display
 
 
 
-| Firmware | Description | Picture |
-| -------- | ----------- | ------- |
-|          |             |         |
-
+|                    Firmware                                                                                         | Description |
+| ------------------------------------------------------------------------------------------------------------------- | ----------- |
+|   [firmware](../firmware/CanMV-K230-V3P0_rtsmart_releaseV1.2.zip)        |   add         |
+|   [firmware](../firmware/CanMV-K230-V3P0_rtsmart_releaseV1.3.zip)        |   a          |
 
 |             app_name             |             Description                 |                   path                 |
 |----------------------------------| ----------------------------------------| -------------------------------------- |
