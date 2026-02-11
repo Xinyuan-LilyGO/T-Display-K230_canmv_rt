@@ -22,10 +22,10 @@
 #include "drv_i2c.h"
 #include <dfs_file.h>
 #include <dfs_posix.h>
-#include <sys/ioctl.h>
-#include <time.h>
-
-#include "rtdef.h"
+//#include <sys/ioctl.h>
+//#include <time.h>
+#include "sysctl_clk.h"
+//#include "rtdef.h"
 #include "tick.h"
 
 #define DRV_DEBUG
@@ -79,7 +79,7 @@ struct chip_i2c_bus
         struct i2c_slave_eeprom slave_device;
     };
     struct dw_i2c i2c;
-
+    uint32_t clock;
     rt_bool_t slave;
     rt_uint8_t slave_address;
     i2c_slave_cb slave_callback;
@@ -653,6 +653,48 @@ static int i2c_xfer_finish(struct i2c_regs *i2c_base)
  *
  * Read from i2c memory.
  */
+ static int __dw_i2c_read(struct i2c_regs *i2c_base, rt_uint8_t dev, uint addr,
+                         int alen, rt_uint8_t *buffer, int len, uint flags)
+{
+    unsigned long start_time_rx;
+    int need_restart = 0;
+    int recv_len = len;
+
+    if (flags & I2C_M_RESTART)
+        need_restart = BIT(10);
+    else if (i2c_xfer_init(i2c_base, dev, addr, alen) != 0)
+        return -RT_EBUSY;
+
+    start_time_rx = get_timer(0);
+
+    while (len || recv_len)
+    {
+        if (len)
+        {
+            while((readl(&i2c_base->ic_status) & IC_STATUS_TFNF) != IC_STATUS_TFNF);
+            need_restart = len == 1 ? need_restart | IC_STOP : need_restart;
+            writel(IC_CMD | need_restart, &i2c_base->ic_cmd_data);
+            need_restart = 0;
+            len--;
+        }
+
+        if (readl(&i2c_base->ic_status) & IC_STATUS_RFNE)
+        {
+            *buffer++ = (uchar)readl(&i2c_base->ic_cmd_data);
+            recv_len--;
+            start_time_rx = get_timer(0);
+        }
+        else if (get_timer(start_time_rx) > I2C_BYTE_TO)
+        {
+            LOG_D("__dw_i2c_read timeout \r\n");
+            return 1;
+        }
+    }
+
+    return i2c_xfer_finish(i2c_base);
+}
+ #if 0
+ //OLD
 static int __dw_i2c_read(struct i2c_regs *i2c_base, rt_uint8_t dev, uint addr,
                          int alen, rt_uint8_t *buffer, int len, uint flags)
 {
@@ -660,7 +702,40 @@ static int __dw_i2c_read(struct i2c_regs *i2c_base, rt_uint8_t dev, uint addr,
     unsigned int active = 0;
     int need_restart = 0;
     int cut = 0;
+int len_r=len;
+if(len_r==6)
+{
+ rt_kprintf("i2c read bytes: %d\n", len_r);
+ //rt_kprintf("i2c flags: 0x%08X\n", flags);
+ rt_kprintf("i2c dev:0x%02X,addr:0x%02x,alen:%d,flags:0x%08X\n", dev,addr,alen,flags);
+ uint32_t ic_con_val = readl(&i2c_base->ic_con);
+           uint32_t rx_tl_val = readl(&i2c_base->ic_rx_tl);
+            uint32_t tx_tl_val = readl(&i2c_base->ic_tx_tl);
 
+
+// 打印值（根据你的调试工具调整，比如串口/日志）
+rt_kprintf("ic_con: 0x%08x (预期: 0x%08x)\n", ic_con_val, IC_CON_SD | IC_CON_RE | IC_CON_SPD_FS | IC_CON_MM);
+rt_kprintf("rx_tl: %d, tx_tl: %d\n", rx_tl_val, tx_tl_val);
+ 
+ //need_restart = BIT(10);
+ /*
+ // 读取ic_con寄存器（DW I2C的全局控制寄存器）
+unsigned int ic_con_val = readl(&i2c_base->ic_con);
+rt_kprintf("DW I2C ic_con=0x%08X\n", ic_con_val);
+
+// 目标配置：
+    // bit0=1（主模式）、bit1=0（关闭从模式）、bit4=1（开启ACK自动生成）
+    // bit5=0（7位地址）、bit6=1（允许RESTART）、bit7=1（使能）
+    unsigned int new_ic_con = ic_con_val;
+    new_ic_con |= BIT(0) | BIT(4) | BIT(6) | BIT(7);  // 置位主模式、ACK_GEN、RESTART、使能
+    new_ic_con &= ~(BIT(1) | BIT(5));                 // 清零从模式、10位地址
+
+    // 写入修正后的配置
+    writel(new_ic_con, &i2c_base->ic_con);
+    // 读回验证
+    unsigned int check_ic_con = readl(&i2c_base->ic_con);
+    rt_kprintf("Set ic_con to 0x%08X, check: 0x%08X", new_ic_con, check_ic_con);*/
+}
     if (flags & I2C_M_RESTART)
         need_restart = BIT(10);
     else if (i2c_xfer_init(i2c_base, dev, addr, alen) != 0)
@@ -669,7 +744,6 @@ static int __dw_i2c_read(struct i2c_regs *i2c_base, rt_uint8_t dev, uint addr,
     }
 
     start_time_rx = get_timer(0);
-
     while (len)
     {
         if (!active)
@@ -685,19 +759,54 @@ static int __dw_i2c_read(struct i2c_regs *i2c_base, rt_uint8_t dev, uint addr,
             {
                 LOG_D("set IC_STOP");
                 writel(IC_CMD | IC_STOP | need_restart, &i2c_base->ic_cmd_data);
+                  if(len_r==6)
+                  {
+                   rt_kprintf("last byte,ic_rxflr_val: 0x%08X\n", IC_CMD | IC_STOP | need_restart);
+                }
             }
             else
             {
+                if(len_r!=6)
+                {
                 writel(IC_CMD | need_restart, &i2c_base->ic_cmd_data);
+                }
+                else
+                {    
+                	if(len==6)
+                	{
+                	writel(IC_CMD|BIT(10), &i2c_base->ic_cmd_data);
+                	rt_kprintf("cmd: 0x%08X\n", IC_CMD|BIT(10));
+                	
+                	}
+                	else
+                      {           
+                        writel(IC_CMD, &i2c_base->ic_cmd_data);
+                        rt_kprintf("cmd: 0x%08X\n", IC_CMD);
+                      }                                    
+                }
+                
+                
             }
-
+             cut=0;
             while( (readl(&i2c_base->ic_status) & IC_STATUS_TFE) != IC_STATUS_TFE)
             {
                 cut = cut + 1;
                 i2c_delay_us(100);
-                if(cut > 100)
+                if(cut > 1000)
+                {
+                if(len_r==6)
+                {
+                uint32_t ic_status_val = readl(&i2c_base->ic_status);
+                rt_kprintf("break,ic_status_val: 0x%08X\n", ic_status_val);
+                }
                     break;
+                }
             }
+             if(len_r==6)
+                {
+                uint32_t ic_status_val = readl(&i2c_base->ic_status);
+                rt_kprintf("cmd after,ic_status_val: 0x%08X\n", ic_status_val);
+                }
 
             active = 1;
             need_restart = 0;
@@ -705,20 +814,48 @@ static int __dw_i2c_read(struct i2c_regs *i2c_base, rt_uint8_t dev, uint addr,
 
         if (readl(&i2c_base->ic_status) & IC_STATUS_RFNE)
         {
-            *buffer++ = (uchar)readl(&i2c_base->ic_cmd_data);
+        if(len_r==6)
+            {
+            uint32_t ic_rxflr_val = readl(&i2c_base->ic_rxflr);
+            rt_kprintf("read before ,ic_rxflr_val: %d\n", ic_rxflr_val);
+            uint32_t ic_status_val = readl(&i2c_base->ic_status);
+            rt_kprintf("read before ,ic_status_val: 0x%08X\n", ic_status_val);
+            }
+            uchar aa=(uchar)readl(&i2c_base->ic_cmd_data);
+            //*buffer++ = (uchar)readl(&i2c_base->ic_cmd_data);
+            *buffer=aa;
+            
+            if(len_r==6)
+            {
+             rt_kprintf("readbuffer: %u\n",aa);
+           
+            }
+            buffer++;
+            
             len--;
             start_time_rx = get_timer(0);
             active = 0;
+            if(len_r==6)
+            {
+            rt_kprintf("i2c read (remaining bytes: %d)\n", len);
+            uint32_t ic_rxflr_val = readl(&i2c_base->ic_rxflr);
+            rt_kprintf("read after,ic_rxflr_val: %d\n", ic_rxflr_val);
+            uint32_t ic_status_val = readl(&i2c_base->ic_status);
+            rt_kprintf("read after,ic_status_val: 0x%08X\n", ic_status_val);
+            }
         }
-        else if (get_timer(start_time_rx) > I2C_BYTE_TO)
+        else if (get_timer(start_time_rx) > (I2C_BYTE_TO*2))
         {
-            LOG_D("__dw_i2c_read timeout \r\n");
-            return 1;
+           rt_kprintf("i2c read timeout (remaining bytes: %d)\n", len);
+            return -RT_ETIMEOUT;
+            //LOG_D("__dw_i2c_read timeout \r\n");
+            //return 1;
         }
     }
 
     return i2c_xfer_finish(i2c_base);
 }
+#endif
 
 /*
  * i2c_write - Write to i2c memory
@@ -766,7 +903,10 @@ static int __dw_i2c_write(struct i2c_regs *i2c_base, rt_uint8_t dev, uint addr,
             return 1;
         }
     }
-
+   if ((flags & I2C_M_STOP) == 0)
+   {
+        return 0;
+        }
     while( (readl(&i2c_base->ic_status) & IC_STATUS_TFE) != IC_STATUS_TFE)
     {
         cut = cut + 1;
@@ -973,6 +1113,14 @@ static int designware_i2c_set_bus_speed(struct chip_i2c_bus *bus, unsigned int s
     if (bus->slave) {
         return -1;
     }
+     struct dw_scl_sda_cfg scl_sda_cfg;
+    uint32_t period = bus->clock / speed;
+    period = period - 20;
+    scl_sda_cfg.ss_lcnt = period / 2;
+    scl_sda_cfg.ss_hcnt = period - scl_sda_cfg.ss_lcnt;
+    scl_sda_cfg.fs_lcnt = scl_sda_cfg.ss_lcnt;
+    scl_sda_cfg.fs_hcnt = scl_sda_cfg.ss_hcnt;
+    scl_sda_cfg.sda_hold = 0;
 
     return __dw_i2c_set_bus_speed(i2c->regs, RT_NULL, speed);
 }
@@ -1053,7 +1201,9 @@ int rt_hw_i2c_init(void)
     {
         i2c_buses[i].i2c.regs = (struct i2c_regs *)rt_ioremap((void *)i2c_buses[i].i2c.regs, 0x10000);
         i2c_buses[i].parent.ops = &chip_i2c_ops;
-
+        //rt_kprintf("clock,sysctl_clk_get_leaf_freq,%d\n",i);
+        //i2c_buses[i].clock = sysctl_clk_get_leaf_freq(SYSCTL_CLK_I2C_0_CLK + i);//exception
+        //rt_kprintf("clock after,sysctl_clk_get_leaf_freq,%d\n",i);
         if (i2c_buses[i].slave) {
             dw_i2c_slave_init(&i2c_buses[i]);
             i2c_slave_eeprom_register(&i2c_buses[i].slave_device,i2c_buses[i].device_name);
