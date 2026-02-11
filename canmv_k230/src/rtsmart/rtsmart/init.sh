@@ -1,3 +1,3 @@
 cd /sdcard
-./app.elf
+./app.elf &
 cd .. 
